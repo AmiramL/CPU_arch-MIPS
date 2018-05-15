@@ -1,4 +1,78 @@
-{C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/dff_en.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/dff_en.vhd}
+{C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/WBACK.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/WBACK.vhd}
+Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Compiling entity WBACK
+-- Compiling architecture behavior of WBACK
+
+} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/dff.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/dff.vhd}
+Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Compiling entity dffi
+-- Compiling architecture dff_behavioral of dffi
+
+} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/MIPS.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/MIPS.vhd}
+Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Compiling entity MIPS
+-- Compiling architecture structure of MIPS
+
+} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/DELAY_REG_tb.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/DELAY_REG_tb.vhd}
+Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity TB_DELAY
+-- Compiling architecture test of TB_DELAY
+-- Loading entity DELAY_REG
+
+} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/BCD.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/BCD.vhd}
+Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity BCD
+-- Compiling architecture BCD_arch of BCD
+
+} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/CONTROL.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/CONTROL.vhd}
+Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity control
+-- Compiling architecture behavior of control
+
+} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/IDECODE.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/IDECODE.vhd}
+Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Idecode
+-- Compiling architecture behavior of Idecode
+
+} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/Ndff_en.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/Ndff_en.vhd}
+Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Ndff_en
+-- Compiling architecture Ndff_struct of Ndff_en
+
+} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/dff_en.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/dff_en.vhd}
 Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -7,25 +81,7 @@ Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 -- Compiling entity dff_en
 -- Compiling architecture dff_behavioral of dff_en
 
-} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/Ndff.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/Ndff.vhd}
-Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity Ndff
--- Compiling architecture Ndff_struct of Ndff
-
-} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/EXECUTE.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/EXECUTE.vhd}
-Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_SIGNED
--- Compiling entity Execute
--- Compiling architecture behavior of Execute
-
-} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/IFETCH.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/IFETCH.vhd}
+} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/IFETCH.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/IFETCH.vhd}
 Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -36,61 +92,31 @@ Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 -- Compiling entity Ifetch
 -- Compiling architecture behavior of Ifetch
 
-} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/dff.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/dff.vhd}
-Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Compiling entity dffi
--- Compiling architecture dff_behavioral of dffi
-
-} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/Ndff_en.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/Ndff_en.vhd}
-Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity Ndff_en
--- Compiling architecture Ndff_struct of Ndff_en
-
-} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/DMEMORY.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/DMEMORY.vhd}
+} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/EXECUTE.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/EXECUTE.vhd}
 Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_SIGNED
--- Loading package altera_mf_components
--- Compiling entity dmemory
--- Compiling architecture behavior of dmemory
+-- Compiling entity Execute
+-- Compiling architecture behavior of Execute
 
-} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/MIPS.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/MIPS.vhd}
+} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/DELAY_REG.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/DELAY_REG.vhd}
 Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package std_logic_arith
--- Compiling entity MIPS
--- Compiling architecture structure of MIPS
+-- Compiling entity DELAY_REG
+-- Compiling architecture behave of DELAY_REG
 
-} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/IDECODE.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/IDECODE.vhd}
+} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/Ndff.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/CPU_arch-MIPS/VHDL/Ndff.vhd}
 Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity Idecode
--- Compiling architecture behavior of Idecode
-
-} {} {}} {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/CONTROL.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/AmiramL/Documents/Studies/Year 3/CPU arch/Lab3/VHDL/CONTROL.vhd}
-Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_SIGNED
--- Compiling entity control
--- Compiling architecture behavior of control
+-- Compiling entity Ndff
+-- Compiling architecture Ndff_struct of Ndff
 
 } {} {}}

@@ -16,10 +16,10 @@ USE IEEE.STD_LOGIC_ARITH.ALL;
 
 ENTITY DELAY_REG IS
 	generic ( 	N : integer := 1; 	-- Bus width
-				M : integer := 1 );	-- Nuber of cycles to delay
+				M : integer := 1 );	-- Nuber of cycles to delay >= 2
 	PORT( 	reset, clock				: IN 	STD_LOGIC; 
-			data_in:					: IN 	STD_LOGIC_VECTOR( N-1 downto 0 );
-			data_out:					: OUT 	STD_LOGIC_VECTOR( N-1 downto 0 ) );
+			data_in					: IN 	STD_LOGIC_VECTOR( N-1 downto 0 );
+			data_out					: OUT 	STD_LOGIC_VECTOR( N-1 downto 0 ) );
 
 END DELAY_REG;
 
@@ -33,19 +33,20 @@ architecture behave of DELAY_REG is
 				q					: out std_logic_vector(N-1 downto 0) );
 	END COMPONENT;
 	
-	signal middle: std_logic_vector ( (M-1) * N - 1 downto 0 );
+	signal middle: std_logic_vector ( (M)*N - 1 downto 0 );
+
 	
 	
 	begin
 	
-	data_out <= middle( (M-1) * N - 1 downto (M-2) * N );
+	data_out <= middle( (M) * N - 1 downto (M-1) * N );
 	REG_ARRAY: for i in 0 to M-1 generate
 	
 		first: if i = 0 generate
 			REG0: Ndff
 					generic map (N)
-					port map ( 	d  	=> data_in
-								clk => clk,
+					port map ( 	d  	=> data_in,
+								clk => clock,
 								rst => reset,
 								q	=> middle(N-1 downto 0) );
 		end generate first;
@@ -54,9 +55,9 @@ architecture behave of DELAY_REG is
 			REGi: Ndff
 					generic map (N)
 					port map ( 	d  	=> middle( i*N-1 downto (i-1)*N ),
-								clk => clk,
+								clk => clock,
 								rst => reset,
-								q	=> middle( (i+1)*N-1 downto i*N) );
+								q	=> middle( (i+1)*N-1 downto (i)*N) );
 		end generate rest;
 
 	end generate REG_ARRAY;

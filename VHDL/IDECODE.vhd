@@ -8,10 +8,8 @@ ENTITY Idecode IS
 	  PORT(	read_data_1	: OUT 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 			read_data_2	: OUT 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 			Instruction : IN 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
-			read_data 	: IN 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
-			ALU_result	: IN 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+			write_data 	: IN 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 			RegWrite 	: IN 	STD_LOGIC;
-			MemtoReg 	: IN 	STD_LOGIC;
 			RegDst 		: IN 	STD_LOGIC;
 			Sign_extend : OUT 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 			clock,reset	: IN 	STD_LOGIC );
@@ -23,7 +21,6 @@ TYPE register_file IS ARRAY ( 0 TO 31 ) OF STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 
 	SIGNAL register_array				: register_file;
 	SIGNAL write_register_address 		: STD_LOGIC_VECTOR( 4 DOWNTO 0 );
-	SIGNAL write_data					: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 	SIGNAL read_register_1_address		: STD_LOGIC_VECTOR( 4 DOWNTO 0 );
 	SIGNAL read_register_2_address		: STD_LOGIC_VECTOR( 4 DOWNTO 0 );
 	SIGNAL write_register_address_1		: STD_LOGIC_VECTOR( 4 DOWNTO 0 );
@@ -46,8 +43,8 @@ BEGIN
     	write_register_address <= write_register_address_1 
 			WHEN RegDst = '1'  			ELSE write_register_address_0;
 					-- Mux to bypass data memory for Rformat instructions
-	write_data <= ALU_result( 31 DOWNTO 0 ) 
-			WHEN ( MemtoReg = '0' ) 	ELSE read_data;
+	--write_data <= ALU_result( 31 DOWNTO 0 ) 
+			--WHEN ( MemtoReg = '0' ) 	ELSE read_data;
 					-- Sign Extend 16-bits to 32-bits
     	Sign_extend <= X"0000" & Instruction_immediate_value
 		WHEN Instruction_immediate_value(15) = '0'

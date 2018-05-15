@@ -120,8 +120,8 @@ ARCHITECTURE structure OF MIPS IS
 	generic ( 	N : integer := 1; 	-- Bus width
 				M : integer := 1 );	-- Nuber of cycles to delay
 	PORT( 	reset, clock				: IN 	STD_LOGIC; 
-			data_in:					: IN 	STD_LOGIC_VECTOR( N-1 downto 0 );
-			data_out:					: OUT 	STD_LOGIC_VECTOR( N-1 downto 0 ) );
+			data_in						: IN 	STD_LOGIC_VECTOR( N-1 downto 0 );
+			data_out					: OUT 	STD_LOGIC_VECTOR( N-1 downto 0 ) );
 
 	END COMPONENT;
 
@@ -153,6 +153,19 @@ ARCHITECTURE structure OF MIPS IS
 	SIGNAL ALUop 			: STD_LOGIC_VECTOR(  1 DOWNTO 0 );
 	SIGNAL Instruction		: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 	SIGNAL Instruction_2ID	: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+	SIGNAL ALUSrc_reg       : STD_LOGIC;
+	SIGNAL MemtoReg_reg		: STD_LOGIC;
+	SIGNAL MemRead_reg		: STD_LOGIC;
+	SIGNAL MemWrite_reg		: STD_LOGIC;
+	SIGNAL ALUop_reg		: STD_LOGIC_VECTOR( 1 DOWNTO 0 );
+	SIGNAL ALUSrc_reg2delay 		: STD_LOGIC_VECTOR( 0 downto 0 );
+	SIGNAL MemtoReg_reg2delay		: STD_LOGIC_VECTOR( 0 downto 0 );
+	SIGNAL MemRead_reg2delay		: STD_LOGIC_VECTOR( 0 downto 0 );
+	SIGNAL MemWrite_reg2delay		: STD_LOGIC_VECTOR( 0 downto 0 );
+	SIGNAL ALUSrc_delay2reg 		: STD_LOGIC_VECTOR( 0 downto 0 );
+	SIGNAL MemtoReg_delay2reg		: STD_LOGIC_VECTOR( 0 downto 0 );
+	SIGNAL MemRead_delay2reg		: STD_LOGIC_VECTOR( 0 downto 0 );
+	SIGNAL MemWrite_delay2reg		: STD_LOGIC_VECTOR( 0 downto 0 );
 
 BEGIN
 					-- copy important signals to output pins for easy 
@@ -167,6 +180,19 @@ BEGIN
    RegWrite_out 	<= RegWrite;
    MemWrite_out 	<= MemWrite;	
 					-- connect the 5 MIPS components   
+					
+					
+   ALUSrc_reg2delay(0) 	 <= ALUSrc_reg;
+   MemtoReg_reg2delay(0) <= MemtoReg_reg;
+   MemRead_reg2delay(0)	 <= MemRead_reg;
+   MemWrite_reg2delay(0) <= MemWrite_reg;
+   
+   ALUSrc			 	 <= ALUSrc_delay2reg(0);
+   MemtoReg				 <= MemtoReg_delay2reg(0);
+   MemRead				 <= MemRead_delay2reg(0);
+   MemWrite				 <= MemWrite_delay2reg(0);
+   
+   
    IFE : Ifetch
 	PORT MAP (	Instruction 	=> Instruction_2ID,
     	    	PC_plus_4_out 	=> PC_plus_4,
@@ -219,15 +245,60 @@ BEGIN
    CTL:   control
 	PORT MAP ( 	Opcode 			=> Instruction( 31 DOWNTO 26 ),
 				RegDst 			=> RegDst,
-				ALUSrc 			=> ALUSrc,
-				MemtoReg 		=> MemtoReg,
+				ALUSrc 			=> ALUSrc_reg,--changed
+				MemtoReg 		=> MemtoReg_reg,--changed
 				RegWrite 		=> RegWrite,
-				MemRead 		=> MemRead,
-				MemWrite 		=> MemWrite,
+				MemRead 		=> MemRead_reg, -- changed
+				MemWrite 		=> MemWrite_reg,    --changed
 				Branch 			=> Branch,
-				ALUop 			=> ALUop,
+				ALUop 			=> ALUop_reg, -- chagned
                 clock 			=> clock,
 				reset 			=> reset );
+	
+	DELAY_ALU_SRC: DELAY_REG
+	GENERIC MAP ( N => 1, M=>1 )
+	PORT MAP (
+				reset => reset,
+				clock =>clock,
+				data_in => ALUSrc_reg2delay,  --make signal
+				data_out => ALUSrc_delay2reg
+	);
+	
+	DELAY_MEM_TO_REG: DELAY_REG
+	GENERIC MAP ( N => 1, M=>3 )
+	PORT MAP (
+				reset => reset,
+				clock =>clock,
+				data_in => MemtoReg_reg2delay,  --make signal
+				data_out => MemtoReg_delay2reg
+	);
+	
+	DELAY_MEM_READ: DELAY_REG
+	GENERIC MAP ( N => 1, M=>2 )
+	PORT MAP (
+				reset => reset,
+				clock =>clock,
+				data_in => MemRead_reg2delay,  --make signal
+				data_out => MemRead_delay2reg
+	);
+		DELAY_MEM_WRITE: DELAY_REG
+	GENERIC MAP ( N => 1, M=>2 )
+	PORT MAP (
+				reset => reset,
+				clock =>clock,
+				data_in => MemWrite_reg2delay,  --make signal
+				data_out => MemWrite_delay2reg
+	);
+	
+		DELAY_ALU_OP: DELAY_REG
+	GENERIC MAP ( N => 2, M=>1 )
+	PORT MAP (
+				reset => reset,
+				clock =>clock,
+				data_in => ALUop_reg,  --make signal
+				data_out => ALUop
+	);
+	
 
    
    
@@ -259,7 +330,7 @@ BEGIN
 				q				=> Add_Result );
 
    MEM:  dmemory
-	PORT MAP (	read_data 		=> read_data_2ID,
+	PORT MAP (	read_data 		=> read_data_2WB,
 				address 		=> ALU_Result (10 DOWNTO 2),--jump memory address by 4
 				write_data 		=> read_data_2,
 				MemRead 		=> MemRead, 
