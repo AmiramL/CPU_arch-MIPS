@@ -1,0 +1,495 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\amitb\Desktop\ass3\project_main\SIM
+Ebcd
+Z1 w1526390989
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Users\amitb\Desktop\ass3\project_main\SIM
+Z5 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/BCD.vhd
+Z6 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/BCD.vhd
+l0
+L5
+VbW_G3>BEfn2:=?V2[bgWO0
+Z7 OV;C;10.1b;51
+31
+Z8 !s108 1526802001.582000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/BCD.vhd|
+Z10 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/BCD.vhd|
+Z11 o-93 -work work -O0
+Z12 tExplicit 1
+!s100 EalElQjZfkB[nO8MLG5DB1
+!i10b 1
+Abcd_arch
+R2
+R3
+DEx4 work 3 bcd 0 22 bW_G3>BEfn2:=?V2[bgWO0
+l16
+L12
+V5PkTC=`:HTcS@_bg9HaCn2
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 c[z;C?MgUnORBQ4DZBnkD0
+!i10b 1
+Econtrol
+R1
+Z13 DPx4 ieee 16 std_logic_signed 0 22 E>OLoMaBGQ?hbGgOoNXM^1
+Z14 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+R2
+R3
+R4
+Z15 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/CONTROL.vhd
+Z16 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/CONTROL.vhd
+l0
+L7
+Vj;YXj`;WgM@61FI0gmJUM0
+R7
+31
+Z17 !s108 1526802002.473000
+Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/CONTROL.vhd|
+Z19 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/CONTROL.vhd|
+R11
+R12
+!s100 h:Teo=hP74=;3ngFZ>D`e0
+!i10b 1
+Abehavior
+R13
+R14
+R2
+R3
+DEx4 work 7 control 0 22 j;YXj`;WgM@61FI0gmJUM0
+l26
+L22
+Voa40ok8WGHFZPOioL6gl12
+R7
+31
+R17
+R18
+R19
+R11
+R12
+!s100 ^B7<Z44m=94<5i9?A]Z<M3
+!i10b 1
+Edelay_reg
+R1
+R14
+R2
+R3
+R4
+Z20 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/DELAY_REG.vhd
+Z21 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/DELAY_REG.vhd
+l0
+L17
+V[JFK?AQT;cJKKW48:mQ^F1
+R7
+31
+Z22 !s108 1526802001.706000
+Z23 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/DELAY_REG.vhd|
+Z24 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/DELAY_REG.vhd|
+R11
+R12
+!s100 S:W0z9??Ki]zfW^nkL[`K1
+!i10b 1
+Abehave
+R14
+R2
+R3
+DEx4 work 9 delay_reg 0 22 [JFK?AQT;cJKKW48:mQ^F1
+l40
+L26
+V8a6?i^336RC^E=LH^ZOGQ2
+R7
+31
+R22
+R23
+R24
+R11
+R12
+!s100 2HTR`9TUO50HmYofoHR?X3
+!i10b 1
+Edffi
+R1
+R14
+R2
+R3
+R4
+Z25 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/dff.vhd
+Z26 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/dff.vhd
+l0
+L5
+VHS;=I3gZdWbT==TDCN[_@2
+R7
+31
+Z27 !s108 1526802001.180000
+Z28 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/dff.vhd|
+Z29 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/dff.vhd|
+R11
+R12
+!s100 O;h`?[OeEGRHk1Yaci^CG1
+!i10b 1
+Adff_behavioral
+R14
+R2
+R3
+DEx4 work 4 dffi 0 22 HS;=I3gZdWbT==TDCN[_@2
+l15
+L13
+V<000[n3o^?IKGh?i_^@@g2
+R7
+31
+R27
+R28
+R29
+R11
+R12
+!s100 l@^k939AY[fQ3j`gS7;??2
+!i10b 1
+Edmemory
+Z30 w1526801497
+Z31 DPx9 altera_mf 20 altera_mf_components 0 22 ^IX6G>H7:I6bRMgMQQ0UY1
+R13
+R14
+R2
+R3
+R4
+Z32 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/DMEMORY.vhd
+Z33 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/DMEMORY.vhd
+l0
+L23
+V7IBeekQ59TlVOFMdKh]8a2
+R7
+31
+Z34 !s108 1526802002.329000
+Z35 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/DMEMORY.vhd|
+Z36 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/DMEMORY.vhd|
+R11
+R12
+!s100 Pc0JLR>Y7Ed5<2_Oln[zd2
+!i10b 1
+Abehavior
+R31
+R13
+R14
+R2
+R3
+DEx4 work 7 dmemory 0 22 7IBeekQ59TlVOFMdKh]8a2
+l58
+L39
+VhRJM7c_lGjFMUK59ka]EE3
+R7
+31
+R34
+R35
+R36
+R11
+R12
+!s100 k=X[J=OWQh6bg0>]a7FF@2
+!i10b 1
+Eexecute
+R1
+R13
+R14
+R2
+R3
+R4
+Z37 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/EXECUTE.vhd
+Z38 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/EXECUTE.vhd
+l0
+L8
+V2]hRgaUX`A5FfTA_?iDVo1
+R7
+31
+Z39 !s108 1526802002.078000
+Z40 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/EXECUTE.vhd|
+Z41 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/EXECUTE.vhd|
+R11
+R12
+!s100 kMzTR<RmJbIATCJe^j@i_2
+!i10b 1
+Abehavior
+R13
+R14
+R2
+R3
+DEx4 work 7 execute 0 22 2]hRgaUX`A5FfTA_?iDVo1
+l27
+L22
+VKJOaGonOeRDd0i2QMV:B90
+R7
+31
+R39
+R40
+R41
+R11
+R12
+!s100 aoicg2nAd<:f1kGbd_]Y31
+!i10b 1
+Eidecode
+Z42 w1526726845
+Z43 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+R14
+R2
+R3
+R4
+Z44 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/IDECODE.vhd
+Z45 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/IDECODE.vhd
+l0
+L7
+Vn<@[K4aRO?8o2lT@fP[f;1
+R7
+31
+Z46 !s108 1526802001.991000
+Z47 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/IDECODE.vhd|
+Z48 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/IDECODE.vhd|
+R11
+R12
+!s100 4XfiFX??a6=okED97Yjbj3
+!i10b 1
+Abehavior
+R43
+R14
+R2
+R3
+DEx4 work 7 idecode 0 22 n<@[K4aRO?8o2lT@fP[f;1
+l41
+L19
+VII5Z`_GhWn3Ol5`c0UhPT0
+R7
+31
+R46
+R47
+R48
+R11
+R12
+!s100 AFXLI@>jojzUYWWW<zL2o1
+!i10b 1
+Eifetch
+Z49 w1526801496
+R31
+R43
+R14
+R2
+R3
+R4
+Z50 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/IFETCH.vhd
+Z51 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/IFETCH.vhd
+l0
+L10
+Vkk5Zb:DX_@]nXViLX3WT01
+R7
+31
+Z52 !s108 1526802001.869000
+Z53 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/IFETCH.vhd|
+Z54 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/IFETCH.vhd|
+R11
+R12
+!s100 HbmRk3Ql1GR?E`c4Rbf^n0
+!i10b 1
+Abehavior
+R31
+R43
+R14
+R2
+R3
+DEx4 work 6 ifetch 0 22 kk5Zb:DX_@]nXViLX3WT01
+l23
+L20
+VhA>ecmL2^aCVMe7X8:9[k2
+R7
+31
+R52
+R53
+R54
+R11
+R12
+!s100 CPfAIiicM54Ab[JecBV4j0
+!i10b 1
+Emips
+Z55 w1526743266
+R14
+R2
+R3
+R4
+Z56 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/MIPS.vhd
+Z57 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/MIPS.vhd
+l0
+L18
+VBnJ<X4ebe0ImVZR;UMhYL0
+R7
+31
+Z58 !s108 1526802002.610000
+Z59 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/MIPS.vhd|
+Z60 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/MIPS.vhd|
+R11
+R12
+!s100 :77Re`C]mUgg@II8@]?YM3
+!i10b 1
+Astructure
+R14
+R2
+R3
+Z61 DEx4 work 4 mips 0 22 BnJ<X4ebe0ImVZR;UMhYL0
+l183
+L37
+V=c`G2;:k[@hd9CNngCH:I0
+R7
+31
+R58
+R59
+R60
+R11
+R12
+!s100 99AO[7kJ=5a`bmz`e6P4c2
+!i10b 1
+Emips_tb
+Z62 w1526654677
+R4
+Z63 8C:/Users/amitb/Desktop/ass3/project_main/Quartus/../TB/mips_tb_struct.vhd
+Z64 FC:/Users/amitb/Desktop/ass3/project_main/Quartus/../TB/mips_tb_struct.vhd
+l0
+L11
+VVeHhZ;nYFKL=IVTYB`i0P1
+!s100 i:<^AG_GPcHJfH;X^R@DY1
+R7
+31
+!i10b 1
+Z65 !s108 1526802002.915000
+Z66 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/Quartus/../TB/mips_tb_struct.vhd|
+Z67 !s107 C:/Users/amitb/Desktop/ass3/project_main/Quartus/../TB/mips_tb_struct.vhd|
+R11
+R12
+Astruct
+Z68 DEx4 work 11 mips_tester 0 22 D;>G`]?BQ5Z8:Omzn41]d2
+R61
+DEx4 work 7 mips_tb 0 22 VeHhZ;nYFKL=IVTYB`i0P1
+R14
+R2
+R3
+l110
+L31
+Vfcn4HUKgJ_];`7;TjURU60
+!s100 9FcJP?kCG?00E^h004N@_3
+R7
+31
+!i10b 1
+R65
+R66
+R67
+R11
+R12
+Emips_tester
+Z69 w1526728954
+R14
+R2
+R3
+R4
+Z70 8C:/Users/amitb/Desktop/ass3/project_main/Quartus/../TB/mips_tester_struct.vhd
+Z71 FC:/Users/amitb/Desktop/ass3/project_main/Quartus/../TB/mips_tester_struct.vhd
+l0
+L13
+VD;>G`]?BQ5Z8:Omzn41]d2
+R7
+31
+Z72 !s108 1526802002.742000
+Z73 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/Quartus/../TB/mips_tester_struct.vhd|
+Z74 !s107 C:/Users/amitb/Desktop/ass3/project_main/Quartus/../TB/mips_tester_struct.vhd|
+R11
+R12
+!s100 7f>]85mzdR8_=gn;289?H0
+!i10b 1
+Astruct
+R68
+R14
+R2
+R3
+l62
+L47
+VNZ91:6UohFX1UmVLO2MfM2
+R7
+31
+R72
+R73
+R74
+R11
+R12
+!s100 _i@Ea@VG6aE]UQKLMga801
+!i10b 1
+Endff
+R1
+R2
+R3
+R4
+Z75 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/Ndff.vhd
+Z76 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/Ndff.vhd
+l0
+L4
+Va7T2E=IBn`P^[hn32dd7G1
+R7
+31
+Z77 !s108 1526802001.370000
+Z78 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/Ndff.vhd|
+Z79 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/Ndff.vhd|
+R11
+R12
+!s100 ^VYXLhaYL:bPO5DHa>^[a2
+!i10b 1
+Andff_struct
+R2
+R3
+DEx4 work 4 ndff 0 22 a7T2E=IBn`P^[hn32dd7G1
+l20
+L13
+V3VgW^ZbCeV:YZX?;@23EO2
+R7
+31
+R77
+R78
+R79
+R11
+R12
+!s100 bcL^GgcGfjjoT^b;[TPK[1
+!i10b 1
+Ewback
+R1
+R14
+R2
+R3
+R4
+Z80 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/WBACK.vhd
+Z81 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/WBACK.vhd
+l0
+L17
+VVNSeZ:@Ig4PcKBZ]7S4AC3
+R7
+31
+Z82 !s108 1526802002.209000
+Z83 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/WBACK.vhd|
+Z84 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/WBACK.vhd|
+R11
+R12
+!s100 i@m1o5;O:SlYP830N46XJ3
+!i10b 1
+Abehavior
+R14
+R2
+R3
+DEx4 work 5 wback 0 22 VNSeZ:@Ig4PcKBZ]7S4AC3
+l26
+L24
+VS@4f]4CV_O[hQ:@=8_Chz1
+R7
+31
+R82
+R83
+R84
+R11
+R12
+!s100 VbPRMEzTM3SNLQDVme_RU2
+!i10b 1

@@ -1,0 +1,1584 @@
+Analysis & Synthesis report for MIPS
+Sun May 20 10:34:59 2018
+Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Source assignments for Ifetch:IFE|altsyncram:inst_memory|altsyncram_r5o3:auto_generated
+ 13. Source assignments for dmemory:MEM|altsyncram:data_memory|altsyncram_f9q3:auto_generated
+ 14. Parameter Settings for User Entity Instance: Ifetch:IFE|altsyncram:inst_memory
+ 15. Parameter Settings for User Entity Instance: Ndff:IF2ID_instruction
+ 16. Parameter Settings for User Entity Instance: Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY
+ 17. Parameter Settings for User Entity Instance: Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:0:first:REG0
+ 18. Parameter Settings for User Entity Instance: Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:1:rest:REGi
+ 19. Parameter Settings for User Entity Instance: Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:2:rest:REGi
+ 20. Parameter Settings for User Entity Instance: Ndff:ID2EXE_SIGN_EXTEND
+ 21. Parameter Settings for User Entity Instance: Ndff:ID2EXE_READ_DATA_1
+ 22. Parameter Settings for User Entity Instance: Ndff:ID2EXE_READ_DATA_2
+ 23. Parameter Settings for User Entity Instance: Ndff:ID2MEM_READ_DATA_2
+ 24. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_TEST
+ 25. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_TEST|Ndff:\REG_ARRAY:0:first:REG0
+ 26. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_TEST|Ndff:\REG_ARRAY:1:rest:REGi
+ 27. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_ALU_SRC
+ 28. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_ALU_SRC|Ndff:\REG_ARRAY:0:first:REG0
+ 29. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_TO_REG
+ 30. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_TO_REG|Ndff:\REG_ARRAY:0:first:REG0
+ 31. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_TO_REG|Ndff:\REG_ARRAY:1:rest:REGi
+ 32. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_TO_REG|Ndff:\REG_ARRAY:2:rest:REGi
+ 33. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_READ
+ 34. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_READ|Ndff:\REG_ARRAY:0:first:REG0
+ 35. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_READ|Ndff:\REG_ARRAY:1:rest:REGi
+ 36. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_WRITE
+ 37. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_WRITE|Ndff:\REG_ARRAY:0:first:REG0
+ 38. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_WRITE|Ndff:\REG_ARRAY:1:rest:REGi
+ 39. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_ALU_OP
+ 40. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_ALU_OP|Ndff:\REG_ARRAY:0:first:REG0
+ 41. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_REG_WRITE
+ 42. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_REG_WRITE|Ndff:\REG_ARRAY:0:first:REG0
+ 43. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_REG_WRITE|Ndff:\REG_ARRAY:1:rest:REGi
+ 44. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_REG_WRITE|Ndff:\REG_ARRAY:2:rest:REGi
+ 45. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_FUNCTION_OPCODE
+ 46. Parameter Settings for User Entity Instance: DELAY_REG:DELAY_FUNCTION_OPCODE|Ndff:\REG_ARRAY:0:first:REG0
+ 47. Parameter Settings for User Entity Instance: Ndff:EXE_ALU_RES
+ 48. Parameter Settings for User Entity Instance: Ndff:EXE_ADD_RES
+ 49. Parameter Settings for User Entity Instance: dmemory:MEM|altsyncram:data_memory
+ 50. Parameter Settings for User Entity Instance: Ndff:READ_DATE_reg
+ 51. Parameter Settings for User Entity Instance: Ndff:ALU_RES_2WB
+ 52. altsyncram Parameter Settings by Entity Instance
+ 53. Port Connectivity Checks: "dmemory:MEM|BCD:BCD3"
+ 54. Port Connectivity Checks: "dmemory:MEM|BCD:BCD2"
+ 55. Port Connectivity Checks: "dmemory:MEM|BCD:BCD1"
+ 56. Port Connectivity Checks: "dmemory:MEM|BCD:BCD0"
+ 57. Port Connectivity Checks: "DELAY_REG:DELAY_TEST"
+ 58. Elapsed Time Per Partition
+ 59. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun May 20 10:34:58 2018    ;
+; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
+; Revision Name                      ; MIPS                                     ;
+; Top-level Entity Name              ; MIPS                                     ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 2,837                                    ;
+;     Total combinational functions  ; 1,882                                    ;
+;     Dedicated logic registers      ; 1,274                                    ;
+; Total registers                    ; 1274                                     ;
+; Total pins                         ; 236                                      ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 24,576                                   ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C20F484C7       ;                    ;
+; Top-level entity name                                                      ; MIPS               ; MIPS               ;
+; Family name                                                                ; Cyclone II         ; Stratix            ;
+; Use smart compilation                                                      ; On                 ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; Maximum DSP Block Usage                                                    ; -1                 ; -1                 ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Maximum Number of M4K/M9K/M20K/M10K Memory Blocks                          ; -1                 ; -1                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                          ;
++----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------+---------+
+; ../VHDL/dff.vhd                  ; yes             ; User VHDL File                         ; C:/Users/amitb/Desktop/ass3/project_main/VHDL/dff.vhd                   ;         ;
+; ../VHDL/Ndff.vhd                 ; yes             ; User VHDL File                         ; C:/Users/amitb/Desktop/ass3/project_main/VHDL/Ndff.vhd                  ;         ;
+; ../VHDL/BCD.vhd                  ; yes             ; User VHDL File                         ; C:/Users/amitb/Desktop/ass3/project_main/VHDL/BCD.vhd                   ;         ;
+; ../VHDL/DELAY_REG.vhd            ; yes             ; User VHDL File                         ; C:/Users/amitb/Desktop/ass3/project_main/VHDL/DELAY_REG.vhd             ;         ;
+; ../VHDL/IFETCH.vhd               ; yes             ; User VHDL File                         ; C:/Users/amitb/Desktop/ass3/project_main/VHDL/IFETCH.vhd                ;         ;
+; ../VHDL/IDECODE.vhd              ; yes             ; User VHDL File                         ; C:/Users/amitb/Desktop/ass3/project_main/VHDL/IDECODE.vhd               ;         ;
+; ../VHDL/EXECUTE.vhd              ; yes             ; User VHDL File                         ; C:/Users/amitb/Desktop/ass3/project_main/VHDL/EXECUTE.vhd               ;         ;
+; ../VHDL/WBACK.vhd                ; yes             ; User VHDL File                         ; C:/Users/amitb/Desktop/ass3/project_main/VHDL/WBACK.vhd                 ;         ;
+; ../VHDL/DMEMORY.vhd              ; yes             ; User VHDL File                         ; C:/Users/amitb/Desktop/ass3/project_main/VHDL/DMEMORY.vhd               ;         ;
+; ../VHDL/CONTROL.vhd              ; yes             ; User VHDL File                         ; C:/Users/amitb/Desktop/ass3/project_main/VHDL/CONTROL.vhd               ;         ;
+; ../VHDL/MIPS.vhd                 ; yes             ; User VHDL File                         ; C:/Users/amitb/Desktop/ass3/project_main/VHDL/MIPS.vhd                  ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/altera/12.1/quartus/libraries/megafunctions/altsyncram.tdf           ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/altera/12.1/quartus/libraries/megafunctions/stratix_ram_block.inc    ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/altera/12.1/quartus/libraries/megafunctions/lpm_mux.inc              ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/altera/12.1/quartus/libraries/megafunctions/lpm_decode.inc           ;         ;
+; aglobal121.inc                   ; yes             ; Megafunction                           ; c:/altera/12.1/quartus/libraries/megafunctions/aglobal121.inc           ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/altera/12.1/quartus/libraries/megafunctions/a_rdenreg.inc            ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; c:/altera/12.1/quartus/libraries/megafunctions/altrom.inc               ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; c:/altera/12.1/quartus/libraries/megafunctions/altram.inc               ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; c:/altera/12.1/quartus/libraries/megafunctions/altdpram.inc             ;         ;
+; db/altsyncram_r5o3.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/amitb/Desktop/ass3/project_main/Quartus/db/altsyncram_r5o3.tdf ;         ;
+; ../CODE/program.hex              ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/amitb/Desktop/ass3/project_main/CODE/program.hex               ;         ;
+; db/altsyncram_f9q3.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/amitb/Desktop/ass3/project_main/Quartus/db/altsyncram_f9q3.tdf ;         ;
+; ../CODE/dmemory.hex              ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/amitb/Desktop/ass3/project_main/CODE/dmemory.hex               ;         ;
++----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 2,837 ;
+;                                             ;       ;
+; Total combinational functions               ; 1882  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 1426  ;
+;     -- 3 input functions                    ; 315   ;
+;     -- <=2 input functions                  ; 141   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 1836  ;
+;     -- arithmetic mode                      ; 46    ;
+;                                             ;       ;
+; Total registers                             ; 1274  ;
+;     -- Dedicated logic registers            ; 1274  ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 236   ;
+; Total memory bits                           ; 24576 ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out                             ; 1338  ;
+; Total fan-out                               ; 11394 ;
+; Average fan-out                             ; 3.30  ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                     ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                              ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+--------------+
+; |MIPS                                     ; 1882 (32)         ; 1274 (0)     ; 24576       ; 0            ; 0       ; 0         ; 236  ; 0            ; |MIPS                                                                                            ;              ;
+;    |DELAY_REG:DELAY_ALU_OP|               ; 2 (0)             ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_ALU_OP                                                                     ;              ;
+;       |Ndff:\REG_ARRAY:0:first:REG0|      ; 2 (0)             ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_ALU_OP|Ndff:\REG_ARRAY:0:first:REG0                                        ;              ;
+;          |dffi:\REG_GEN:0:DFFx|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_ALU_OP|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:0:DFFx                   ;              ;
+;          |dffi:\REG_GEN:1:DFFx|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_ALU_OP|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:1:DFFx                   ;              ;
+;    |DELAY_REG:DELAY_ALU_SRC|              ; 0 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_ALU_SRC                                                                    ;              ;
+;       |Ndff:\REG_ARRAY:0:first:REG0|      ; 0 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_ALU_SRC|Ndff:\REG_ARRAY:0:first:REG0                                       ;              ;
+;          |dffi:\REG_GEN:0:DFFx|           ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_ALU_SRC|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:0:DFFx                  ;              ;
+;    |DELAY_REG:DELAY_FUNCTION_OPCODE|      ; 4 (0)             ; 4 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_FUNCTION_OPCODE                                                            ;              ;
+;       |Ndff:\REG_ARRAY:0:first:REG0|      ; 4 (0)             ; 4 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_FUNCTION_OPCODE|Ndff:\REG_ARRAY:0:first:REG0                               ;              ;
+;          |dffi:\REG_GEN:0:DFFx|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_FUNCTION_OPCODE|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:0:DFFx          ;              ;
+;          |dffi:\REG_GEN:1:DFFx|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_FUNCTION_OPCODE|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:1:DFFx          ;              ;
+;          |dffi:\REG_GEN:2:DFFx|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_FUNCTION_OPCODE|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:2:DFFx          ;              ;
+;          |dffi:\REG_GEN:3:DFFx|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_FUNCTION_OPCODE|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:3:DFFx          ;              ;
+;    |DELAY_REG:DELAY_MEM_TO_REG|           ; 3 (0)             ; 3 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_MEM_TO_REG                                                                 ;              ;
+;       |Ndff:\REG_ARRAY:0:first:REG0|      ; 1 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_MEM_TO_REG|Ndff:\REG_ARRAY:0:first:REG0                                    ;              ;
+;          |dffi:\REG_GEN:0:DFFx|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_MEM_TO_REG|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:0:DFFx               ;              ;
+;       |Ndff:\REG_ARRAY:1:rest:REGi|       ; 1 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_MEM_TO_REG|Ndff:\REG_ARRAY:1:rest:REGi                                     ;              ;
+;          |dffi:\REG_GEN:0:DFFx|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_MEM_TO_REG|Ndff:\REG_ARRAY:1:rest:REGi|dffi:\REG_GEN:0:DFFx                ;              ;
+;       |Ndff:\REG_ARRAY:2:rest:REGi|       ; 1 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_MEM_TO_REG|Ndff:\REG_ARRAY:2:rest:REGi                                     ;              ;
+;          |dffi:\REG_GEN:0:DFFx|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_MEM_TO_REG|Ndff:\REG_ARRAY:2:rest:REGi|dffi:\REG_GEN:0:DFFx                ;              ;
+;    |DELAY_REG:DELAY_MEM_WRITE|            ; 2 (0)             ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_MEM_WRITE                                                                  ;              ;
+;       |Ndff:\REG_ARRAY:0:first:REG0|      ; 1 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_MEM_WRITE|Ndff:\REG_ARRAY:0:first:REG0                                     ;              ;
+;          |dffi:\REG_GEN:0:DFFx|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_MEM_WRITE|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:0:DFFx                ;              ;
+;       |Ndff:\REG_ARRAY:1:rest:REGi|       ; 1 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_MEM_WRITE|Ndff:\REG_ARRAY:1:rest:REGi                                      ;              ;
+;          |dffi:\REG_GEN:0:DFFx|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_MEM_WRITE|Ndff:\REG_ARRAY:1:rest:REGi|dffi:\REG_GEN:0:DFFx                 ;              ;
+;    |DELAY_REG:DELAY_REG_WRITE|            ; 2 (0)             ; 3 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_REG_WRITE                                                                  ;              ;
+;       |Ndff:\REG_ARRAY:0:first:REG0|      ; 0 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_REG_WRITE|Ndff:\REG_ARRAY:0:first:REG0                                     ;              ;
+;          |dffi:\REG_GEN:0:DFFx|           ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_REG_WRITE|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:0:DFFx                ;              ;
+;       |Ndff:\REG_ARRAY:1:rest:REGi|       ; 1 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_REG_WRITE|Ndff:\REG_ARRAY:1:rest:REGi                                      ;              ;
+;          |dffi:\REG_GEN:0:DFFx|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_REG_WRITE|Ndff:\REG_ARRAY:1:rest:REGi|dffi:\REG_GEN:0:DFFx                 ;              ;
+;       |Ndff:\REG_ARRAY:2:rest:REGi|       ; 1 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_REG_WRITE|Ndff:\REG_ARRAY:2:rest:REGi                                      ;              ;
+;          |dffi:\REG_GEN:0:DFFx|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|DELAY_REG:DELAY_REG_WRITE|Ndff:\REG_ARRAY:2:rest:REGi|dffi:\REG_GEN:0:DFFx                 ;              ;
+;    |Execute:EXE|                          ; 180 (180)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Execute:EXE                                                                                ;              ;
+;    |Idecode:ID|                           ; 100 (85)          ; 1007 (992)   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID                                                                                 ;              ;
+;       |DELAY_REG:WRITE_REG_ADD_DELAY|     ; 15 (0)            ; 15 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY                                                   ;              ;
+;          |Ndff:\REG_ARRAY:0:first:REG0|   ; 5 (0)             ; 5 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:0:first:REG0                      ;              ;
+;             |dffi:\REG_GEN:0:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:0:DFFx ;              ;
+;             |dffi:\REG_GEN:1:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:1:DFFx ;              ;
+;             |dffi:\REG_GEN:2:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:2:DFFx ;              ;
+;             |dffi:\REG_GEN:3:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:3:DFFx ;              ;
+;             |dffi:\REG_GEN:4:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:4:DFFx ;              ;
+;          |Ndff:\REG_ARRAY:1:rest:REGi|    ; 5 (0)             ; 5 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:1:rest:REGi                       ;              ;
+;             |dffi:\REG_GEN:0:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:1:rest:REGi|dffi:\REG_GEN:0:DFFx  ;              ;
+;             |dffi:\REG_GEN:1:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:1:rest:REGi|dffi:\REG_GEN:1:DFFx  ;              ;
+;             |dffi:\REG_GEN:2:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:1:rest:REGi|dffi:\REG_GEN:2:DFFx  ;              ;
+;             |dffi:\REG_GEN:3:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:1:rest:REGi|dffi:\REG_GEN:3:DFFx  ;              ;
+;             |dffi:\REG_GEN:4:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:1:rest:REGi|dffi:\REG_GEN:4:DFFx  ;              ;
+;          |Ndff:\REG_ARRAY:2:rest:REGi|    ; 5 (0)             ; 5 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:2:rest:REGi                       ;              ;
+;             |dffi:\REG_GEN:0:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:2:rest:REGi|dffi:\REG_GEN:0:DFFx  ;              ;
+;             |dffi:\REG_GEN:1:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:2:rest:REGi|dffi:\REG_GEN:1:DFFx  ;              ;
+;             |dffi:\REG_GEN:2:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:2:rest:REGi|dffi:\REG_GEN:2:DFFx  ;              ;
+;             |dffi:\REG_GEN:3:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:2:rest:REGi|dffi:\REG_GEN:3:DFFx  ;              ;
+;             |dffi:\REG_GEN:4:DFFx|        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:2:rest:REGi|dffi:\REG_GEN:4:DFFx  ;              ;
+;    |Ifetch:IFE|                           ; 24 (24)           ; 8 (8)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ifetch:IFE                                                                                 ;              ;
+;       |altsyncram:inst_memory|            ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ifetch:IFE|altsyncram:inst_memory                                                          ;              ;
+;          |altsyncram_r5o3:auto_generated| ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ifetch:IFE|altsyncram:inst_memory|altsyncram_r5o3:auto_generated                           ;              ;
+;    |Ndff:ALU_RES_2WB|                     ; 32 (0)            ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB                                                                           ;              ;
+;       |dffi:\REG_GEN:0:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:0:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:10:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:10:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:11:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:11:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:12:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:12:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:13:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:13:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:14:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:14:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:15:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:15:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:16:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:16:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:17:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:17:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:18:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:18:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:19:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:19:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:1:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:1:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:20:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:20:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:21:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:21:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:22:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:22:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:23:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:23:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:24:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:24:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:25:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:25:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:26:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:26:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:27:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:27:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:28:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:28:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:29:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:29:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:2:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:2:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:30:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:30:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:31:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:31:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:3:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:3:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:4:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:4:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:5:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:5:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:6:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:6:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:7:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:7:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:8:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:8:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:9:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ALU_RES_2WB|dffi:\REG_GEN:9:DFFx                                                      ;              ;
+;    |Ndff:EXE_ADD_RES|                     ; 8 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ADD_RES                                                                           ;              ;
+;       |dffi:\REG_GEN:0:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ADD_RES|dffi:\REG_GEN:0:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:1:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ADD_RES|dffi:\REG_GEN:1:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:2:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ADD_RES|dffi:\REG_GEN:2:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:3:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ADD_RES|dffi:\REG_GEN:3:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:4:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ADD_RES|dffi:\REG_GEN:4:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:5:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ADD_RES|dffi:\REG_GEN:5:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:6:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ADD_RES|dffi:\REG_GEN:6:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:7:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ADD_RES|dffi:\REG_GEN:7:DFFx                                                      ;              ;
+;    |Ndff:EXE_ALU_RES|                     ; 31 (0)            ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES                                                                           ;              ;
+;       |dffi:\REG_GEN:0:DFFx|              ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:0:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:10:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:10:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:11:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:11:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:12:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:12:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:13:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:13:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:14:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:14:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:15:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:15:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:16:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:16:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:17:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:17:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:18:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:18:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:19:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:19:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:1:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:1:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:20:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:20:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:21:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:21:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:22:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:22:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:23:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:23:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:24:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:24:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:25:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:25:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:26:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:26:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:27:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:27:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:28:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:28:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:29:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:29:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:2:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:2:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:30:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:30:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:31:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:31:DFFx                                                     ;              ;
+;       |dffi:\REG_GEN:3:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:3:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:4:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:4:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:5:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:5:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:6:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:6:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:7:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:7:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:8:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:8:DFFx                                                      ;              ;
+;       |dffi:\REG_GEN:9:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:9:DFFx                                                      ;              ;
+;    |Ndff:ID2EXE_READ_DATA_1|              ; 672 (0)           ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1                                                                    ;              ;
+;       |dffi:\REG_GEN:0:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:0:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:10:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:10:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:11:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:11:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:12:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:12:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:13:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:13:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:14:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:14:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:15:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:15:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:16:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:16:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:17:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:17:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:18:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:18:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:19:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:19:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:1:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:1:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:20:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:20:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:21:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:21:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:22:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:22:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:23:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:23:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:24:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:24:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:25:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:25:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:26:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:26:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:27:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:27:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:28:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:28:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:29:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:29:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:2:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:2:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:30:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:30:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:31:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:31:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:3:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:3:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:4:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:4:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:5:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:5:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:6:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:6:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:7:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:7:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:8:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:8:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:9:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:9:DFFx                                               ;              ;
+;    |Ndff:ID2EXE_READ_DATA_2|              ; 672 (0)           ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2                                                                    ;              ;
+;       |dffi:\REG_GEN:0:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:0:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:10:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:10:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:11:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:11:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:12:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:12:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:13:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:13:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:14:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:14:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:15:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:15:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:16:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:16:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:17:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:17:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:18:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:18:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:19:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:19:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:1:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:1:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:20:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:20:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:21:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:21:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:22:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:22:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:23:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:23:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:24:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:24:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:25:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:25:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:26:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:26:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:27:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:27:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:28:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:28:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:29:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:29:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:2:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:2:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:30:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:30:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:31:DFFx|             ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:31:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:3:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:3:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:4:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:4:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:5:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:5:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:6:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:6:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:7:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:7:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:8:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:8:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:9:DFFx|              ; 21 (21)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:9:DFFx                                               ;              ;
+;    |Ndff:ID2EXE_SIGN_EXTEND|              ; 12 (0)            ; 12 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_SIGN_EXTEND                                                                    ;              ;
+;       |dffi:\REG_GEN:10:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:10:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:11:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:11:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:12:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:12:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:13:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:13:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:14:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:14:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:15:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:4:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:4:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:5:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:5:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:6:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:6:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:7:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:7:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:8:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:8:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:9:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:9:DFFx                                               ;              ;
+;    |Ndff:ID2MEM_READ_DATA_2|              ; 32 (0)            ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2                                                                    ;              ;
+;       |dffi:\REG_GEN:0:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:0:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:10:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:10:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:11:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:11:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:12:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:12:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:13:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:13:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:14:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:14:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:15:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:15:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:16:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:16:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:17:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:17:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:18:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:18:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:19:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:19:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:1:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:1:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:20:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:20:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:21:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:21:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:22:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:22:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:23:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:23:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:24:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:24:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:25:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:25:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:26:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:26:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:27:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:27:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:28:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:28:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:29:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:29:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:2:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:2:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:30:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:30:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:31:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:31:DFFx                                              ;              ;
+;       |dffi:\REG_GEN:3:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:3:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:4:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:4:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:5:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:5:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:6:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:6:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:7:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:7:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:8:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:8:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:9:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:ID2MEM_READ_DATA_2|dffi:\REG_GEN:9:DFFx                                               ;              ;
+;    |Ndff:IF2ID_instruction|               ; 32 (0)            ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction                                                                     ;              ;
+;       |dffi:\REG_GEN:0:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:0:DFFx                                                ;              ;
+;       |dffi:\REG_GEN:10:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:10:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:11:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:11:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:12:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:12:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:13:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:13:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:14:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:14:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:15:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:15:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:16:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:16:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:17:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:17:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:18:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:18:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:19:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:19:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:1:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:1:DFFx                                                ;              ;
+;       |dffi:\REG_GEN:20:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:20:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:21:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:21:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:22:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:22:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:23:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:23:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:24:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:24:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:25:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:25:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:26:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:26:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:27:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:27:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:28:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:28:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:29:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:29:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:2:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:2:DFFx                                                ;              ;
+;       |dffi:\REG_GEN:30:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:30:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:31:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:31:DFFx                                               ;              ;
+;       |dffi:\REG_GEN:3:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:3:DFFx                                                ;              ;
+;       |dffi:\REG_GEN:4:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:4:DFFx                                                ;              ;
+;       |dffi:\REG_GEN:5:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:5:DFFx                                                ;              ;
+;       |dffi:\REG_GEN:6:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:6:DFFx                                                ;              ;
+;       |dffi:\REG_GEN:7:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:7:DFFx                                                ;              ;
+;       |dffi:\REG_GEN:8:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:8:DFFx                                                ;              ;
+;       |dffi:\REG_GEN:9:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:IF2ID_instruction|dffi:\REG_GEN:9:DFFx                                                ;              ;
+;    |Ndff:READ_DATE_reg|                   ; 35 (0)            ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg                                                                         ;              ;
+;       |dffi:\REG_GEN:0:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:0:DFFx                                                    ;              ;
+;       |dffi:\REG_GEN:10:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:10:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:11:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:11:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:12:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:12:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:13:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:13:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:14:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:14:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:15:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:15:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:16:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:16:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:17:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:17:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:18:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:18:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:19:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:19:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:1:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:1:DFFx                                                    ;              ;
+;       |dffi:\REG_GEN:20:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:20:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:21:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:21:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:22:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:22:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:23:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:23:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:24:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:24:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:25:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:25:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:26:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:26:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:27:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:27:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:28:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:28:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:29:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:29:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:2:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:2:DFFx                                                    ;              ;
+;       |dffi:\REG_GEN:30:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:30:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:31:DFFx|             ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:31:DFFx                                                   ;              ;
+;       |dffi:\REG_GEN:3:DFFx|              ; 4 (4)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:3:DFFx                                                    ;              ;
+;       |dffi:\REG_GEN:4:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:4:DFFx                                                    ;              ;
+;       |dffi:\REG_GEN:5:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:5:DFFx                                                    ;              ;
+;       |dffi:\REG_GEN:6:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:6:DFFx                                                    ;              ;
+;       |dffi:\REG_GEN:7:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:7:DFFx                                                    ;              ;
+;       |dffi:\REG_GEN:8:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:8:DFFx                                                    ;              ;
+;       |dffi:\REG_GEN:9:DFFx|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:9:DFFx                                                    ;              ;
+;    |control:CTL|                          ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|control:CTL                                                                                ;              ;
+;    |dmemory:MEM|                          ; 1 (1)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|dmemory:MEM                                                                                ;              ;
+;       |altsyncram:data_memory|            ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|dmemory:MEM|altsyncram:data_memory                                                         ;              ;
+;          |altsyncram_f9q3:auto_generated| ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS|dmemory:MEM|altsyncram:data_memory|altsyncram_f9q3:auto_generated                          ;              ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                            ;
++------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+---------------------+
+; Name                                                                         ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF                 ;
++------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+---------------------+
+; Ifetch:IFE|altsyncram:inst_memory|altsyncram_r5o3:auto_generated|ALTSYNCRAM  ; AUTO ; ROM         ; 256          ; 32           ; --           ; --           ; 8192  ; ../CODE/program.hex ;
+; dmemory:MEM|altsyncram:data_memory|altsyncram_f9q3:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 512          ; 32           ; --           ; --           ; 16384 ; ../CODE/dmemory.hex ;
++------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+---------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                ;
++-------------------------------------------------+-------------------------------------------------------------------------------------------------+
+; Register name                                   ; Reason for Removal                                                                              ;
++-------------------------------------------------+-------------------------------------------------------------------------------------------------+
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:3:DFFx|q  ; Merged with DELAY_REG:DELAY_FUNCTION_OPCODE|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:3:DFFx|q ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:16:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:17:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:18:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:19:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:20:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:21:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:22:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:23:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:24:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:25:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:26:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:27:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:28:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:29:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:30:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:31:DFFx|q ; Merged with Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:15:DFFx|q                                     ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:2:DFFx|q  ; Merged with DELAY_REG:DELAY_FUNCTION_OPCODE|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:2:DFFx|q ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:1:DFFx|q  ; Merged with DELAY_REG:DELAY_FUNCTION_OPCODE|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:1:DFFx|q ;
+; Ndff:ID2EXE_SIGN_EXTEND|dffi:\REG_GEN:0:DFFx|q  ; Merged with DELAY_REG:DELAY_FUNCTION_OPCODE|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:0:DFFx|q ;
+; Idecode:ID|register_array[0][0]                 ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][1]                 ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][2]                 ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][3]                 ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][4]                 ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][5]                 ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][6]                 ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][7]                 ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][8]                 ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][9]                 ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][10]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][11]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][12]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][13]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][14]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][15]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][16]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][17]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][18]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][19]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][20]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][21]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][22]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][23]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][24]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][25]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][26]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][27]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][28]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][29]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][30]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Idecode:ID|register_array[0][31]                ; Stuck at GND due to stuck port data_in                                                          ;
+; Total Number of Removed Registers = 52          ;                                                                                                 ;
++-------------------------------------------------+-------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1274  ;
+; Number of registers using Synchronous Clear  ; 80    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 992   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------+
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |MIPS|Ndff:EXE_ALU_RES|dffi:\REG_GEN:11:DFFx|q                                                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |MIPS|Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:0:first:REG0|dffi:\REG_GEN:0:DFFx|q ;
+; 3:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:18:DFFx|q                                                   ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[31][21]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[30][22]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[29][18]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[28][3]                                                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[27][9]                                                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[26][26]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[25][18]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[24][10]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[23][29]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[22][7]                                                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[21][31]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[20][19]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[19][20]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[18][10]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[17][27]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[16][10]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[15][5]                                                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[14][14]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[13][30]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[12][13]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[11][14]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[10][28]                                                            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[9][1]                                                              ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[8][2]                                                              ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[7][31]                                                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[6][21]                                                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[5][18]                                                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[4][23]                                                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[3][13]                                                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[2][26]                                                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[1][27]                                                             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS|Idecode:ID|register_array[0][31]                                                             ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |MIPS|Ndff:READ_DATE_reg|dffi:\REG_GEN:3:DFFx|q                                                    ;
+; 33:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; Yes        ; |MIPS|Ndff:ID2EXE_READ_DATA_2|dffi:\REG_GEN:16:DFFx|q                                              ;
+; 33:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; Yes        ; |MIPS|Ndff:ID2EXE_READ_DATA_1|dffi:\REG_GEN:5:DFFx|q                                               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |MIPS|Ifetch:IFE|PC                                                                                ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; No         ; |MIPS|Execute:EXE|Add1                                                                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |MIPS|Execute:EXE|Add1                                                                             ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; No         ; |MIPS|Execute:EXE|Mux31                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Source assignments for Ifetch:IFE|altsyncram:inst_memory|altsyncram_r5o3:auto_generated ;
++---------------------------------+--------------------+------+---------------------------+
+; Assignment                      ; Value              ; From ; To                        ;
++---------------------------------+--------------------+------+---------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                         ;
++---------------------------------+--------------------+------+---------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Source assignments for dmemory:MEM|altsyncram:data_memory|altsyncram_f9q3:auto_generated ;
++---------------------------------+--------------------+------+----------------------------+
+; Assignment                      ; Value              ; From ; To                         ;
++---------------------------------+--------------------+------+----------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                          ;
++---------------------------------+--------------------+------+----------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Ifetch:IFE|altsyncram:inst_memory ;
++------------------------------------+----------------------+--------------------+
+; Parameter Name                     ; Value                ; Type               ;
++------------------------------------+----------------------+--------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped            ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY         ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY       ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE       ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE     ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped            ;
+; OPERATION_MODE                     ; ROM                  ; Untyped            ;
+; WIDTH_A                            ; 32                   ; Signed Integer     ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer     ;
+; NUMWORDS_A                         ; 0                    ; Signed Integer     ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped            ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped            ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped            ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped            ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped            ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped            ;
+; WIDTH_B                            ; 1                    ; Signed Integer     ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer     ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer     ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped            ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped            ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped            ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped            ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped            ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped            ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped            ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped            ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped            ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped            ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped            ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped            ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer     ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer     ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped            ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer     ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped            ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped            ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped            ;
+; INIT_FILE                          ; ../CODE/program.hex  ; Untyped            ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped            ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer     ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped            ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped            ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped            ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped            ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped            ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped            ;
+; ENABLE_ECC                         ; FALSE                ; Untyped            ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped            ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer     ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped            ;
+; CBXI_PARAMETER                     ; altsyncram_r5o3      ; Untyped            ;
++------------------------------------+----------------------+--------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Ndff:IF2ID_instruction ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; n              ; 32    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                               ;
+; m              ; 3     ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:0:first:REG0 ;
++----------------+-------+-------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                                                            ;
++----------------+-------+-------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:1:rest:REGi ;
++----------------+-------+------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                     ;
++----------------+-------+------------------------------------------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                                                           ;
++----------------+-------+------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:2:rest:REGi ;
++----------------+-------+------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                     ;
++----------------+-------+------------------------------------------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                                                           ;
++----------------+-------+------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Ndff:ID2EXE_SIGN_EXTEND ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Ndff:ID2EXE_READ_DATA_1 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Ndff:ID2EXE_READ_DATA_2 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Ndff:ID2MEM_READ_DATA_2 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_TEST ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; n              ; 1     ; Signed Integer                           ;
+; m              ; 2     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_TEST|Ndff:\REG_ARRAY:0:first:REG0 ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                        ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_TEST|Ndff:\REG_ARRAY:1:rest:REGi ;
++----------------+-------+----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                 ;
++----------------+-------+----------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                       ;
++----------------+-------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_ALU_SRC ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 1     ; Signed Integer                              ;
+; m              ; 1     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_ALU_SRC|Ndff:\REG_ARRAY:0:first:REG0 ;
++----------------+-------+--------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                     ;
++----------------+-------+--------------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                           ;
++----------------+-------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_TO_REG ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; n              ; 1     ; Signed Integer                                 ;
+; m              ; 3     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_TO_REG|Ndff:\REG_ARRAY:0:first:REG0 ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                              ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_TO_REG|Ndff:\REG_ARRAY:1:rest:REGi ;
++----------------+-------+----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                       ;
++----------------+-------+----------------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                             ;
++----------------+-------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_TO_REG|Ndff:\REG_ARRAY:2:rest:REGi ;
++----------------+-------+----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                       ;
++----------------+-------+----------------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                             ;
++----------------+-------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_READ ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; n              ; 1     ; Signed Integer                               ;
+; m              ; 2     ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_READ|Ndff:\REG_ARRAY:0:first:REG0 ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_READ|Ndff:\REG_ARRAY:1:rest:REGi ;
++----------------+-------+--------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                     ;
++----------------+-------+--------------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                           ;
++----------------+-------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_WRITE ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; n              ; 1     ; Signed Integer                                ;
+; m              ; 2     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_WRITE|Ndff:\REG_ARRAY:0:first:REG0 ;
++----------------+-------+----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                       ;
++----------------+-------+----------------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                             ;
++----------------+-------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_MEM_WRITE|Ndff:\REG_ARRAY:1:rest:REGi ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_ALU_OP ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; n              ; 2     ; Signed Integer                             ;
+; m              ; 1     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_ALU_OP|Ndff:\REG_ARRAY:0:first:REG0 ;
++----------------+-------+-------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                    ;
++----------------+-------+-------------------------------------------------------------------------+
+; n              ; 2     ; Signed Integer                                                          ;
++----------------+-------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_REG_WRITE ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; n              ; 1     ; Signed Integer                                ;
+; m              ; 3     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_REG_WRITE|Ndff:\REG_ARRAY:0:first:REG0 ;
++----------------+-------+----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                       ;
++----------------+-------+----------------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                             ;
++----------------+-------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_REG_WRITE|Ndff:\REG_ARRAY:1:rest:REGi ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_REG_WRITE|Ndff:\REG_ARRAY:2:rest:REGi ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_FUNCTION_OPCODE ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; n              ; 6     ; Signed Integer                                      ;
+; m              ; 1     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DELAY_REG:DELAY_FUNCTION_OPCODE|Ndff:\REG_ARRAY:0:first:REG0 ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; n              ; 6     ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Ndff:EXE_ALU_RES ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; n              ; 32    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Ndff:EXE_ADD_RES ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; n              ; 8     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: dmemory:MEM|altsyncram:data_memory ;
++------------------------------------+----------------------+---------------------+
+; Parameter Name                     ; Value                ; Type                ;
++------------------------------------+----------------------+---------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped             ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE      ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped             ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped             ;
+; WIDTH_A                            ; 32                   ; Signed Integer      ;
+; WIDTHAD_A                          ; 9                    ; Signed Integer      ;
+; NUMWORDS_A                         ; 0                    ; Signed Integer      ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped             ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped             ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped             ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped             ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped             ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped             ;
+; WIDTH_B                            ; 1                    ; Signed Integer      ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer      ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer      ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped             ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped             ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped             ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped             ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped             ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped             ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped             ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped             ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped             ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped             ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped             ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped             ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer      ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer      ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped             ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer      ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped             ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped             ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped             ;
+; INIT_FILE                          ; ../CODE/dmemory.hex  ; Untyped             ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped             ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer      ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped             ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped             ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped             ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped             ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped             ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped             ;
+; ENABLE_ECC                         ; FALSE                ; Untyped             ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped             ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer      ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped             ;
+; CBXI_PARAMETER                     ; altsyncram_f9q3      ; Untyped             ;
++------------------------------------+----------------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Ndff:READ_DATE_reg ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; n              ; 32    ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Ndff:ALU_RES_2WB ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; n              ; 32    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                               ;
++-------------------------------------------+------------------------------------+
+; Name                                      ; Value                              ;
++-------------------------------------------+------------------------------------+
+; Number of entity instances                ; 2                                  ;
+; Entity Instance                           ; Ifetch:IFE|altsyncram:inst_memory  ;
+;     -- OPERATION_MODE                     ; ROM                                ;
+;     -- WIDTH_A                            ; 32                                 ;
+;     -- NUMWORDS_A                         ; 0                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                       ;
+;     -- WIDTH_B                            ; 1                                  ;
+;     -- NUMWORDS_B                         ; 0                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                             ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                          ;
+; Entity Instance                           ; dmemory:MEM|altsyncram:data_memory ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                        ;
+;     -- WIDTH_A                            ; 32                                 ;
+;     -- NUMWORDS_A                         ; 0                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                       ;
+;     -- WIDTH_B                            ; 1                                  ;
+;     -- NUMWORDS_B                         ; 0                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                             ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                          ;
++-------------------------------------------+------------------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "dmemory:MEM|BCD:BCD3" ;
++------+-------+----------+------------------------+
+; Port ; Type  ; Severity ; Details                ;
++------+-------+----------+------------------------+
+; en   ; Input ; Info     ; Stuck at VCC           ;
++------+-------+----------+------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "dmemory:MEM|BCD:BCD2" ;
++------+-------+----------+------------------------+
+; Port ; Type  ; Severity ; Details                ;
++------+-------+----------+------------------------+
+; en   ; Input ; Info     ; Stuck at VCC           ;
++------+-------+----------+------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "dmemory:MEM|BCD:BCD1" ;
++------+-------+----------+------------------------+
+; Port ; Type  ; Severity ; Details                ;
++------+-------+----------+------------------------+
+; en   ; Input ; Info     ; Stuck at VCC           ;
++------+-------+----------+------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "dmemory:MEM|BCD:BCD0" ;
++------+-------+----------+------------------------+
+; Port ; Type  ; Severity ; Details                ;
++------+-------+----------+------------------------+
+; en   ; Input ; Info     ; Stuck at VCC           ;
++------+-------+----------+------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DELAY_REG:DELAY_TEST"                                                                   ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; data_in  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit Analysis & Synthesis
+    Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
+    Info: Processing started: Sun May 20 10:34:48 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS -c MIPS
+Critical Warning (138069): Setting INCREMENTAL_COMPILATION to "OFF" is no longer supported. Assignment is ignored. To disable partitions, set the IGNORE_PARTITIONS global assignment to "ON" instead.
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amitb/desktop/ass3/project_main/vhdl/dff.vhd
+    Info (12022): Found design unit 1: dffi-dff_behavioral
+    Info (12023): Found entity 1: dffi
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amitb/desktop/ass3/project_main/vhdl/dff_en.vhd
+    Info (12022): Found design unit 1: dff_en-dff_behavioral
+    Info (12023): Found entity 1: dff_en
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amitb/desktop/ass3/project_main/vhdl/ndff.vhd
+    Info (12022): Found design unit 1: Ndff-Ndff_struct
+    Info (12023): Found entity 1: Ndff
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amitb/desktop/ass3/project_main/vhdl/ndff_en.vhd
+    Info (12022): Found design unit 1: Ndff_en-Ndff_struct
+    Info (12023): Found entity 1: Ndff_en
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amitb/desktop/ass3/project_main/vhdl/bcd.vhd
+    Info (12022): Found design unit 1: BCD-BCD_arch
+    Info (12023): Found entity 1: BCD
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amitb/desktop/ass3/project_main/vhdl/delay_reg.vhd
+    Info (12022): Found design unit 1: DELAY_REG-behave
+    Info (12023): Found entity 1: DELAY_REG
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amitb/desktop/ass3/project_main/vhdl/ifetch.vhd
+    Info (12022): Found design unit 1: Ifetch-behavior
+    Info (12023): Found entity 1: Ifetch
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amitb/desktop/ass3/project_main/vhdl/idecode.vhd
+    Info (12022): Found design unit 1: Idecode-behavior
+    Info (12023): Found entity 1: Idecode
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amitb/desktop/ass3/project_main/vhdl/execute.vhd
+    Info (12022): Found design unit 1: Execute-behavior
+    Info (12023): Found entity 1: Execute
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amitb/desktop/ass3/project_main/vhdl/wback.vhd
+    Info (12022): Found design unit 1: WBACK-behavior
+    Info (12023): Found entity 1: WBACK
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amitb/desktop/ass3/project_main/vhdl/dmemory.vhd
+    Info (12022): Found design unit 1: dmemory-behavior
+    Info (12023): Found entity 1: dmemory
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amitb/desktop/ass3/project_main/vhdl/control.vhd
+    Info (12022): Found design unit 1: control-behavior
+    Info (12023): Found entity 1: control
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amitb/desktop/ass3/project_main/vhdl/mips.vhd
+    Info (12022): Found design unit 1: MIPS-structure
+    Info (12023): Found entity 1: MIPS
+Info (12127): Elaborating entity "MIPS" for the top level hierarchy
+Warning (10540): VHDL Signal Declaration warning at MIPS.vhd(179): used explicit default value for signal "LOGIC_ONE" because signal was never assigned a value
+Warning (10036): Verilog HDL or VHDL warning at MIPS.vhd(180): object "TEST_OUT" assigned a value but never read
+Info (12128): Elaborating entity "Ifetch" for hierarchy "Ifetch:IFE"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "Ifetch:IFE|altsyncram:inst_memory"
+Info (12130): Elaborated megafunction instantiation "Ifetch:IFE|altsyncram:inst_memory"
+Info (12133): Instantiated megafunction "Ifetch:IFE|altsyncram:inst_memory" with the following parameter:
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "Cyclone"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "../CODE/program.hex"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "0"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_r5o3.tdf
+    Info (12023): Found entity 1: altsyncram_r5o3
+Info (12128): Elaborating entity "altsyncram_r5o3" for hierarchy "Ifetch:IFE|altsyncram:inst_memory|altsyncram_r5o3:auto_generated"
+Warning (113007): Byte addressed memory initialization file "program.hex" was read in the word-addressed format
+Critical Warning (127005): Memory depth (256) in the design file differs from memory depth (101) in the Memory Initialization File "C:/Users/amitb/Desktop/ass3/project_main/CODE/program.hex" -- setting initial value for remaining addresses to 0
+Info (12128): Elaborating entity "Ndff" for hierarchy "Ndff:IF2ID_instruction"
+Info (12128): Elaborating entity "dffi" for hierarchy "Ndff:IF2ID_instruction|dffi:\REG_GEN:0:DFFx"
+Info (12128): Elaborating entity "Idecode" for hierarchy "Idecode:ID"
+Info (12128): Elaborating entity "DELAY_REG" for hierarchy "Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY"
+Info (12128): Elaborating entity "Ndff" for hierarchy "Idecode:ID|DELAY_REG:WRITE_REG_ADD_DELAY|Ndff:\REG_ARRAY:0:first:REG0"
+Info (12128): Elaborating entity "control" for hierarchy "control:CTL"
+Info (12128): Elaborating entity "DELAY_REG" for hierarchy "DELAY_REG:DELAY_TEST"
+Info (12128): Elaborating entity "Ndff" for hierarchy "DELAY_REG:DELAY_TEST|Ndff:\REG_ARRAY:0:first:REG0"
+Info (12128): Elaborating entity "DELAY_REG" for hierarchy "DELAY_REG:DELAY_ALU_SRC"
+Info (12128): Elaborating entity "DELAY_REG" for hierarchy "DELAY_REG:DELAY_MEM_TO_REG"
+Info (12128): Elaborating entity "DELAY_REG" for hierarchy "DELAY_REG:DELAY_ALU_OP"
+Info (12128): Elaborating entity "Ndff" for hierarchy "DELAY_REG:DELAY_ALU_OP|Ndff:\REG_ARRAY:0:first:REG0"
+Info (12128): Elaborating entity "DELAY_REG" for hierarchy "DELAY_REG:DELAY_FUNCTION_OPCODE"
+Info (12128): Elaborating entity "Ndff" for hierarchy "DELAY_REG:DELAY_FUNCTION_OPCODE|Ndff:\REG_ARRAY:0:first:REG0"
+Info (12128): Elaborating entity "Execute" for hierarchy "Execute:EXE"
+Info (12128): Elaborating entity "Ndff" for hierarchy "Ndff:EXE_ADD_RES"
+Info (12128): Elaborating entity "dmemory" for hierarchy "dmemory:MEM"
+Warning (10036): Verilog HDL or VHDL warning at DMEMORY.vhd(49): object "the_zero" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at DMEMORY.vhd(49): object "ssg_en" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at DMEMORY.vhd(49): object "led_en" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at DMEMORY.vhd(49): object "buttons_switches_en" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at DMEMORY.vhd(50): object "the_one_add" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at DMEMORY.vhd(53): used implicit default value for signal "LEDS_MAP" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DMEMORY.vhd(54): used implicit default value for signal "SEVEN_SEG_MAP" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10873): Using initial value X (don't care) for net "buttons_switches[31..18]" at DMEMORY.vhd(52)
+Warning (10873): Using initial value X (don't care) for net "buttons_switches[7..4]" at DMEMORY.vhd(52)
+Info (12128): Elaborating entity "altsyncram" for hierarchy "dmemory:MEM|altsyncram:data_memory"
+Info (12130): Elaborated megafunction instantiation "dmemory:MEM|altsyncram:data_memory"
+Info (12133): Instantiated megafunction "dmemory:MEM|altsyncram:data_memory" with the following parameter:
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "Cyclone"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "../CODE/dmemory.hex"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "0"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "9"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_f9q3.tdf
+    Info (12023): Found entity 1: altsyncram_f9q3
+Info (12128): Elaborating entity "altsyncram_f9q3" for hierarchy "dmemory:MEM|altsyncram:data_memory|altsyncram_f9q3:auto_generated"
+Warning (113007): Byte addressed memory initialization file "dmemory.hex" was read in the word-addressed format
+Critical Warning (127004): Memory depth (512) in the design file differs from memory depth (4093) in the Memory Initialization File "C:/Users/amitb/Desktop/ass3/project_main/CODE/dmemory.hex" -- truncated remaining initial content value to fit RAM
+Info (12128): Elaborating entity "BCD" for hierarchy "dmemory:MEM|BCD:BCD0"
+Info (12128): Elaborating entity "WBACK" for hierarchy "WBACK:W_BACK"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND
+    Warning (13410): Pin "LEDR[4]" is stuck at GND
+    Warning (13410): Pin "LEDR[5]" is stuck at GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
+    Warning (13410): Pin "LEDR[7]" is stuck at GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[9]" is stuck at GND
+    Warning (13410): Pin "LEDG[0]" is stuck at GND
+    Warning (13410): Pin "LEDG[1]" is stuck at GND
+    Warning (13410): Pin "LEDG[2]" is stuck at GND
+    Warning (13410): Pin "LEDG[3]" is stuck at GND
+    Warning (13410): Pin "LEDG[4]" is stuck at GND
+    Warning (13410): Pin "LEDG[5]" is stuck at GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[7]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg0[0]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg0[1]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg0[2]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg0[3]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg0[4]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg0[5]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg0[6]" is stuck at VCC
+    Warning (13410): Pin "Seven_Seg1[0]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg1[1]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg1[2]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg1[3]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg1[4]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg1[5]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg1[6]" is stuck at VCC
+    Warning (13410): Pin "Seven_Seg2[0]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg2[1]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg2[2]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg2[3]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg2[4]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg2[5]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg2[6]" is stuck at VCC
+    Warning (13410): Pin "Seven_Seg3[0]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg3[1]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg3[2]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg3[3]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg3[4]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg3[5]" is stuck at GND
+    Warning (13410): Pin "Seven_Seg3[6]" is stuck at VCC
+    Warning (13410): Pin "PC[0]" is stuck at GND
+    Warning (13410): Pin "PC[1]" is stuck at GND
+Critical Warning (138069): Setting INCREMENTAL_COMPILATION to "OFF" is no longer supported. Assignment is ignored. To disable partitions, set the IGNORE_PARTITIONS global assignment to "ON" instead.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 3182 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 16 input pins
+    Info (21059): Implemented 220 output pins
+    Info (21061): Implemented 2882 logic cells
+    Info (21064): Implemented 64 RAM segments
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 67 warnings
+    Info: Peak virtual memory: 436 megabytes
+    Info: Processing ended: Sun May 20 10:34:59 2018
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:07
+
+

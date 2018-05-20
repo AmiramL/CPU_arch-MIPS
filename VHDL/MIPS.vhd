@@ -157,15 +157,28 @@ ARCHITECTURE structure OF MIPS IS
 	SIGNAL MemtoReg_reg		: STD_LOGIC;
 	SIGNAL MemRead_reg		: STD_LOGIC;
 	SIGNAL MemWrite_reg		: STD_LOGIC;
+	SIGNAL RegWrite_reg     : STD_LOGIC;  -- added by amit
+	
 	SIGNAL ALUop_reg		: STD_LOGIC_VECTOR( 1 DOWNTO 0 );
 	SIGNAL ALUSrc_reg2delay 		: STD_LOGIC_VECTOR( 0 downto 0 );
 	SIGNAL MemtoReg_reg2delay		: STD_LOGIC_VECTOR( 0 downto 0 );
 	SIGNAL MemRead_reg2delay		: STD_LOGIC_VECTOR( 0 downto 0 );
 	SIGNAL MemWrite_reg2delay		: STD_LOGIC_VECTOR( 0 downto 0 );
+	SIGNAL RegWrite_reg2delay		: STD_LOGIC_VECTOR( 0 downto 0 );
+	
 	SIGNAL ALUSrc_delay2reg 		: STD_LOGIC_VECTOR( 0 downto 0 );
 	SIGNAL MemtoReg_delay2reg		: STD_LOGIC_VECTOR( 0 downto 0 );
 	SIGNAL MemRead_delay2reg		: STD_LOGIC_VECTOR( 0 downto 0 );
 	SIGNAL MemWrite_delay2reg		: STD_LOGIC_VECTOR( 0 downto 0 );
+	SIGNAL RegWrite_delay2reg		: STD_LOGIC_VECTOR( 0 downto 0 );--added by amit
+	SIGNAL Function_opcode_delay	: STD_LOGIC_VECTOR(5 downto 0);--added by amit
+	
+	SIGNAL mem_write_data			: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+	
+	--TEST SIGNALS-- added by amit
+	SIGNAL LOGIC_ONE : STD_LOGIC_VECTOR( 0 downto 0):="1";
+	SIGNAL TEST_OUT  : STD_LOGIC_VECTOR( 0 downto 0);
+	--TEST SIGNALS-- added by amit
 
 BEGIN
 					-- copy important signals to output pins for easy 
@@ -186,12 +199,14 @@ BEGIN
    MemtoReg_reg2delay(0) <= MemtoReg_reg;
    MemRead_reg2delay(0)	 <= MemRead_reg;
    MemWrite_reg2delay(0) <= MemWrite_reg;
+   RegWrite_reg2delay(0) <= RegWrite_reg;--added by amit
+   
    
    ALUSrc			 	 <= ALUSrc_delay2reg(0);
    MemtoReg				 <= MemtoReg_delay2reg(0);
    MemRead				 <= MemRead_delay2reg(0);
    MemWrite				 <= MemWrite_delay2reg(0);
-   
+   RegWrite				 <= RegWrite_delay2reg(0);--added by amit
    
    IFE : Ifetch
 	PORT MAP (	Instruction 	=> Instruction_2ID,
@@ -241,19 +256,39 @@ BEGIN
 				clk				=> clock,
 				rst				=> reset,
 				q				=> read_data_2 );
+				
+	ID2MEM_READ_DATA_2: Ndff
+	GENERIC MAP ( N => 32 )
+	PORT MAP (	d 				=> read_data_2,
+				clk				=> clock,
+				rst				=> reset,
+				q				=> mem_write_data );
 
    CTL:   control
 	PORT MAP ( 	Opcode 			=> Instruction( 31 DOWNTO 26 ),
 				RegDst 			=> RegDst,
 				ALUSrc 			=> ALUSrc_reg,--changed
 				MemtoReg 		=> MemtoReg_reg,--changed
-				RegWrite 		=> RegWrite,
+				RegWrite 		=> RegWrite_reg,--changed by amit
+				--RegWrite 		=> RegWrite,
 				MemRead 		=> MemRead_reg, -- changed
 				MemWrite 		=> MemWrite_reg,    --changed
 				Branch 			=> Branch,
 				ALUop 			=> ALUop_reg, -- chagned
                 clock 			=> clock,
 				reset 			=> reset );
+	
+	
+	
+	DELAY_TEST: DELAY_REG
+	GENERIC MAP ( N => 1, M=>2 )
+	PORT MAP (
+				reset => reset,
+				clock =>clock,
+				data_in => LOGIC_ONE,  --make signal
+				data_out => TEST_OUT
+	);
+	
 	
 	DELAY_ALU_SRC: DELAY_REG
 	GENERIC MAP ( N => 1, M=>1 )
@@ -299,6 +334,27 @@ BEGIN
 				data_out => ALUop
 	);
 	
+	-----------amit's stuff-------------
+	--here we should make it so if the command that was givven is load  we want to use this line only at the write back stage
+	DELAY_REG_WRITE: DELAY_REG
+	GENERIC MAP ( N => 1, M=>3 )
+	PORT MAP (
+				reset => reset,
+				clock =>clock,
+				data_in => RegWrite_reg2delay,  --make signal
+				data_out => RegWrite_delay2reg
+	);
+	
+	DELAY_FUNCTION_OPCODE: DELAY_REG
+	GENERIC MAP ( N => 6, M=>1 )
+	PORT MAP (
+				reset => reset,
+				clock =>clock,
+				data_in => Instruction(5 downto 0),  --make signal
+				data_out => Function_opcode_delay
+	);
+	-----------amit's stuff-------------
+	
 
    
    
@@ -306,7 +362,8 @@ BEGIN
    	PORT MAP (	Read_data_1 	=> read_data_1,
              	Read_data_2 	=> read_data_2,
 				Sign_extend 	=> Sign_extend,
-                Function_opcode	=> Instruction( 5 DOWNTO 0 ),
+                --Function_opcode	=> Instruction( 5 DOWNTO 0 ),
+				Function_opcode 	=> Function_opcode_delay(5 DOWNTO 0),--change by amit to gie the execute unit the right instruction at the right time
 				ALUOp 			=> ALUop,
 				ALUSrc 			=> ALUSrc,
 				Zero 			=> Zero,
@@ -332,7 +389,7 @@ BEGIN
    MEM:  dmemory
 	PORT MAP (	read_data 		=> read_data_2WB,
 				address 		=> ALU_Result (10 DOWNTO 2),--jump memory address by 4
-				write_data 		=> read_data_2,
+				write_data 		=> mem_write_data,
 				MemRead 		=> MemRead, 
 				Memwrite 		=> MemWrite, 
 				LEDR			=> LEDR,

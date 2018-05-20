@@ -18,6 +18,15 @@ END Idecode;
 
 ARCHITECTURE behavior OF Idecode IS
 TYPE register_file IS ARRAY ( 0 TO 31 ) OF STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+	
+	-- for write registers address
+	COMPONENT DELAY_REG
+	generic ( 	N : integer := 1; 	-- Bus width
+				M : integer := 1 );	-- Nuber of cycles to delay
+	PORT( 	reset, clock				: IN 	STD_LOGIC; 
+			data_in						: IN 	STD_LOGIC_VECTOR( N-1 downto 0 );
+			data_out					: OUT 	STD_LOGIC_VECTOR( N-1 downto 0 ) );
+	END COMPONENT;
 
 	SIGNAL register_array				: register_file;
 	SIGNAL write_register_address 		: STD_LOGIC_VECTOR( 4 DOWNTO 0 );
@@ -26,6 +35,8 @@ TYPE register_file IS ARRAY ( 0 TO 31 ) OF STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 	SIGNAL write_register_address_1		: STD_LOGIC_VECTOR( 4 DOWNTO 0 );
 	SIGNAL write_register_address_0		: STD_LOGIC_VECTOR( 4 DOWNTO 0 );
 	SIGNAL Instruction_immediate_value	: STD_LOGIC_VECTOR( 15 DOWNTO 0 );
+	
+	SIGNAL write_register_address_2delay: STD_LOGIC_VECTOR( 4 DOWNTO 0 );--amiram's change
 
 BEGIN
 	read_register_1_address 	<= Instruction( 25 DOWNTO 21 );
@@ -40,7 +51,7 @@ BEGIN
 	read_data_2 <= register_array( 
 			      CONV_INTEGER( read_register_2_address ) );
 					-- Mux for Register Write Address
-    	write_register_address <= write_register_address_1 
+    	write_register_address_2delay <= write_register_address_1 
 			WHEN RegDst = '1'  			ELSE write_register_address_0;
 					-- Mux to bypass data memory for Rformat instructions
 	--write_data <= ALU_result( 31 DOWNTO 0 ) 
@@ -49,6 +60,21 @@ BEGIN
     	Sign_extend <= X"0000" & Instruction_immediate_value
 		WHEN Instruction_immediate_value(15) = '0'
 		ELSE	X"FFFF" & Instruction_immediate_value;
+		
+	--==============================================================
+	-- Our change!!!!!!!!!!
+	WRITE_REG_ADD_DELAY: DELAY_REG
+				generic map ( N => 5, M => 3 )
+				port map (	reset => reset,
+							clock => clock,
+							data_in => write_register_address_2delay,
+							data_out => write_register_address 
+							);
+	
+	
+	
+	
+	--==============================================================
 
 PROCESS
 	BEGIN

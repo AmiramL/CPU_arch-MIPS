@@ -30,7 +30,7 @@ inst_memory: altsyncram
 		widthad_a => 8,
 		lpm_type => "altsyncram",
 		outdata_reg_a => "UNREGISTERED",
-		init_file => "program.hex",
+		init_file => "../CODE/program.hex",
 		intended_device_family => "Cyclone"
 	)
 	PORT MAP (

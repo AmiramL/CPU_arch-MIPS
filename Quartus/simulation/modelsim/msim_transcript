@@ -1,0 +1,116 @@
+# Reading C:/altera/12.1/modelsim_ase/tcl/vsim/pref.tcl 
+# do MIPS_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying c:\altera\12.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied c:\altera\12.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/dff.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity dffi
+# -- Compiling architecture dff_behavioral of dffi
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/Ndff.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Ndff
+# -- Compiling architecture Ndff_struct of Ndff
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/BCD.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BCD
+# -- Compiling architecture BCD_arch of BCD
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/DELAY_REG.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity DELAY_REG
+# -- Compiling architecture behave of DELAY_REG
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/IFETCH.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package altera_mf_components
+# -- Compiling entity Ifetch
+# -- Compiling architecture behavior of Ifetch
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/IDECODE.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity Idecode
+# -- Compiling architecture behavior of Idecode
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/EXECUTE.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Compiling entity Execute
+# -- Compiling architecture behavior of Execute
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/WBACK.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity WBACK
+# -- Compiling architecture behavior of WBACK
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/DMEMORY.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Loading package altera_mf_components
+# -- Compiling entity dmemory
+# -- Compiling architecture behavior of dmemory
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/CONTROL.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Compiling entity control
+# -- Compiling architecture behavior of control
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/MIPS.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity MIPS
+# -- Compiling architecture structure of MIPS
+# 
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/Quartus/../tb/mips_tester_struct.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# ** Error: (vcom-7) Failed to open design unit file "C:/Users/amitb/Desktop/ass3/project_main/Quartus/../tb/mips_tester_struct.vhd" in read mode.
+# 
+# No such file or directory. (errno = ENOENT)
+# ** Error: c:/altera/12.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./MIPS_run_msim_rtl_vhdl.do line 20
+# c:/altera/12.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/Quartus/../tb/mips_tester_struct.vhd}"

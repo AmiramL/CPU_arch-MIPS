@@ -60,10 +60,10 @@ BEGIN
 	GENERIC MAP  (
 		operation_mode => "SINGLE_PORT",
 		width_a => 32,
-		widthad_a => 8,
+		widthad_a => 9,
 		lpm_type => "altsyncram",
 		outdata_reg_a => "UNREGISTERED",
-		init_file => "dmemory.hex",
+		init_file => "../CODE/dmemory.hex",
 		intended_device_family => "Cyclone"
 	)
 	PORT MAP (
@@ -84,56 +84,7 @@ BEGIN
 	LEDR <= LEDS_MAP( 17 DOWNTO 8 );
 	
 	
-	PUSH_BUTTONS_AND_SWITCHES : altsyncram
-	GENERIC MAP  (
-		operation_mode => "SINGLE_PORT",
-		width_a => 32,
-		widthad_a => 1,
-		lpm_type => "altsyncram",
-		outdata_reg_a => "UNREGISTERED",
-		intended_device_family => "Cyclone"
-	)
-	PORT MAP (
-		wren_a => the_zero,
-		rden_a => buttons_switches_en,
-		clock0 => write_clock,
-		address_a => the_one_add,
-		data_a => write_data,
-		q_a => buttons_switches	);
-	
-	LEDS_MEM : altsyncram
-	GENERIC MAP  (
-		operation_mode => "SINGLE_PORT",
-		width_a => 32,
-		widthad_a => 1,
-		lpm_type => "altsyncram",
-		outdata_reg_a => "UNREGISTERED",
-		intended_device_family => "Cyclone"
-	)
-	PORT MAP (
-		wren_a => led_en,
-		rden_a => the_one,
-		clock0 => write_clock,
-		address_a => the_one_add,
-		data_a => write_data,
-		q_a => LEDS_MAP	);
-		
-	SEVEN_SEG_MEM : altsyncram
-	GENERIC MAP  (
-		operation_mode => "SINGLE_PORT",
-		width_a => 32,
-		widthad_a => 1,
-		lpm_type => "altsyncram",
-		outdata_reg_a => "UNREGISTERED",
-		intended_device_family => "Cyclone"
-	)
-	PORT MAP (
-		wren_a => ssg_en,
-		rden_a => the_one,
-		clock0 => the_one,
-		address_a => the_one_add,
-		data_a => write_data,
-		q_a => SEVEN_SEG_MAP	);
+
 		
 		
 		-- Load memory address register with write clock.
