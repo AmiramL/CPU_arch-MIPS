@@ -1,5 +1,5 @@
 Flow report for MIPS
-Sun May 20 10:35:33 2018
+Sun May 20 20:55:22 2018
 Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 
 
@@ -38,21 +38,21 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Sun May 20 10:35:33 2018    ;
+; Flow Status                        ; Successful - Sun May 20 20:55:22 2018    ;
 ; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
 ; Revision Name                      ; MIPS                                     ;
 ; Top-level Entity Name              ; MIPS                                     ;
 ; Family                             ; Cyclone II                               ;
 ; Device                             ; EP2C20F484C7                             ;
 ; Timing Models                      ; Final                                    ;
-; Total logic elements               ; 1,882 / 18,752 ( 10 % )                  ;
-;     Total combinational functions  ; 1,882 / 18,752 ( 10 % )                  ;
-;     Dedicated logic registers      ; 1,274 / 18,752 ( 7 % )                   ;
-; Total registers                    ; 1274                                     ;
+; Total logic elements               ; 3,220 / 18,752 ( 17 % )                  ;
+;     Total combinational functions  ; 3,220 / 18,752 ( 17 % )                  ;
+;     Dedicated logic registers      ; 1,303 / 18,752 ( 7 % )                   ;
+; Total registers                    ; 1303                                     ;
 ; Total pins                         ; 236 / 315 ( 75 % )                       ;
 ; Total virtual pins                 ; 0                                        ;
 ; Total memory bits                  ; 24,576 / 239,616 ( 10 % )                ;
-; Embedded Multiplier 9-bit elements ; 0 / 52 ( 0 % )                           ;
+; Embedded Multiplier 9-bit elements ; 7 / 52 ( 13 % )                          ;
 ; Total PLLs                         ; 0 / 4 ( 0 % )                            ;
 +------------------------------------+------------------------------------------+
 
@@ -62,48 +62,49 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/20/2018 10:34:49 ;
+; Start date & time ; 05/20/2018 20:53:54 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; MIPS                ;
 +-------------------+---------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                   ;
-+--------------------------------------------+---------------------------------------+--------------------------------+-------------+----------------+
-; Assignment Name                            ; Value                                 ; Default Value                  ; Entity Name ; Section Id     ;
-+--------------------------------------------+---------------------------------------+--------------------------------+-------------+----------------+
-; AUTO_ENABLE_SMART_COMPILE                  ; On                                    ; --                             ; --          ; --             ;
-; COMPILER_SIGNATURE_ID                      ; 264390077754964.152680168809704       ; --                             ; --          ; --             ;
-; EDA_DESIGN_INSTANCE_NAME                   ; NA                                    ; --                             ; --          ; MIPS_tb        ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH       ; MIPS_tb                               ; --                             ; --          ; eda_simulation ;
-; EDA_OUTPUT_DATA_FORMAT                     ; Vhdl                                  ; --                             ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                        ; ModelSim-Altera (VHDL)                ; <None>                         ; --          ; --             ;
-; EDA_TEST_BENCH_ENABLE_STATUS               ; TEST_BENCH_MODE                       ; --                             ; --          ; eda_simulation ;
-; EDA_TEST_BENCH_FILE                        ; ../tb/mips_tester_struct.vhd          ; --                             ; --          ; MIPS_tb        ;
-; EDA_TEST_BENCH_FILE                        ; ../tb/mips_tb_struct.vhd              ; --                             ; --          ; MIPS_tb        ;
-; EDA_TEST_BENCH_MODULE_NAME                 ; MIPS_tb                               ; --                             ; --          ; MIPS_tb        ;
-; EDA_TEST_BENCH_NAME                        ; MIPS_tb                               ; --                             ; --          ; eda_simulation ;
-; EDA_TEST_BENCH_RUN_SIM_FOR                 ; 20 us                                 ; --                             ; --          ; MIPS_tb        ;
-; EDA_TIME_SCALE                             ; 1 ps                                  ; --                             ; --          ; eda_simulation ;
-; ENABLE_SIGNALTAP                           ; Off                                   ; --                             ; --          ; --             ;
-; FITTER_EFFORT                              ; Fast Fit                              ; Auto Fit                       ; --          ; --             ;
-; FIT_ONLY_ONE_ATTEMPT                       ; On                                    ; Off                            ; --          ; --             ;
-; FLOW_DISABLE_ASSEMBLER                     ; On                                    ; Off                            ; --          ; --             ;
-; MAX_CORE_JUNCTION_TEMP                     ; 85                                    ; --                             ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP                     ; 0                                     ; --                             ; --          ; --             ;
-; OPTIMIZE_HOLD_TIMING                       ; Off                                   ; IO Paths and Minimum TPD Paths ; --          ; --             ;
-; OPTIMIZE_IOC_REGISTER_PLACEMENT_FOR_TIMING ; Off                                   ; Normal                         ; --          ; --             ;
-; OPTIMIZE_TIMING                            ; Off                                   ; Normal compilation             ; --          ; --             ;
-; PARTITION_COLOR                            ; 16764057                              ; --                             ; --          ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL        ; PLACEMENT_AND_ROUTING                 ; --                             ; --          ; Top            ;
-; PARTITION_NETLIST_TYPE                     ; SOURCE                                ; --                             ; --          ; Top            ;
-; POWER_BOARD_THERMAL_MODEL                  ; None (CONSERVATIVE)                   ; --                             ; --          ; --             ;
-; POWER_INPUT_SAF_NAME                       ; MIPS.saf                              ; --                             ; --          ; --             ;
-; POWER_PRESET_COOLING_SOLUTION              ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --                             ; --          ; --             ;
-; POWER_USE_INPUT_FILE                       ; Signal Activity File                  ; No File                        ; --          ; --             ;
-; SMART_RECOMPILE                            ; On                                    ; Off                            ; --          ; --             ;
-+--------------------------------------------+---------------------------------------+--------------------------------+-------------+----------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                          ;
++--------------------------------------------+----------------------------------------------+--------------------------------+-------------+----------------+
+; Assignment Name                            ; Value                                        ; Default Value                  ; Entity Name ; Section Id     ;
++--------------------------------------------+----------------------------------------------+--------------------------------+-------------+----------------+
+; AUTO_ENABLE_SMART_COMPILE                  ; On                                           ; --                             ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                      ; 264390077754964.152683883407508              ; --                             ; --          ; --             ;
+; EDA_DESIGN_INSTANCE_NAME                   ; NA                                           ; --                             ; --          ; MIPS_tb        ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH       ; MIPS_tb                                      ; --                             ; --          ; eda_simulation ;
+; EDA_NETLIST_WRITER_OUTPUT_DIR              ; C:/Users/amitb/Desktop/ass3/project_main/SIM ; --                             ; --          ; eda_simulation ;
+; EDA_OUTPUT_DATA_FORMAT                     ; Vhdl                                         ; --                             ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                        ; ModelSim-Altera (VHDL)                       ; <None>                         ; --          ; --             ;
+; EDA_TEST_BENCH_ENABLE_STATUS               ; TEST_BENCH_MODE                              ; --                             ; --          ; eda_simulation ;
+; EDA_TEST_BENCH_FILE                        ; ../TB/mips_tester_struct.vhd                 ; --                             ; --          ; MIPS_tb        ;
+; EDA_TEST_BENCH_FILE                        ; ../TB/mips_tb_struct.vhd                     ; --                             ; --          ; MIPS_tb        ;
+; EDA_TEST_BENCH_MODULE_NAME                 ; MIPS_tb                                      ; --                             ; --          ; MIPS_tb        ;
+; EDA_TEST_BENCH_NAME                        ; MIPS_tb                                      ; --                             ; --          ; eda_simulation ;
+; EDA_TEST_BENCH_RUN_SIM_FOR                 ; 20 us                                        ; --                             ; --          ; MIPS_tb        ;
+; EDA_TIME_SCALE                             ; 1 ps                                         ; --                             ; --          ; eda_simulation ;
+; ENABLE_SIGNALTAP                           ; Off                                          ; --                             ; --          ; --             ;
+; FITTER_EFFORT                              ; Fast Fit                                     ; Auto Fit                       ; --          ; --             ;
+; FIT_ONLY_ONE_ATTEMPT                       ; On                                           ; Off                            ; --          ; --             ;
+; FLOW_DISABLE_ASSEMBLER                     ; On                                           ; Off                            ; --          ; --             ;
+; MAX_CORE_JUNCTION_TEMP                     ; 85                                           ; --                             ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP                     ; 0                                            ; --                             ; --          ; --             ;
+; OPTIMIZE_HOLD_TIMING                       ; Off                                          ; IO Paths and Minimum TPD Paths ; --          ; --             ;
+; OPTIMIZE_IOC_REGISTER_PLACEMENT_FOR_TIMING ; Off                                          ; Normal                         ; --          ; --             ;
+; OPTIMIZE_TIMING                            ; Off                                          ; Normal compilation             ; --          ; --             ;
+; PARTITION_COLOR                            ; 16764057                                     ; --                             ; --          ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL        ; PLACEMENT_AND_ROUTING                        ; --                             ; --          ; Top            ;
+; PARTITION_NETLIST_TYPE                     ; SOURCE                                       ; --                             ; --          ; Top            ;
+; POWER_BOARD_THERMAL_MODEL                  ; None (CONSERVATIVE)                          ; --                             ; --          ; --             ;
+; POWER_INPUT_SAF_NAME                       ; MIPS.saf                                     ; --                             ; --          ; --             ;
+; POWER_PRESET_COOLING_SOLUTION              ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW        ; --                             ; --          ; --             ;
+; POWER_USE_INPUT_FILE                       ; Signal Activity File                         ; No File                        ; --          ; --             ;
+; SMART_RECOMPILE                            ; On                                           ; Off                            ; --          ; --             ;
++--------------------------------------------+----------------------------------------------+--------------------------------+-------------+----------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -111,11 +112,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:09     ; 1.0                     ; 436 MB              ; 00:00:06                           ;
-; Fitter                    ; 00:00:10     ; 1.0                     ; 457 MB              ; 00:00:08                           ;
-; TimeQuest Timing Analyzer ; 00:00:17     ; 1.0                     ; 404 MB              ; 00:00:16                           ;
-; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 372 MB              ; 00:00:02                           ;
-; Total                     ; 00:00:39     ; --                      ; --                  ; 00:00:32                           ;
+; Analysis & Synthesis      ; 00:01:05     ; 1.0                     ; 441 MB              ; 00:01:04                           ;
+; Fitter                    ; 00:00:12     ; 1.0                     ; 454 MB              ; 00:00:12                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 409 MB              ; 00:00:03                           ;
+; EDA Netlist Writer        ; 00:00:04     ; 1.0                     ; 378 MB              ; 00:00:03                           ;
+; Total                     ; 00:01:23     ; --                      ; --                  ; 00:01:22                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

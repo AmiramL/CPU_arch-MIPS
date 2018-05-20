@@ -109,11 +109,20 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id MIPS_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME MIPS_tb -section_id MIPS_tb
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "20 us" -section_id MIPS_tb
+set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR "C:/Users/amitb/Desktop/ass3/project_main/SIM" -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_FILE ../TB/mips_tester_struct.vhd -section_id MIPS_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE ../TB/mips_tb_struct.vhd -section_id MIPS_tb
 set_global_assignment -name SDC_FILE MIPS.out.sdc
 set_global_assignment -name VHDL_FILE ../VHDL/dff.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/Nbit_mux2.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/Nbit_SHIFT.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/SHIFT_top.vhd
 set_global_assignment -name VHDL_FILE ../VHDL/dff_en.vhd
 set_global_assignment -name VHDL_FILE ../VHDL/Ndff.vhd
 set_global_assignment -name VHDL_FILE ../VHDL/Ndff_en.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/Floating_point_mul.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/Floating_point_adder.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/FP_top.vhd
 set_global_assignment -name VHDL_FILE ../VHDL/BCD.vhd
 set_global_assignment -name VHDL_FILE ../VHDL/DELAY_REG.vhd
 set_global_assignment -name VHDL_FILE ../VHDL/IFETCH.vhd
@@ -125,6 +134,3 @@ set_global_assignment -name VHDL_FILE ../VHDL/CONTROL.vhd
 set_global_assignment -name VHDL_FILE ../VHDL/MIPS.vhd
 set_global_assignment -name VECTOR_WAVEFORM_FILE MIPS.vwf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR "C:/Users/amitb/Desktop/ass3/project_main/SIM" -section_id eda_simulation
-set_global_assignment -name EDA_TEST_BENCH_FILE ../TB/mips_tester_struct.vhd -section_id MIPS_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE ../TB/mips_tb_struct.vhd -section_id MIPS_tb

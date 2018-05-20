@@ -1,5 +1,5 @@
 EDA Netlist Writer report for MIPS
-Sun May 20 10:35:33 2018
+Sun May 20 20:55:22 2018
 Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Sun May 20 10:35:33 2018 ;
+; EDA Netlist Writer Status ; Successful - Sun May 20 20:55:22 2018 ;
 ; Revision Name             ; MIPS                                  ;
 ; Top-level Entity Name     ; MIPS                                  ;
 ; Family                    ; Cyclone II                            ;
@@ -66,16 +66,16 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------+------------------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                             ;
-+----------------------------------------------------------------------------------------+
-; Generated Files                                                                        ;
-+----------------------------------------------------------------------------------------+
-; C:/Users/amitb/Desktop/ass3/project_main/Quartus/simulation/modelsim/MIPS.vho          ;
-; C:/Users/amitb/Desktop/ass3/project_main/Quartus/simulation/modelsim/MIPS_fast.vho     ;
-; C:/Users/amitb/Desktop/ass3/project_main/Quartus/simulation/modelsim/MIPS_vhd.sdo      ;
-; C:/Users/amitb/Desktop/ass3/project_main/Quartus/simulation/modelsim/MIPS_vhd_fast.sdo ;
-+----------------------------------------------------------------------------------------+
++----------------------------------------------------------------+
+; Simulation Generated Files                                     ;
++----------------------------------------------------------------+
+; Generated Files                                                ;
++----------------------------------------------------------------+
+; C:/Users/amitb/Desktop/ass3/project_main/SIM/MIPS.vho          ;
+; C:/Users/amitb/Desktop/ass3/project_main/SIM/MIPS_fast.vho     ;
+; C:/Users/amitb/Desktop/ass3/project_main/SIM/MIPS_vhd.sdo      ;
+; C:/Users/amitb/Desktop/ass3/project_main/SIM/MIPS_vhd_fast.sdo ;
++----------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -84,14 +84,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit EDA Netlist Writer
     Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
-    Info: Processing started: Sun May 20 10:35:30 2018
+    Info: Processing started: Sun May 20 20:55:18 2018
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off MIPS -c MIPS
 Critical Warning (138069): Setting INCREMENTAL_COMPILATION to "OFF" is no longer supported. Assignment is ignored. To disable partitions, set the IGNORE_PARTITIONS global assignment to "ON" instead.
-Info (204026): Generated files "MIPS.vho", "MIPS_fast.vho", "MIPS_vhd.sdo" and "MIPS_vhd_fast.sdo" in directory "C:/Users/amitb/Desktop/ass3/project_main/Quartus/simulation/modelsim/" for EDA simulation tool
+Info (204026): Generated files "MIPS.vho", "MIPS_fast.vho", "MIPS_vhd.sdo" and "MIPS_vhd_fast.sdo" in directory "C:/Users/amitb/Desktop/ass3/project_main/SIM/" for EDA simulation tool
 Info: Quartus II 32-bit EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 385 megabytes
-    Info: Processing ended: Sun May 20 10:35:33 2018
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Peak virtual memory: 387 megabytes
+    Info: Processing ended: Sun May 20 20:55:22 2018
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 

@@ -37,11 +37,13 @@ END 	MIPS;
 ARCHITECTURE structure OF MIPS IS
 
 	COMPONENT Ifetch
-   	     PORT(	Instruction			: OUT 	STD_LOGIC_VECTOR( 31 DOWNTO 0 ); 
+   	     PORT(	Instruction_out		: OUT 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+				Pre_Instruction		: IN 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
         		PC_plus_4_out 		: OUT  	STD_LOGIC_VECTOR( 9 DOWNTO 0 );
+				bubble_out			: OUT	STD_LOGIC;
         		Add_result 			: IN 	STD_LOGIC_VECTOR( 7 DOWNTO 0 ); --change the pc if there was a branch
         		Branch 				: IN 	STD_LOGIC;                     --tells if to ignore branch or not
-        		Zero 				: IN 	STD_LOGIC;
+				Zero 				: IN 	STD_LOGIC;
         		PC_out 				: OUT 	STD_LOGIC_VECTOR( 9 DOWNTO 0 );
         		clock,reset 		: IN 	STD_LOGIC );
 	END COMPONENT; 
@@ -50,10 +52,16 @@ ARCHITECTURE structure OF MIPS IS
  	     PORT(	read_data_1 		: OUT 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
         		read_data_2 		: OUT 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
         		Instruction 		: IN 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
-        		write_data 			: IN 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+				write_data 			: IN 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+				PC_plus_4 			: IN 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+				bubble_out			: IN  	STD_LOGIC;
+				bubble_data			: IN    STD_LOGIC_VECTOR( 31 DOWNTO 0);
         		RegWrite			: IN 	STD_LOGIC;
         		RegDst 				: IN 	STD_LOGIC;
         		Sign_extend 		: OUT 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+				ALU_result  		: IN 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+				Add_Result 			: OUT	STD_LOGIC_VECTOR( 7 DOWNTO 0 ) ;--BRanch 
+				Zero 				: OUT 	STD_LOGIC;
         		clock, reset		: IN 	STD_LOGIC );
 	END COMPONENT;
 
@@ -77,10 +85,10 @@ ARCHITECTURE structure OF MIPS IS
                	Function_opcode		: IN 	STD_LOGIC_VECTOR( 5 DOWNTO 0 );
                	ALUOp 				: IN 	STD_LOGIC_VECTOR( 1 DOWNTO 0 );
                	ALUSrc 				: IN 	STD_LOGIC;
-               	Zero 				: OUT	STD_LOGIC;
+               	--Zero 				: OUT	STD_LOGIC;
                	ALU_Result 			: OUT	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
-               	Add_Result 			: OUT	STD_LOGIC_VECTOR( 7 DOWNTO 0 );
-               	PC_plus_4 			: IN 	STD_LOGIC_VECTOR( 9 DOWNTO 0 );
+               	--Add_Result 			: OUT	STD_LOGIC_VECTOR( 7 DOWNTO 0 );
+               	--PC_plus_4 			: IN 	STD_LOGIC_VECTOR( 9 DOWNTO 0 );
                	clock, reset		: IN 	STD_LOGIC );
 	END COMPONENT;
 
@@ -126,7 +134,8 @@ ARCHITECTURE structure OF MIPS IS
 	END COMPONENT;
 
 					-- declare signals used to connect VHDL components
-	SIGNAL PC_plus_4 		: STD_LOGIC_VECTOR( 9 DOWNTO 0 );
+	SIGNAL PC_plus_4 			: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+	SIGNAL PC_plus_4_2ID 			: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 	SIGNAL write_data 		: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 	
 	SIGNAL read_data_1 		: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
@@ -173,7 +182,11 @@ ARCHITECTURE structure OF MIPS IS
 	SIGNAL RegWrite_delay2reg		: STD_LOGIC_VECTOR( 0 downto 0 );--added by amit
 	SIGNAL Function_opcode_delay	: STD_LOGIC_VECTOR(5 downto 0);--added by amit
 	
+	SIGNAL bubble_delay				: STD_LOGIC_VECTOR (0 downto 0);--amit
+	SIGNAL bubble_in_decode			: STD_LOGIC_VECTOR	(0 downto 0);
+	
 	SIGNAL mem_write_data			: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+	SIGNAL Branch_taken				: std_logic;
 	
 	--TEST SIGNALS-- added by amit
 	SIGNAL LOGIC_ONE : STD_LOGIC_VECTOR( 0 downto 0):="1";
@@ -209,14 +222,25 @@ BEGIN
    RegWrite				 <= RegWrite_delay2reg(0);--added by amit
    
    IFE : Ifetch
-	PORT MAP (	Instruction 	=> Instruction_2ID,
-    	    	PC_plus_4_out 	=> PC_plus_4,
+	PORT MAP (	Instruction_out => Instruction_2ID,
+				Pre_Instruction => Instruction,
+    	    	PC_plus_4_out 	=> PC_plus_4_2ID(9 DOWNTO 0),
+				bubble_out		=> bubble_delay(0),
 				Add_result 		=> Add_result,
 				Branch 			=> Branch,
 				Zero 			=> Zero,
 				PC_out 			=> PC,        		
 				clock 			=> clock,  
 				reset 			=> reset );
+				
+	DELAY_BUBBLE: DELAY_REG
+	GENERIC MAP ( N => 1, M=>2 )
+	PORT MAP (
+				reset => reset,
+				clock =>clock,
+				data_in => bubble_delay,  --make signal
+				data_out => bubble_in_decode
+	);
 				
    IF2ID_instruction: Ndff
     GENERIC MAP ( N => 32)
@@ -225,17 +249,32 @@ BEGIN
 				rst				=> reset,
 				q				=> Instruction );
 				
+	PC_PLUS_4_2ID_REG: Ndff
+    GENERIC MAP ( N => 32)
+	PORT MAP (	d 				=> PC_plus_4_2ID,
+				clk				=> clock,
+				rst				=> reset,
+				q				=> PC_plus_4 );
+				
 
    ID : Idecode
-   	PORT MAP (	read_data_1 	=> read_data_1_2EXE,
-        		read_data_2 	=> read_data_2_2EXE,
-        		Instruction 	=> Instruction,
-        		write_data 		=> write_data,
-				RegWrite 		=> RegWrite,
-				RegDst 			=> RegDst,
-				Sign_extend 	=> Sign_extend_2EXE,
-        		clock 			=> clock,  
-				reset 			=> reset );
+   	PORT MAP (	read_data_1 	 => read_data_1_2EXE,
+        		read_data_2 	 => read_data_2_2EXE,
+        		Instruction 	 => Instruction,
+				write_data 		 => write_data,
+				PC_plus_4  		 => PC_plus_4,
+				bubble_out		 => bubble_in_decode(0),
+				bubble_data		 => read_data_2WB,
+				RegWrite 		 => RegWrite,
+				RegDst 			 => RegDst,
+				Sign_extend 	 => Sign_extend_2EXE,
+				ALU_result		 => ALU_Result_int,
+				Add_Result 		 => Add_Result,
+				Zero 			 => Zero,
+        		clock 			 => clock,				
+				reset 			 => reset );
+				
+	
 	
    ID2EXE_SIGN_EXTEND: Ndff
 	GENERIC MAP ( N => 32 )
@@ -366,10 +405,10 @@ BEGIN
 				Function_opcode 	=> Function_opcode_delay(5 DOWNTO 0),--change by amit to gie the execute unit the right instruction at the right time
 				ALUOp 			=> ALUop,
 				ALUSrc 			=> ALUSrc,
-				Zero 			=> Zero,
+				--Zero 			=> Zero,
                 ALU_Result		=> ALU_Result_int,
-				Add_Result 		=> Add_Result_int,
-				PC_plus_4		=> PC_plus_4,
+				--Add_Result 	=> Add_Result_int,
+				--PC_plus_4		=> PC_plus_4,
                 Clock			=> clock,
 				Reset			=> reset );
    
@@ -379,12 +418,13 @@ BEGIN
 				clk				=> clock,
 				rst				=> reset,
 				q				=> ALU_Result );
-   EXE_ADD_RES: Ndff
-    GENERIC MAP ( N => 8 )
-	PORT MAP (	d 				=> Add_Result_int,
-				clk				=> clock,
-				rst				=> reset,
-				q				=> Add_Result );
+  
+  -- EXE_ADD_RES: Ndff
+   -- GENERIC MAP ( N => 8 )
+	--PORT MAP (	d 				=> Add_Result_int,
+	--			clk				=> clock,
+	--			rst				=> reset,
+	--			q				=> Add_Result );
 
    MEM:  dmemory
 	PORT MAP (	read_data 		=> read_data_2WB,

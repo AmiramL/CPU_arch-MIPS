@@ -1,0 +1,171 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.std_logic_arith.ALL;
+
+entity floating_point_adder is
+port (	
+		A: 		in std_logic_vector(31 downto 0);
+		B:  	in std_logic_vector(31 downto 0);
+		C:     out std_logic_vector(31 downto 0));
+end floating_point_adder;
+
+architecture fp_arch of floating_point_adder is
+
+component SHIFT_top is 
+generic ( N: integer := 8);
+port (		a: 			in std_logic_vector(N-1 downto 0);
+				cnt:		in std_logic_vector(5 downto 0);
+				Right_Left: in std_logic;
+				o: 			out std_logic_vector(N-1 downto 0));
+end component;
+
+component Nbit_mux2 is 
+generic ( N: integer := 8);
+port (	i_0: in std_logic_vector(N-1 downto 0); 
+			i_1: in std_logic_vector(N-1 downto 0); 
+			s: in std_logic; 
+			o: out std_logic_vector(N-1 downto 0));
+end component;
+
+signal the_one: std_logic := '1';
+
+
+signal A_exp:		std_logic_vector(9 downto 0);
+signal B_exp:		std_logic_vector(9 downto 0);
+signal exp_sub_res:	std_logic_vector(9 downto 0); -- exp_sub_res(9) is sign
+signal exp_diff:	std_logic_vector(9 downto 0); -- |e1-e2|
+--signal exp_const:	std_logic_vector(9 downto 0) := "0000000000";
+signal exp_out:		std_logic_vector(7 downto 0);
+
+signal A_man:			std_logic_vector(25 downto 0);
+signal B_man:			std_logic_vector(25 downto 0);
+signal big_man:			std_logic_vector(25 downto 0);
+signal small_man:		std_logic_vector(25 downto 0);
+signal small_man_s:		std_logic_vector(25 downto 0);
+signal small_man2add:	std_logic_vector(25 downto 0);
+signal man_signed:		std_logic_vector(25 downto 0);
+signal man2add_1:		std_logic_vector(25 downto 0);
+signal man2add_2:		std_logic_vector(25 downto 0);
+signal man_abs2norm:	std_logic_vector(25 downto 0);
+--signal man_const:		std_logic_vector(25 downto 0) := "00000000000000000000000000";
+signal man_sub:			std_logic;
+signal man_sel:			std_logic;
+
+signal sign_out:		std_logic;
+
+begin
+--exp_const <= "0000000000";
+--man_const <= "00000000000000000000000000";
+the_one <= '1';
+
+A_exp(7 downto 0) <= A(30 downto 23);
+A_exp(9 downto 8) <= "00";
+B_exp(7 downto 0) <= B(30 downto 23);
+B_exp(9 downto 8) <= "00";
+
+	
+--exp_subber: Nbit_add_sub 	generic map (5)
+--							port map ( A_exp, B_exp, the_one, exp_sub_res );
+process(A_exp, B_exp)
+	begin
+		exp_sub_res <= conv_std_logic_vector(unsigned(A_exp)-unsigned(B_exp), 10);
+end process;
+
+--EXP_DIFF_c:	Nbit_add_sub 	generic map (5)
+--							port map ( exp_const, exp_sub_res, exp_sub_res(9), exp_diff);
+process(exp_sub_res)
+	begin
+	if exp_sub_res(9) = '1' then
+		exp_diff <= conv_std_logic_vector(0-conv_integer(signed(exp_sub_res)), 10);
+	else
+		exp_diff <= exp_sub_res;
+	end if;
+end process;
+							
+EXP_SELECT: Nbit_mux2 		generic map (8)
+							port map ( A_exp( 7 downto 0), B_exp(7 downto 0), exp_sub_res(9), exp_out);
+							
+A_man(22 downto 0)  <= A(22 downto 0);
+A_man(25 downto 23) <= "001";
+B_man(22 downto 0)  <= B(22 downto 0);
+B_man(25 downto 23) <= "001";
+
+SWAP_MUX_L: Nbit_mux2 		generic map (26)
+							port map ( A_man, B_man, exp_sub_res(9), big_man);
+
+SWAP_MUX_R: Nbit_mux2 		generic map (26)
+							port map ( B_man, A_man, exp_sub_res(9), small_man);
+
+SMALL_MAN_SHIFT: SHIFT_top	generic map (26)
+							port map ( small_man, exp_diff(5 downto 0),the_one, small_man_s);
+			
+MAN2ADDER: for i in 0 to 25 generate
+	small_man2add(i) <= small_man_s(i) and (not (exp_diff(6) or exp_diff(7)));
+end generate MAN2ADDER;
+
+man_sub <= A(31) xor B(31) ;
+
+sign_out <= (A(31) and B(31)) or (man_sub and man_signed(25));
+
+
+man_sel <= man_sub and ((A(31) and exp_sub_res(9)) OR (B(31) and (not exp_sub_res(9))));
+
+ADD_MUX_2: Nbit_mux2 		generic map (26)
+							port map ( small_man2add, big_man, man_sel, man2add_1);
+
+ADD_MUX_1: Nbit_mux2 		generic map (26)
+							port map ( big_man, small_man2add, man_sel, man2add_2);
+							
+							
+--MAN_ADDER: Nbit_add_sub 	generic map (13)
+--							port map ( man2add_1, man2add_2, man_sub, man_signed);
+process(man2add_1, man2add_2, man_sub)
+	begin
+	if man_sub = '1' then
+		man_signed <= conv_std_logic_vector(signed(man2add_1)-signed(man2add_2), 26);
+	else
+		man_signed <= conv_std_logic_vector(signed(man2add_1)+signed(man2add_2), 26);
+	end if;
+end process;
+
+--MAN_ABS: Nbit_add_sub		generic map (13)
+--							port map ( man_const ,man_signed, man_signed(25), man_abs2norm);
+process( man_signed)
+	begin
+	if man_signed(25) = '1' then
+		man_abs2norm <= conv_std_logic_vector(0-conv_integer(signed(man_signed)), 26);
+	else
+		man_abs2norm <= man_signed;
+	end if;
+end process;
+
+
+process (man_signed(25), man_abs2norm, sign_out, exp_out)
+begin
+  if man_abs2norm(24) = '1' then
+		C(30 downto 23) <= conv_std_logic_vector(unsigned(exp_out) + 1, 8);
+		C(22 downto 0)  <= man_abs2norm(23 downto 1);
+		C(31) <= sign_out;
+	elsif man_abs2norm(23) = '1' then 
+		C(30 downto 23) <= exp_out;
+		C(22 downto 0)  <= man_abs2norm(22 downto 0);
+		C(31) <= sign_out;
+	else
+		for i in 0 to 22 loop
+			if man_abs2norm(22 - i) = '1' then
+				if i < 22 then
+					C(30 downto 23) <= conv_std_logic_vector(unsigned(exp_out) - conv_unsigned(i+1, 8), 8);
+					C(22 downto 1+i)  <= man_abs2norm(21-i downto 0);
+					C(i downto 0) <= (others =>'0');
+					C(31) <= sign_out;
+					exit;
+				else 
+					C(31 downto 0) <= (others =>'0');
+				end if;
+			else 
+					C(31 downto 0) <= (others =>'0');
+			end if;
+		end loop;
+	end if;
+end process;
+end fp_arch;

@@ -6,7 +6,13 @@ vlib rtl_work
 vmap work rtl_work
 
 vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/dff.vhd}
+vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/Nbit_mux2.vhd}
+vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/Nbit_SHIFT.vhd}
+vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/SHIFT_top.vhd}
 vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/Ndff.vhd}
+vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/Floating_point_mul.vhd}
+vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/Floating_point_adder.vhd}
+vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/FP_top.vhd}
 vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/BCD.vhd}
 vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/DELAY_REG.vhd}
 vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/IFETCH.vhd}
