@@ -110,7 +110,7 @@ BEGIN
 						rst  => reset,
 						q 	 => SEVEN_SEG_MAP );
 	
-<<<<<<< HEAD
+
 	BUTTONS_REG: Ndff_en
 			generic map ( 18 )
 			port map(	d 	 => buttons_switches,
@@ -118,9 +118,7 @@ BEGIN
 						en	 => the_one,
 						rst  => reset,
 						q 	 => buttons_data );
-=======
 
->>>>>>> 3200eb54e4fb0f976dc79b1c6ff628a9495f8dfa
 		
 		
 		-- Load memory address register with write clock.
@@ -176,7 +174,6 @@ BEGIN
 		END if;
 	END PROCESS;
 	
-	--telecal@cal-online.co.il
 	
 END behavior;
 

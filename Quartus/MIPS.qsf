@@ -114,9 +114,6 @@ set_global_assignment -name EDA_TEST_BENCH_FILE ../TB/mips_tester_struct.vhd -se
 set_global_assignment -name EDA_TEST_BENCH_FILE ../TB/mips_tb_struct.vhd -section_id MIPS_tb
 set_global_assignment -name SDC_FILE MIPS.out.sdc
 set_global_assignment -name VHDL_FILE ../VHDL/dff.vhd
-set_global_assignment -name VHDL_FILE ../VHDL/Nbit_mux2.vhd
-set_global_assignment -name VHDL_FILE ../VHDL/Nbit_SHIFT.vhd
-set_global_assignment -name VHDL_FILE ../VHDL/SHIFT_top.vhd
 set_global_assignment -name VHDL_FILE ../VHDL/dff_en.vhd
 set_global_assignment -name VHDL_FILE ../VHDL/Ndff.vhd
 set_global_assignment -name VHDL_FILE ../VHDL/Ndff_en.vhd

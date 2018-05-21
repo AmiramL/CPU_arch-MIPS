@@ -188,10 +188,6 @@ ARCHITECTURE structure OF MIPS IS
 	SIGNAL mem_write_data			: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 	SIGNAL Branch_taken				: std_logic;
 	
-	--TEST SIGNALS-- added by amit
-	SIGNAL LOGIC_ONE : STD_LOGIC_VECTOR( 0 downto 0):="1";
-	SIGNAL TEST_OUT  : STD_LOGIC_VECTOR( 0 downto 0);
-	--TEST SIGNALS-- added by amit
 
 BEGIN
 					-- copy important signals to output pins for easy 
@@ -207,20 +203,24 @@ BEGIN
    MemWrite_out 	<= MemWrite;	
 					-- connect the 5 MIPS components   
 					
-					
+-- Conversions: STD_LOGIC_VECTOR( 0 downto 0 ) <===> STD_LOGIC		
+--	For Generic Delay Component			
    ALUSrc_reg2delay(0) 	 <= ALUSrc_reg;
    MemtoReg_reg2delay(0) <= MemtoReg_reg;
    MemRead_reg2delay(0)	 <= MemRead_reg;
    MemWrite_reg2delay(0) <= MemWrite_reg;
    RegWrite_reg2delay(0) <= RegWrite_reg;--added by amit
    
-   
    ALUSrc			 	 <= ALUSrc_delay2reg(0);
    MemtoReg				 <= MemtoReg_delay2reg(0);
    MemRead				 <= MemRead_delay2reg(0);
    MemWrite				 <= MemWrite_delay2reg(0);
    RegWrite				 <= RegWrite_delay2reg(0);--added by amit
-   
+ 
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-- 
+--~~~~~~~~~~~~~~~~~~~ MIPS Components ~~~~~~~~~~~~~~~~~~~--  
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-- 
+  
    IFE : Ifetch
 	PORT MAP (	Instruction_out => Instruction_2ID,
 				Pre_Instruction => Instruction,
@@ -232,203 +232,55 @@ BEGIN
 				PC_out 			=> PC,        		
 				clock 			=> clock,  
 				reset 			=> reset );
-				
-	DELAY_BUBBLE: DELAY_REG
-	GENERIC MAP ( N => 1, M=>2 )
-	PORT MAP (
-				reset => reset,
-				clock =>clock,
-				data_in => bubble_delay,  --make signal
-				data_out => bubble_in_decode
-	);
-				
-   IF2ID_instruction: Ndff
-    GENERIC MAP ( N => 32)
-	PORT MAP (	d 				=> Instruction_2ID,
-				clk				=> clock,
-				rst				=> reset,
-				q				=> Instruction );
-				
-	PC_PLUS_4_2ID_REG: Ndff
-    GENERIC MAP ( N => 32)
-	PORT MAP (	d 				=> PC_plus_4_2ID,
-				clk				=> clock,
-				rst				=> reset,
-				q				=> PC_plus_4 );
-				
+					
 
    ID : Idecode
-   	PORT MAP (	read_data_1 	 => read_data_1_2EXE,
-        		read_data_2 	 => read_data_2_2EXE,
-        		Instruction 	 => Instruction,
-				write_data 		 => write_data,
-				PC_plus_4  		 => PC_plus_4,
-				bubble_out		 => bubble_in_decode(0),
-				bubble_data		 => read_data_2WB,
-				RegWrite 		 => RegWrite,
-				RegDst 			 => RegDst,
-				Sign_extend 	 => Sign_extend_2EXE,
-				ALU_result		 => ALU_Result_int,
-				Add_Result 		 => Add_Result,
-				Zero 			 => Zero,
-        		clock 			 => clock,				
-				reset 			 => reset );
+   	PORT MAP (	read_data_1 	=> read_data_1_2EXE,
+        		read_data_2 	=> read_data_2_2EXE,
+        		Instruction 	=> Instruction,
+				write_data 		=> write_data,
+				PC_plus_4  		=> PC_plus_4,
+				bubble_out		=> bubble_in_decode(0),
+				bubble_data		=> read_data_2WB,
+				RegWrite 		=> RegWrite,
+				RegDst 			=> RegDst,
+				Sign_extend 	=> Sign_extend_2EXE,
+				ALU_result		=> ALU_Result_int,
+				Add_Result 		=> Add_Result,
+				Zero 			=> Zero,
+        		clock 			=> clock,				
+				reset 			=> reset );
 				
-	
-	
-   ID2EXE_SIGN_EXTEND: Ndff
-	GENERIC MAP ( N => 32 )
-	PORT MAP (	d 				=> Sign_extend_2EXE,
-				clk				=> clock,
-				rst				=> reset,
-				q				=> Sign_extend );
-   ID2EXE_READ_DATA_1: Ndff
-	GENERIC MAP ( N => 32 )
-	PORT MAP (	d 				=> read_data_1_2EXE,
-				clk				=> clock,
-				rst				=> reset,
-				q				=> read_data_1 );
-
-   ID2EXE_READ_DATA_2: Ndff
-	GENERIC MAP ( N => 32 )
-	PORT MAP (	d 				=> read_data_2_2EXE,
-				clk				=> clock,
-				rst				=> reset,
-				q				=> read_data_2 );
-				
-	ID2MEM_READ_DATA_2: Ndff
-	GENERIC MAP ( N => 32 )
-	PORT MAP (	d 				=> read_data_2,
-				clk				=> clock,
-				rst				=> reset,
-				q				=> mem_write_data );
 
    CTL:   control
 	PORT MAP ( 	Opcode 			=> Instruction( 31 DOWNTO 26 ),
 				RegDst 			=> RegDst,
-				ALUSrc 			=> ALUSrc_reg,--changed
-				MemtoReg 		=> MemtoReg_reg,--changed
-				RegWrite 		=> RegWrite_reg,--changed by amit
-				--RegWrite 		=> RegWrite,
-				MemRead 		=> MemRead_reg, -- changed
-				MemWrite 		=> MemWrite_reg,    --changed
+				ALUSrc 			=> ALUSrc_reg,
+				MemtoReg 		=> MemtoReg_reg,
+				RegWrite 		=> RegWrite_reg,
+				MemRead 		=> MemRead_reg, 
+				MemWrite 		=> MemWrite_reg,    
 				Branch 			=> Branch,
-				ALUop 			=> ALUop_reg, -- chagned
+				ALUop 			=> ALUop_reg,
                 clock 			=> clock,
 				reset 			=> reset );
-	
-	
-	
-	DELAY_TEST: DELAY_REG
-	GENERIC MAP ( N => 1, M=>2 )
-	PORT MAP (
-				reset => reset,
-				clock =>clock,
-				data_in => LOGIC_ONE,  --make signal
-				data_out => TEST_OUT
-	);
-	
-	
-	DELAY_ALU_SRC: DELAY_REG
-	GENERIC MAP ( N => 1, M=>1 )
-	PORT MAP (
-				reset => reset,
-				clock =>clock,
-				data_in => ALUSrc_reg2delay,  --make signal
-				data_out => ALUSrc_delay2reg
-	);
-	
-	DELAY_MEM_TO_REG: DELAY_REG
-	GENERIC MAP ( N => 1, M=>3 )
-	PORT MAP (
-				reset => reset,
-				clock =>clock,
-				data_in => MemtoReg_reg2delay,  --make signal
-				data_out => MemtoReg_delay2reg
-	);
-	
-	DELAY_MEM_READ: DELAY_REG
-	GENERIC MAP ( N => 1, M=>2 )
-	PORT MAP (
-				reset => reset,
-				clock =>clock,
-				data_in => MemRead_reg2delay,  --make signal
-				data_out => MemRead_delay2reg
-	);
-		DELAY_MEM_WRITE: DELAY_REG
-	GENERIC MAP ( N => 1, M=>2 )
-	PORT MAP (
-				reset => reset,
-				clock =>clock,
-				data_in => MemWrite_reg2delay,  --make signal
-				data_out => MemWrite_delay2reg
-	);
-	
-		DELAY_ALU_OP: DELAY_REG
-	GENERIC MAP ( N => 2, M=>1 )
-	PORT MAP (
-				reset => reset,
-				clock =>clock,
-				data_in => ALUop_reg,  --make signal
-				data_out => ALUop
-	);
-	
-	-----------amit's stuff-------------
-	--here we should make it so if the command that was givven is load  we want to use this line only at the write back stage
-	DELAY_REG_WRITE: DELAY_REG
-	GENERIC MAP ( N => 1, M=>3 )
-	PORT MAP (
-				reset => reset,
-				clock =>clock,
-				data_in => RegWrite_reg2delay,  --make signal
-				data_out => RegWrite_delay2reg
-	);
-	
-	DELAY_FUNCTION_OPCODE: DELAY_REG
-	GENERIC MAP ( N => 6, M=>1 )
-	PORT MAP (
-				reset => reset,
-				clock =>clock,
-				data_in => Instruction(5 downto 0),  --make signal
-				data_out => Function_opcode_delay
-	);
-	-----------amit's stuff-------------
-	
 
-   
-   
+  
    EXE:  Execute
    	PORT MAP (	Read_data_1 	=> read_data_1,
              	Read_data_2 	=> read_data_2,
 				Sign_extend 	=> Sign_extend,
-                --Function_opcode	=> Instruction( 5 DOWNTO 0 ),
-				Function_opcode 	=> Function_opcode_delay(5 DOWNTO 0),--change by amit to gie the execute unit the right instruction at the right time
+                Function_opcode => Function_opcode_delay(5 DOWNTO 0),
 				ALUOp 			=> ALUop,
 				ALUSrc 			=> ALUSrc,
-				--Zero 			=> Zero,
-                ALU_Result		=> ALU_Result_int,
-				--Add_Result 	=> Add_Result_int,
-				--PC_plus_4		=> PC_plus_4,
-                Clock			=> clock,
+				ALU_Result		=> ALU_Result_int,
+				Clock			=> clock,
 				Reset			=> reset );
    
-   EXE_ALU_RES: Ndff
-    GENERIC MAP ( N => 32 )
-	PORT MAP (	d 				=> ALU_Result_int,
-				clk				=> clock,
-				rst				=> reset,
-				q				=> ALU_Result );
-  
-  -- EXE_ADD_RES: Ndff
-   -- GENERIC MAP ( N => 8 )
-	--PORT MAP (	d 				=> Add_Result_int,
-	--			clk				=> clock,
-	--			rst				=> reset,
-	--			q				=> Add_Result );
 
    MEM:  dmemory
 	PORT MAP (	read_data 		=> read_data_2WB,
-				address 		=> ALU_Result (10 DOWNTO 2),--jump memory address by 4
+				address 		=> ALU_Result (10 DOWNTO 2),
 				write_data 		=> mem_write_data,
 				MemRead 		=> MemRead, 
 				Memwrite 		=> MemWrite, 
@@ -443,24 +295,169 @@ BEGIN
                 clock 			=> clock,  
 				reset 			=> reset );
 				
-   READ_DATE_reg: Ndff
-    GENERIC MAP ( N => 32 )
-	PORT MAP (	d 				=> read_data_2WB,
-				clk				=> clock,
-				rst				=> reset,
-				q				=> read_data );
-				
-   ALU_RES_2WB: Ndff
-    GENERIC MAP ( N => 32 )
-	PORT MAP (	d 				=> ALU_Result,
-				clk				=> clock,
-				rst				=> reset,
-				q				=> ALU_Result_2WB );
+
    W_BACK: WBACK
 	PORT MAP ( 	ALU_result		=> ALU_Result_2WB,
 				read_data		=> read_data,
 				write_data		=> write_data,
 				MemtoReg		=> MemtoReg );
 	
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-- 
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-- 
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-- 	
+	
+	
+--~~~~~~~~~~~~~~~~~ Pipeline Registers ~~~~~~~~~~~~~~~~~--
+
+--======================================================--
+--==================== IFetch Input ====================--
+--======================================================--
+	
+   IF2ID_instruction: Ndff
+    GENERIC MAP ( N => 32 )
+	PORT MAP (	d 			=> Instruction_2ID,
+				clk			=> clock,
+				rst			=> reset,
+				q			=> Instruction ); --goes to Idecode & control too
+				
+   PC_PLUS_4_2ID_REG: Ndff
+    GENERIC MAP ( N => 32 )
+	PORT MAP (	d 			=> PC_plus_4_2ID,
+				clk			=> clock,
+				rst			=> reset,
+				q			=> PC_plus_4 );
+				
+--======================================================--				
+--==================== Decode Input ====================--
+--======================================================--
+
+   DELAY_BUBBLE: DELAY_REG
+	GENERIC MAP ( N => 1 , M => 2 )
+	PORT MAP (
+				reset 		=> reset,
+				clock 		=> clock,
+				data_in 	=> bubble_delay, 
+				data_out 	=> bubble_in_decode );
+				
+   DELAY_REG_WRITE: DELAY_REG
+	GENERIC MAP ( N => 1 , M => 3 )
+	PORT MAP (
+				reset 		=> reset,
+				clock 		=> clock,
+				data_in 	=> RegWrite_reg2delay, 
+				data_out 	=> RegWrite_delay2reg ); -- RegWrite
+	
+--======================================================--
+--=================== Execute Input ====================--
+--======================================================--
+
+   ID2EXE_SIGN_EXTEND: Ndff
+	GENERIC MAP ( N => 32 )
+	PORT MAP (	d 			=> Sign_extend_2EXE,
+				clk			=> clock,
+				rst			=> reset,
+				q			=> Sign_extend );
+   ID2EXE_READ_DATA_1: Ndff
+	GENERIC MAP ( N => 32 )
+	PORT MAP (	d 			=> read_data_1_2EXE,
+				clk			=> clock,
+				rst			=> reset,
+				q			=> read_data_1 );
+
+   ID2EXE_READ_DATA_2: Ndff
+	GENERIC MAP ( N => 32 )
+	PORT MAP (	d 			=> read_data_2_2EXE,
+				clk			=> clock,
+				rst			=> reset,
+				q			=> read_data_2 );
+				
+   DELAY_ALU_OP: DELAY_REG
+	GENERIC MAP ( N => 2 , M => 1 )
+	PORT MAP (
+				reset 		=> reset,
+				clock 		=> clock,
+				data_in 	=> ALUop_reg, 
+				data_out 	=> ALUop );
+				
+   DELAY_FUNCTION_OPCODE: DELAY_REG
+	GENERIC MAP ( N => 6 , M => 1 )
+	PORT MAP (
+				reset 		=> reset,
+				clock 		=> clock,
+				data_in 	=> Instruction(5 downto 0), 
+				data_out 	=> Function_opcode_delay );	
+
+   DELAY_ALU_SRC: DELAY_REG
+	GENERIC MAP ( N => 1 , M => 1 )
+	PORT MAP (
+				reset 	  	=> reset,
+				clock 	  	=> clock,
+				data_in   	=> ALUSrc_reg2delay,  
+				data_out  	=> ALUSrc_delay2reg ); -- ALUsrc				
+				
+--======================================================--				
+--=================== Dmemory Input ====================--
+--======================================================--
+
+   EXE_ALU_RES: Ndff
+    GENERIC MAP ( N => 32 )
+	PORT MAP (	d 			=> ALU_Result_int,
+				clk			=> clock,
+				rst			=> reset,
+				q			=> ALU_Result );
+
+	DELAY_MEM_READ: DELAY_REG
+	GENERIC MAP ( N => 1, M=>2 )
+	PORT MAP (
+				reset 		=> reset,
+				clock 		=> clock,
+				data_in 	=> MemRead_reg2delay,  
+				data_out 	=> MemRead_delay2reg ); --MemRead
+
+   DELAY_MEM_WRITE: DELAY_REG
+	GENERIC MAP ( N => 1 , M => 2 )
+	PORT MAP (
+				reset 		=> reset,
+				clock 		=> clock,
+				data_in 	=> MemWrite_reg2delay,  
+				data_out 	=> MemWrite_delay2reg ); -- MemWrite
+
+   ID2MEM_READ_DATA_2: Ndff
+	GENERIC MAP ( N => 32 )
+	PORT MAP (	d 			=> read_data_2,
+				clk			=> clock,
+				rst			=> reset,
+				q			=> mem_write_data );
+
+--======================================================--				
+--================== WriteBack Input ===================--
+--======================================================--
+
+   READ_DATE_reg: Ndff
+    GENERIC MAP ( N => 32 )
+	PORT MAP (	d 			=> read_data_2WB,
+				clk			=> clock,
+				rst			=> reset,
+				q			=> read_data );
+
+   ALU_RES_2WB: Ndff
+    GENERIC MAP ( N => 32 )
+	PORT MAP (	d 			=> ALU_Result,
+				clk			=> clock,
+				rst			=> reset,
+				q			=> ALU_Result_2WB );
+				
+   DELAY_MEM_TO_REG: DELAY_REG
+	GENERIC MAP ( N => 1 , M => 3 )
+	PORT MAP (
+				reset 		=> reset,
+				clock 		=> clock,
+				data_in 	=> MemtoReg_reg2delay, 
+				data_out 	=> MemtoReg_delay2reg ); -- MemtoReg				
+				
+--======================================================--
+--======================================================--
+--======================================================--
+
 END structure;
 
