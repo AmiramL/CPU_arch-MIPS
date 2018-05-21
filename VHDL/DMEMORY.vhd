@@ -38,6 +38,16 @@ END dmemory;
 
 ARCHITECTURE behavior OF dmemory IS
 
+COMPONENT Ndff_en 
+generic ( N: integer := 8);
+port (	
+		d: 	  		in std_logic_vector(N-1 downto 0);
+		clk:		in std_logic;
+		en:			in std_logic;
+		rst:		in std_logic;
+		q: 			out std_logic_vector(N-1 downto 0));
+end COMPONENT;
+
 COMPONENT BCD 
 port ( 	Binary: 	in  std_logic_vector(3 downto 0);
 		En:			in  std_logic;
@@ -46,12 +56,12 @@ end COMPONENT;
 
 SIGNAL write_clock : STD_LOGIC;
 
-SIGNAL the_one,the_zero,ssg_en,led_en,buttons_switches_en,memwrite_en : STD_LOGIC;
-SIGNAL the_one_add	:	STD_LOGIC_VECTOR ( 0 downto 0 );
+SIGNAL the_one,ssg_en,led_en,memwrite_en : STD_LOGIC;
 
-SIGNAL buttons_switches : STD_LOGIC_VECTOR ( 31 downto 0 );
-signal LEDS_MAP 		: STD_LOGIC_VECTOR ( 31 downto 0 );
-SIGNAL SEVEN_SEG_MAP	: STD_LOGIC_VECTOR ( 31 downto 0 );
+SIGNAL buttons_switches : STD_LOGIC_VECTOR ( 17 downto 0 );
+SIGNAL buttons_data		: STD_LOGIC_VECTOR ( 17 downto 0 );
+signal LEDS_MAP 		: STD_LOGIC_VECTOR ( 17 downto 0 );
+SIGNAL SEVEN_SEG_MAP	: STD_LOGIC_VECTOR ( 15 downto 0 );
 SIGNAL mem_read_data	: STD_LOGIC_VECTOR ( 31 downto 0 );
 
 
@@ -60,10 +70,10 @@ BEGIN
 	GENERIC MAP  (
 		operation_mode => "SINGLE_PORT",
 		width_a => 32,
-		widthad_a => 8,
+		widthad_a => 9,
 		lpm_type => "altsyncram",
 		outdata_reg_a => "UNREGISTERED",
-		init_file => "dmemory.hex",
+		init_file => "../CODE/dmemory.hex",
 		intended_device_family => "Cyclone"
 	)
 	PORT MAP (
@@ -75,65 +85,38 @@ BEGIN
 		
 	
 	the_one  <= '1';
-	the_one_add <= "1";
-	the_zero <= '0';
+	
 	
 	buttons_switches( 3  DOWNTO 0 ) <= KEY ;
-	buttons_switches( 17 DOWNTO 8 ) <= SW;
+	buttons_switches( 7  DOWNTO 4 ) <= (others => '0') ;
+	buttons_switches( 17 DOWNTO 8 ) <= SW ;
+	
 	LEDG <= LEDS_MAP(  7 DOWNTO 0 );
 	LEDR <= LEDS_MAP( 17 DOWNTO 8 );
 	
+	LEDREG: Ndff_en
+			generic map ( 18 )
+			port map(	d 	 => write_data( 17 downto 0 ),
+						clk	 => clock,
+						en	 => led_en,
+						rst  => reset,
+						q 	 => LEDS_MAP );
+			
+	SSG_REG: Ndff_en
+			generic map ( 16 )
+			port map(	d 	 => write_data( 15 downto 0 ),
+						clk	 => clock,
+						en	 => ssg_en,
+						rst  => reset,
+						q 	 => SEVEN_SEG_MAP );
 	
-	PUSH_BUTTONS_AND_SWITCHES : altsyncram
-	GENERIC MAP  (
-		operation_mode => "SINGLE_PORT",
-		width_a => 32,
-		widthad_a => 1,
-		lpm_type => "altsyncram",
-		outdata_reg_a => "UNREGISTERED",
-		intended_device_family => "Cyclone"
-	)
-	PORT MAP (
-		wren_a => the_zero,
-		rden_a => buttons_switches_en,
-		clock0 => write_clock,
-		address_a => the_one_add,
-		data_a => write_data,
-		q_a => buttons_switches	);
-	
-	LEDS_MEM : altsyncram
-	GENERIC MAP  (
-		operation_mode => "SINGLE_PORT",
-		width_a => 32,
-		widthad_a => 1,
-		lpm_type => "altsyncram",
-		outdata_reg_a => "UNREGISTERED",
-		intended_device_family => "Cyclone"
-	)
-	PORT MAP (
-		wren_a => led_en,
-		rden_a => the_one,
-		clock0 => write_clock,
-		address_a => the_one_add,
-		data_a => write_data,
-		q_a => LEDS_MAP	);
-		
-	SEVEN_SEG_MEM : altsyncram
-	GENERIC MAP  (
-		operation_mode => "SINGLE_PORT",
-		width_a => 32,
-		widthad_a => 1,
-		lpm_type => "altsyncram",
-		outdata_reg_a => "UNREGISTERED",
-		intended_device_family => "Cyclone"
-	)
-	PORT MAP (
-		wren_a => ssg_en,
-		rden_a => the_one,
-		clock0 => the_one,
-		address_a => the_one_add,
-		data_a => write_data,
-		q_a => SEVEN_SEG_MAP	);
+	BUTTONS_REG: Ndff_en
+			generic map ( 18 )
+			port map(	d 	 => buttons_switches,
+						clk	 => clock,
+						en	 => the_one,
+						rst  => reset,
+						q 	 => buttons_data );
 		
 		
 		-- Load memory address register with write clock.
@@ -163,36 +146,33 @@ BEGIN
 		Hex_out => Seven_Seg3 );
 	
 		
-	PROCESS(address, SEVEN_SEG_MAP, LEDS_MAP, buttons_switches, mem_read_data, Memwrite)
+	PROCESS(address, SEVEN_SEG_MAP, LEDS_MAP, buttons_switches, buttons_data, mem_read_data, Memwrite)
 	BEGIN
 		if address(8) = '0' then
 			memwrite_en <= Memwrite;
 			ssg_en <= '0';
 			led_en <= '0';
-			buttons_switches_en <= '0';
 			read_data <= mem_read_data;
 		else
 			memwrite_en <= '0';
 			CASE address( 7 downto 0 ) IS
 				WHEN X"00" =>	ssg_en <= '1'; 
 								led_en <= '0';
-								buttons_switches_en <= '0';
-								read_data <= SEVEN_SEG_MAP;
+								read_data <= X"0000" & SEVEN_SEG_MAP;
 				WHEN X"01" =>	ssg_en <= '0';
 								led_en <= '1';
-								buttons_switches_en <= '0';
-								read_data <= LEDS_MAP;
+								read_data <= X"000" & B"00" & LEDS_MAP;
 				WHEN X"02" =>	ssg_en <= '0';
 								led_en <= '0';
-								buttons_switches_en <= '1';
-								read_data <= buttons_switches;
+								read_data <= X"000" & B"00" & buttons_data;
 				WHEN OTHERS =>  ssg_en <= '0';
 								led_en <= '0';
-								buttons_switches_en <= '0';
 								read_data <= (others => '0');
 			END CASE;
 		END if;
 	END PROCESS;
+	
+	--telecal@cal-online.co.il
 	
 END behavior;
 
