@@ -11,7 +11,6 @@ end floating_point_adder;
 
 architecture fp_arch of floating_point_adder is
 
-<<<<<<< HEAD
 --component SHIFT_top is 
 --generic ( N: integer := 8);
 --port (		a: 			in std_logic_vector(N-1 downto 0);
@@ -29,25 +28,6 @@ architecture fp_arch of floating_point_adder is
 --end component;
 
 
-=======
-component SHIFT_top is 
-generic ( N: integer := 8);
-port (		a: 			in std_logic_vector(N-1 downto 0);
-				cnt:		in std_logic_vector(5 downto 0);
-				Right_Left: in std_logic;
-				o: 			out std_logic_vector(N-1 downto 0));
-end component;
-
-component Nbit_mux2 is 
-generic ( N: integer := 8);
-port (	i_0: in std_logic_vector(N-1 downto 0); 
-			i_1: in std_logic_vector(N-1 downto 0); 
-			s: in std_logic; 
-			o: out std_logic_vector(N-1 downto 0));
-end component;
-
-signal the_one: std_logic := '1';
->>>>>>> 3200eb54e4fb0f976dc79b1c6ff628a9495f8dfa
 
 
 signal A_exp:		std_logic_vector(9 downto 0);
@@ -71,21 +51,14 @@ signal man_abs2norm:	std_logic_vector(25 downto 0);
 signal man_sub:			std_logic;
 signal man_sel:			std_logic;
 
-<<<<<<< HEAD
 signal shift_man_1,shift_man_2,shift_man_3,shift_man_4,shift_man_5 :		std_logic_vector(25 downto 0);
 
-=======
->>>>>>> 3200eb54e4fb0f976dc79b1c6ff628a9495f8dfa
 signal sign_out:		std_logic;
 
 begin
 --exp_const <= "0000000000";
 --man_const <= "00000000000000000000000000";
-<<<<<<< HEAD
 
-=======
-the_one <= '1';
->>>>>>> 3200eb54e4fb0f976dc79b1c6ff628a9495f8dfa
 
 A_exp(7 downto 0) <= A(30 downto 23);
 A_exp(9 downto 8) <= "00";
@@ -95,7 +68,6 @@ B_exp(9 downto 8) <= "00";
 	
 --exp_subber: Nbit_add_sub 	generic map (5)
 --							port map ( A_exp, B_exp, the_one, exp_sub_res );
-<<<<<<< HEAD
 --process(A_exp, B_exp)
 	--begin
 		exp_sub_res <= conv_std_logic_vector(unsigned(A_exp)-unsigned(B_exp), 10);
@@ -117,33 +89,12 @@ B_exp(9 downto 8) <= "00";
 --							port map ( A_exp( 7 downto 0), B_exp(7 downto 0), exp_sub_res(9), exp_out);
 							
 							exp_out <= A_exp( 7 downto 0) when exp_sub_res(9) = '0' else B_exp(7 downto 0);
-=======
-process(A_exp, B_exp)
-	begin
-		exp_sub_res <= conv_std_logic_vector(unsigned(A_exp)-unsigned(B_exp), 10);
-end process;
-
---EXP_DIFF_c:	Nbit_add_sub 	generic map (5)
---							port map ( exp_const, exp_sub_res, exp_sub_res(9), exp_diff);
-process(exp_sub_res)
-	begin
-	if exp_sub_res(9) = '1' then
-		exp_diff <= conv_std_logic_vector(0-conv_integer(signed(exp_sub_res)), 10);
-	else
-		exp_diff <= exp_sub_res;
-	end if;
-end process;
-							
-EXP_SELECT: Nbit_mux2 		generic map (8)
-							port map ( A_exp( 7 downto 0), B_exp(7 downto 0), exp_sub_res(9), exp_out);
->>>>>>> 3200eb54e4fb0f976dc79b1c6ff628a9495f8dfa
 							
 A_man(22 downto 0)  <= A(22 downto 0);
 A_man(25 downto 23) <= "001";
 B_man(22 downto 0)  <= B(22 downto 0);
 B_man(25 downto 23) <= "001";
 
-<<<<<<< HEAD
 --SWAP_MUX_L: Nbit_mux2 		generic map (26)
 --							port map ( A_man, B_man, exp_sub_res(9), big_man);
 							
@@ -164,16 +115,6 @@ B_man(25 downto 23) <= "001";
 							shift_man_5 <= X"0000" & shift_man_4(25 downto 16)  when exp_diff(4) = '1' else shift_man_4;
 							small_man_s <= B"00" & X"000000" when  exp_diff(5) = '1' OR exp_diff(6) = '1' else shift_man_5;
 							
-=======
-SWAP_MUX_L: Nbit_mux2 		generic map (26)
-							port map ( A_man, B_man, exp_sub_res(9), big_man);
-
-SWAP_MUX_R: Nbit_mux2 		generic map (26)
-							port map ( B_man, A_man, exp_sub_res(9), small_man);
-
-SMALL_MAN_SHIFT: SHIFT_top	generic map (26)
-							port map ( small_man, exp_diff(5 downto 0),the_one, small_man_s);
->>>>>>> 3200eb54e4fb0f976dc79b1c6ff628a9495f8dfa
 			
 MAN2ADDER: for i in 0 to 25 generate
 	small_man2add(i) <= small_man_s(i) and (not (exp_diff(6) or exp_diff(7)));
@@ -186,7 +127,6 @@ sign_out <= (A(31) and B(31)) or (man_sub and man_signed(25));
 
 man_sel <= man_sub and ((A(31) and exp_sub_res(9)) OR (B(31) and (not exp_sub_res(9))));
 
-<<<<<<< HEAD
 --ADD_MUX_2: Nbit_mux2 		generic map (26)
 --							port map ( small_man2add, big_man, man_sel, man2add_1);
 							
@@ -223,36 +163,6 @@ man_sel <= man_sub and ((A(31) and exp_sub_res(9)) OR (B(31) and (not exp_sub_re
 --end process;
 	
 	man_abs2norm <= conv_std_logic_vector(0-conv_integer(signed(man_signed)), 26) when man_signed(25) = '1' else man_signed;
-=======
-ADD_MUX_2: Nbit_mux2 		generic map (26)
-							port map ( small_man2add, big_man, man_sel, man2add_1);
-
-ADD_MUX_1: Nbit_mux2 		generic map (26)
-							port map ( big_man, small_man2add, man_sel, man2add_2);
-							
-							
---MAN_ADDER: Nbit_add_sub 	generic map (13)
---							port map ( man2add_1, man2add_2, man_sub, man_signed);
-process(man2add_1, man2add_2, man_sub)
-	begin
-	if man_sub = '1' then
-		man_signed <= conv_std_logic_vector(signed(man2add_1)-signed(man2add_2), 26);
-	else
-		man_signed <= conv_std_logic_vector(signed(man2add_1)+signed(man2add_2), 26);
-	end if;
-end process;
-
---MAN_ABS: Nbit_add_sub		generic map (13)
---							port map ( man_const ,man_signed, man_signed(25), man_abs2norm);
-process( man_signed)
-	begin
-	if man_signed(25) = '1' then
-		man_abs2norm <= conv_std_logic_vector(0-conv_integer(signed(man_signed)), 26);
-	else
-		man_abs2norm <= man_signed;
-	end if;
-end process;
->>>>>>> 3200eb54e4fb0f976dc79b1c6ff628a9495f8dfa
 
 
 process (man_signed(25), man_abs2norm, sign_out, exp_out)

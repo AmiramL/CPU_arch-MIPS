@@ -2,22 +2,22 @@ m255
 K3
 13
 cModel Technology
-Z0 dC:\Users\amitb\Desktop\ass3\project_main\Quartus\simulation\modelsim
+Z0 dC:\Users\amitb\Desktop\ass3\CPU_arch-MIPS\Quartus\simulation\modelsim
 Ebcd
 Z1 w1526390989
 Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
-Z4 dC:\Users\amitb\Desktop\ass3\project_main\Quartus\simulation\modelsim
-Z5 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/BCD.vhd
-Z6 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/BCD.vhd
+Z4 dC:\Users\amitb\Desktop\ass3\CPU_arch-MIPS\Quartus\simulation\modelsim
+Z5 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/BCD.vhd
+Z6 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/BCD.vhd
 l0
 L5
 VbW_G3>BEfn2:=?V2[bgWO0
 Z7 OV;C;10.1b;51
 31
-Z8 !s108 1526801760.725000
-Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/BCD.vhd|
-Z10 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/BCD.vhd|
+Z8 !s108 1527013305.768000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/BCD.vhd|
+Z10 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/BCD.vhd|
 Z11 o-93 -work work -O0
 Z12 tExplicit 1
 !s100 EalElQjZfkB[nO8MLG5DB1
@@ -45,16 +45,16 @@ Z14 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
 R2
 R3
 R4
-Z15 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/CONTROL.vhd
-Z16 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/CONTROL.vhd
+Z15 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/CONTROL.vhd
+Z16 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/CONTROL.vhd
 l0
 L7
 Vj;YXj`;WgM@61FI0gmJUM0
 R7
 31
-Z17 !s108 1526801761.511000
-Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/CONTROL.vhd|
-Z19 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/CONTROL.vhd|
+Z17 !s108 1527013306.909000
+Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/CONTROL.vhd|
+Z19 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/CONTROL.vhd|
 R11
 R12
 !s100 h:Teo=hP74=;3ngFZ>D`e0
@@ -83,16 +83,16 @@ R14
 R2
 R3
 R4
-Z20 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/DELAY_REG.vhd
-Z21 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/DELAY_REG.vhd
+Z20 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/DELAY_REG.vhd
+Z21 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/DELAY_REG.vhd
 l0
 L17
 V[JFK?AQT;cJKKW48:mQ^F1
 R7
 31
-Z22 !s108 1526801760.827000
-Z23 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/DELAY_REG.vhd|
-Z24 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/DELAY_REG.vhd|
+Z22 !s108 1527013305.885000
+Z23 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/DELAY_REG.vhd|
+Z24 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/DELAY_REG.vhd|
 R11
 R12
 !s100 S:W0z9??Ki]zfW^nkL[`K1
@@ -114,22 +114,59 @@ R11
 R12
 !s100 2HTR`9TUO50HmYofoHR?X3
 !i10b 1
-Edffi
-R1
+Edff_en
+Z25 w1526985940
 R14
 R2
 R3
 R4
-Z25 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/dff.vhd
-Z26 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/dff.vhd
+Z26 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/dff_en.vhd
+Z27 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/dff_en.vhd
+l0
+L5
+V7j=7@R:X_he^VQYMKmZb^1
+R7
+31
+Z28 !s108 1527013305.330000
+Z29 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/dff_en.vhd|
+Z30 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/dff_en.vhd|
+R11
+R12
+!s100 7H^BGYPJJmlL:f^a;d6?g0
+!i10b 1
+Adff_behavioral
+R14
+R2
+R3
+DEx4 work 6 dff_en 0 22 7j=7@R:X_he^VQYMKmZb^1
+l16
+L14
+VNP_Z[[Egfa=o_kJAaWdDk2
+R7
+31
+R28
+R29
+R30
+R11
+R12
+!s100 CEXQ?z1:D8EQCLdL@@KIg2
+!i10b 1
+Edffi
+Z31 w1526996519
+R14
+R2
+R3
+R4
+Z32 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/dff.vhd
+Z33 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/dff.vhd
 l0
 L5
 VHS;=I3gZdWbT==TDCN[_@2
 R7
 31
-Z27 !s108 1526801760.339000
-Z28 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/dff.vhd|
-Z29 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/dff.vhd|
+Z34 !s108 1527013305.432000
+Z35 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/dff.vhd|
+Z36 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/dff.vhd|
 R11
 R12
 !s100 O;h`?[OeEGRHk1Yaci^CG1
@@ -141,48 +178,7 @@ R3
 DEx4 work 4 dffi 0 22 HS;=I3gZdWbT==TDCN[_@2
 l15
 L13
-V<000[n3o^?IKGh?i_^@@g2
-R7
-31
-R27
-R28
-R29
-R11
-R12
-!s100 l@^k939AY[fQ3j`gS7;??2
-!i10b 1
-Edmemory
-Z30 w1526801497
-Z31 DPx9 altera_mf 20 altera_mf_components 0 22 ^IX6G>H7:I6bRMgMQQ0UY1
-R13
-R14
-R2
-R3
-R4
-Z32 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/DMEMORY.vhd
-Z33 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/DMEMORY.vhd
-l0
-L23
-V7IBeekQ59TlVOFMdKh]8a2
-R7
-31
-Z34 !s108 1526801761.401000
-Z35 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/DMEMORY.vhd|
-Z36 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/DMEMORY.vhd|
-R11
-R12
-!s100 Pc0JLR>Y7Ed5<2_Oln[zd2
-!i10b 1
-Abehavior
-R31
-R13
-R14
-R2
-R3
-DEx4 work 7 dmemory 0 22 7IBeekQ59TlVOFMdKh]8a2
-l58
-L39
-VhRJM7c_lGjFMUK59ka]EE3
+V24:T^7jL0=QXBDgZ7d@UH3
 R7
 31
 R34
@@ -190,179 +186,402 @@ R35
 R36
 R11
 R12
-!s100 k=X[J=OWQh6bg0>]a7FF@2
+!s100 e@k@0kinKzhQNdCTQY1Yh1
+!i10b 1
+Edmemory
+Z37 w1527012450
+Z38 DPx9 altera_mf 20 altera_mf_components 0 22 ^IX6G>H7:I6bRMgMQQ0UY1
+R13
+R14
+R2
+R3
+R4
+Z39 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/DMEMORY.vhd
+Z40 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/DMEMORY.vhd
+l0
+L23
+Vb0o7Q[`I=z1L<MFI;Q3El2
+R7
+31
+Z41 !s108 1527013306.785000
+Z42 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/DMEMORY.vhd|
+Z43 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/DMEMORY.vhd|
+R11
+R12
+!s100 CzYLO7dbhDFkbk^P:P76Q0
+!i10b 1
+Abehavior
+R38
+R13
+R14
+R2
+R3
+DEx4 work 7 dmemory 0 22 b0o7Q[`I=z1L<MFI;Q3El2
+l70
+L36
+Vm7N[XEofPD^CO4A:eMPiW0
+R7
+31
+R41
+R42
+R43
+R11
+R12
+!s100 ?i@3fE_>^94?Y7g<;MoBi3
 !i10b 1
 Eexecute
-R1
+Z44 w1526838380
 R13
 R14
 R2
 R3
 R4
-Z37 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/EXECUTE.vhd
-Z38 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/EXECUTE.vhd
+Z45 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/EXECUTE.vhd
+Z46 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/EXECUTE.vhd
 l0
 L8
-V2]hRgaUX`A5FfTA_?iDVo1
+V^?n:Y3RR:jIFNl4ZBVF<I3
 R7
 31
-Z39 !s108 1526801761.201000
-Z40 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/EXECUTE.vhd|
-Z41 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/EXECUTE.vhd|
+Z47 !s108 1527013306.684000
+Z48 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/EXECUTE.vhd|
+Z49 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/EXECUTE.vhd|
 R11
 R12
-!s100 kMzTR<RmJbIATCJe^j@i_2
+!s100 >zH;?MibGF]K>=nhk6G9<2
 !i10b 1
 Abehavior
 R13
 R14
 R2
 R3
-DEx4 work 7 execute 0 22 2]hRgaUX`A5FfTA_?iDVo1
-l27
-L22
-VKJOaGonOeRDd0i2QMV:B90
-R7
-31
-R39
-R40
-R41
-R11
-R12
-!s100 aoicg2nAd<:f1kGbd_]Y31
-!i10b 1
-Eidecode
-Z42 w1526726845
-Z43 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
-R14
-R2
-R3
-R4
-Z44 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/IDECODE.vhd
-Z45 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/IDECODE.vhd
-l0
-L7
-Vn<@[K4aRO?8o2lT@fP[f;1
-R7
-31
-Z46 !s108 1526801761.094000
-Z47 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/IDECODE.vhd|
-Z48 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/IDECODE.vhd|
-R11
-R12
-!s100 4XfiFX??a6=okED97Yjbj3
-!i10b 1
-Abehavior
-R43
-R14
-R2
-R3
-DEx4 work 7 idecode 0 22 n<@[K4aRO?8o2lT@fP[f;1
+DEx4 work 7 execute 0 22 ^?n:Y3RR:jIFNl4ZBVF<I3
 l41
-L19
-VII5Z`_GhWn3Ol5`c0UhPT0
+L22
+Vc4L6f2UXhhU03W<5CeXYZ0
 R7
 31
-R46
 R47
 R48
+R49
 R11
 R12
-!s100 AFXLI@>jojzUYWWW<zL2o1
+!s100 1cBYD>NE1mf94QKa07j2b1
 !i10b 1
-Eifetch
-Z49 w1526801496
-R31
-R43
+Efloating_point_adder
+Z50 w1526974623
 R14
 R2
 R3
 R4
-Z50 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/IFETCH.vhd
-Z51 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/IFETCH.vhd
+Z51 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Floating_point_adder.vhd
+Z52 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Floating_point_adder.vhd
 l0
-L10
-Vkk5Zb:DX_@]nXViLX3WT01
+L5
+V>cOI<I5c12nN8O@QY:LYH1
 R7
 31
-Z52 !s108 1526801760.960000
-Z53 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/IFETCH.vhd|
-Z54 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/IFETCH.vhd|
+Z53 !s108 1527013306.483000
+Z54 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Floating_point_adder.vhd|
+Z55 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Floating_point_adder.vhd|
 R11
 R12
-!s100 HbmRk3Ql1GR?E`c4Rbf^n0
+!s100 eF:LKkV9JC4@^@GaSL0fT0
 !i10b 1
-Abehavior
-R31
-R43
+Afp_arch
 R14
 R2
 R3
-DEx4 work 6 ifetch 0 22 kk5Zb:DX_@]nXViLX3WT01
-l23
-L20
-VhA>ecmL2^aCVMe7X8:9[k2
+DEx4 work 20 floating_point_adder 0 22 >cOI<I5c12nN8O@QY:LYH1
+l58
+L12
+V0EUMVOTUBkg<dbN[jQPdU2
 R7
 31
-R52
 R53
 R54
+R55
 R11
 R12
-!s100 CPfAIiicM54Ab[JecBV4j0
+!s100 hBSWNASN@PADflDZ3D]Pa2
 !i10b 1
-Emips
-Z55 w1526743266
+Efloating_point_mul
+Z56 w1525503028
 R14
 R2
 R3
 R4
-Z56 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/MIPS.vhd
-Z57 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/MIPS.vhd
+Z57 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Floating_point_mul.vhd
+Z58 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Floating_point_mul.vhd
 l0
-L18
-VBnJ<X4ebe0ImVZR;UMhYL0
-!s100 :77Re`C]mUgg@II8@]?YM3
+L5
+V8[i3l2Rz<mT_7oPBD:mcP3
 R7
 31
-!i10b 1
-Z58 !s108 1526801761.619000
-Z59 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/MIPS.vhd|
-Z60 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/MIPS.vhd|
+Z59 !s108 1527013306.357000
+Z60 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Floating_point_mul.vhd|
+Z61 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Floating_point_mul.vhd|
 R11
 R12
+!s100 eHUM]QI24E8^MUAhI[E3C1
+!i10b 1
+Afp_mul
+R14
+R2
+R3
+DEx4 work 18 floating_point_mul 0 22 8[i3l2Rz<mT_7oPBD:mcP3
+l47
+L12
+VAibU@?YAC^_kbM?O4Xcdg0
+R7
+31
+R59
+R60
+R61
+R11
+R12
+!s100 R=?<hQKbMh3l<`9N;<k533
+!i10b 1
+Efloating_point_top
+Z62 w1526975024
+R2
+R3
+R4
+Z63 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/FP_top.vhd
+Z64 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/FP_top.vhd
+l0
+L4
+VLanjhYH]X<k7Mz6;KH]]F2
+R7
+31
+Z65 !s108 1527013306.585000
+Z66 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/FP_top.vhd|
+Z67 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/FP_top.vhd|
+R11
+R12
+!s100 gjkUILYR5[D:QkbinDSZ71
+!i10b 1
+Afp_arch
+R2
+R3
+DEx4 work 18 floating_point_top 0 22 LanjhYH]X<k7Mz6;KH]]F2
+l33
+L12
+VbU;?^Zc^FUaL;=YQ`AS`>0
+R7
+31
+R65
+R66
+R67
+R11
+R12
+!s100 J3;QYnm<;gPAM@l[jKaD31
+!i10b 1
+Eidecode
+Z68 w1526834334
+Z69 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+R14
+R2
+R3
+R4
+Z70 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/IDECODE.vhd
+Z71 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/IDECODE.vhd
+l0
+L7
+V]fHz<2Am]H1TZc@VJ9e1O2
+R7
+31
+Z72 !s108 1527013306.260000
+Z73 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/IDECODE.vhd|
+Z74 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/IDECODE.vhd|
+R11
+R12
+!s100 dRX0Fk0a=C>gZgAYoeD?V3
+!i10b 1
+Abehavior
+R69
+R14
+R2
+R3
+DEx4 work 7 idecode 0 22 ]fHz<2Am]H1TZc@VJ9e1O2
+l72
+L25
+V>9dLLKj5dm`TcK<jQeNz_1
+R7
+31
+R72
+R73
+R74
+R11
+R12
+!s100 >XZE6i?fko<_=k?UXPbV]1
+!i10b 1
+Eifetch
+Z75 w1526833812
+R38
+R69
+R14
+R2
+R3
+R4
+Z76 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/IFETCH.vhd
+Z77 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/IFETCH.vhd
+l0
+L10
+VYJZ6LF661SmZ?bO0Xl8Vk1
+R7
+31
+Z78 !s108 1527013306.139000
+Z79 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/IFETCH.vhd|
+Z80 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/IFETCH.vhd|
+R11
+R12
+!s100 F;fEeN>@Fo_=5J1`CaCfO1
+!i10b 1
+Abehavior
+R38
+R69
+R14
+R2
+R3
+DEx4 work 6 ifetch 0 22 YJZ6LF661SmZ?bO0Xl8Vk1
+l33
+L22
+V[_^A<anO6E@ef]aVbU=P51
+R7
+31
+R78
+R79
+R80
+R11
+R12
+!s100 __XEP9U_7;544@B5i;Xkm1
+!i10b 1
+Emips
+Z81 w1527012594
+R14
+R2
+R3
+R4
+Z82 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/MIPS.vhd
+Z83 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/MIPS.vhd
+l0
+L18
+VC=5e7OB@Um?lb;QOIgFjF0
+R7
+31
+Z84 !s108 1527013307.011000
+Z85 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/MIPS.vhd|
+Z86 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/MIPS.vhd|
+R11
+R12
+!s100 LU>eQgXI[U0kT>@chIQYT2
+!i10b 1
 Astructure
 R14
 R2
 R3
-DEx4 work 4 mips 0 22 BnJ<X4ebe0ImVZR;UMhYL0
-l183
+Z87 DEx4 work 4 mips 0 22 C=5e7OB@Um?lb;QOIgFjF0
+l209
 L37
-V=c`G2;:k[@hd9CNngCH:I0
-!s100 99AO[7kJ=5a`bmz`e6P4c2
+V^A7fVOSSZn_Gl;423n:R_3
+R7
+31
+R84
+R85
+R86
+R11
+R12
+!s100 [<YLJDCNh<H>CdD_99:?U0
+!i10b 1
+Emips_tb
+Z88 w1526999657
+R4
+Z89 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tb_struct.vhd
+Z90 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tb_struct.vhd
+l0
+L11
+VVeHhZ;nYFKL=IVTYB`i0P1
+!s100 i:<^AG_GPcHJfH;X^R@DY1
 R7
 31
 !i10b 1
-R58
-R59
-R60
+Z91 !s108 1527013307.219000
+Z92 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tb_struct.vhd|
+Z93 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tb_struct.vhd|
 R11
 R12
+Astruct
+Z94 DEx4 work 11 mips_tester 0 22 D;>G`]?BQ5Z8:Omzn41]d2
+R87
+DEx4 work 7 mips_tb 0 22 VeHhZ;nYFKL=IVTYB`i0P1
+R14
+R2
+R3
+l98
+L31
+VFHJ94@Com8O[B8`gngBm42
+!s100 K=9Po7_;0ZRG108J6;ijR3
+R7
+31
+!i10b 1
+R91
+R92
+R93
+R11
+R12
+Emips_tester
+Z95 w1526728954
+R14
+R2
+R3
+R4
+Z96 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tester_struct.vhd
+Z97 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tester_struct.vhd
+l0
+L13
+VD;>G`]?BQ5Z8:Omzn41]d2
+R7
+31
+Z98 !s108 1527013307.121000
+Z99 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tester_struct.vhd|
+Z100 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tester_struct.vhd|
+R11
+R12
+!s100 7f>]85mzdR8_=gn;289?H0
+!i10b 1
+Astruct
+R94
+R14
+R2
+R3
+l62
+L47
+VNZ91:6UohFX1UmVLO2MfM2
+R7
+31
+R98
+R99
+R100
+R11
+R12
+!s100 _i@Ea@VG6aE]UQKLMga801
+!i10b 1
 Endff
 R1
 R2
 R3
 R4
-Z61 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/Ndff.vhd
-Z62 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/Ndff.vhd
+Z101 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Ndff.vhd
+Z102 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Ndff.vhd
 l0
 L4
 Va7T2E=IBn`P^[hn32dd7G1
 R7
 31
-Z63 !s108 1526801760.623000
-Z64 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/Ndff.vhd|
-Z65 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/Ndff.vhd|
+Z103 !s108 1527013305.642000
+Z104 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Ndff.vhd|
+Z105 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Ndff.vhd|
 R11
 R12
 !s100 ^VYXLhaYL:bPO5DHa>^[a2
@@ -376,12 +595,47 @@ L13
 V3VgW^ZbCeV:YZX?;@23EO2
 R7
 31
-R63
-R64
-R65
+R103
+R104
+R105
 R11
 R12
 !s100 bcL^GgcGfjjoT^b;[TPK[1
+!i10b 1
+Endff_en
+R1
+R2
+R3
+R4
+Z106 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Ndff_en.vhd
+Z107 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Ndff_en.vhd
+l0
+L4
+V^jJ>XB6daXhQ<M:fgN07l2
+R7
+31
+Z108 !s108 1527013305.534000
+Z109 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Ndff_en.vhd|
+Z110 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Ndff_en.vhd|
+R11
+R12
+!s100 aPT7fH:;>_G017B;l0KkW0
+!i10b 1
+Andff_struct
+R2
+R3
+DEx4 work 7 ndff_en 0 22 ^jJ>XB6daXhQ<M:fgN07l2
+l21
+L14
+V=4PEzj`QX1dC4RK=R02k@3
+R7
+31
+R108
+R109
+R110
+R11
+R12
+!s100 D[dgjkh8_RoEEdSUXl7:C1
 !i10b 1
 Ewback
 R1
@@ -389,16 +643,16 @@ R14
 R2
 R3
 R4
-Z66 8C:/Users/amitb/Desktop/ass3/project_main/VHDL/WBACK.vhd
-Z67 FC:/Users/amitb/Desktop/ass3/project_main/VHDL/WBACK.vhd
+Z111 8C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/WBACK.vhd
+Z112 FC:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/WBACK.vhd
 l0
 L17
 VVNSeZ:@Ig4PcKBZ]7S4AC3
 R7
 31
-Z68 !s108 1526801761.297000
-Z69 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/project_main/VHDL/WBACK.vhd|
-Z70 !s107 C:/Users/amitb/Desktop/ass3/project_main/VHDL/WBACK.vhd|
+Z113 !s108 1527013305.983000
+Z114 !s90 -reportprogress|300|-93|-work|work|C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/WBACK.vhd|
+Z115 !s107 C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/WBACK.vhd|
 R11
 R12
 !s100 i@m1o5;O:SlYP830N46XJ3
@@ -413,9 +667,9 @@ L24
 VS@4f]4CV_O[hQ:@=8_Chz1
 R7
 31
-R68
-R69
-R70
+R113
+R114
+R115
 R11
 R12
 !s100 VbPRMEzTM3SNLQDVme_RU2

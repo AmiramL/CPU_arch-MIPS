@@ -3,6 +3,6 @@
 	<PROJECT NAME="MIPS">
 		<CBX_INST_ENTRY INSTANCE_NAME="|MIPS|Execute:EXE|floating_point_top:FP_inst|floating_point_mul:MULT|lpm_mult:Mult0" CBX_FILE_NAME="mult_p8t.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|MIPS|Ifetch:IFE|altsyncram:inst_memory" CBX_FILE_NAME="altsyncram_r5o3.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|MIPS|dmemory:MEM|altsyncram:data_memory" CBX_FILE_NAME="altsyncram_f9q3.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MIPS|dmemory:MEM|altsyncram:data_memory" CBX_FILE_NAME="altsyncram_e9q3.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

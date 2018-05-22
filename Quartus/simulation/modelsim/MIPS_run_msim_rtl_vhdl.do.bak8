@@ -5,20 +5,18 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vcom -93 -work work {C:/Users/amitb/Desktop/ass3/ex9/rtlMips/dff.vhd}
-vcom -93 -work work {C:/Users/amitb/Desktop/ass3/ex9/rtlMips/Ndff.vhd}
-vcom -93 -work work {C:/Users/amitb/Desktop/ass3/ex9/rtlMips/DELAY_REG.vhd}
-vcom -93 -work work {C:/Users/amitb/Desktop/ass3/ex9/rtlMips/BCD.vhd}
-vcom -93 -work work {C:/Users/amitb/Desktop/ass3/ex9/rtlMips/MIPS.vhd}
-vcom -93 -work work {C:/Users/amitb/Desktop/ass3/ex9/rtlMips/IFETCH.VHD}
-vcom -93 -work work {C:/Users/amitb/Desktop/ass3/ex9/rtlMips/IDECODE.VHD}
-vcom -93 -work work {C:/Users/amitb/Desktop/ass3/ex9/rtlMips/EXECUTE.VHD}
-vcom -93 -work work {C:/Users/amitb/Desktop/ass3/ex9/rtlMips/DMEMORY.VHD}
-vcom -93 -work work {C:/Users/amitb/Desktop/ass3/ex9/rtlMips/CONTROL.VHD}
-vcom -93 -work work {C:/Users/amitb/Desktop/ass3/ex9/rtlMips/WBACK.vhd}
+vcom -93 -work work {C:/Users/avira/Desktop/ASS3/modle files/filees/Lab3-1/ex9/rtlMips/seven_seg_disp.vhd}
+vcom -93 -work work {C:/Users/avira/Desktop/ASS3/modle files/filees/Lab3-1/ex9/rtlMips/IO_Register.vhd}
+vcom -93 -work work {C:/Users/avira/Desktop/ASS3/modle files/filees/Lab3-1/ex9/rtlMips/DFF_for_reg.vhd}
+vcom -93 -work work {C:/Users/avira/Desktop/ASS3/modle files/filees/Lab3-1/ex9/rtlMips/MIPS.vhd}
+vcom -93 -work work {C:/Users/avira/Desktop/ASS3/modle files/filees/Lab3-1/ex9/rtlMips/IFETCH.VHD}
+vcom -93 -work work {C:/Users/avira/Desktop/ASS3/modle files/filees/Lab3-1/ex9/rtlMips/IDECODE.VHD}
+vcom -93 -work work {C:/Users/avira/Desktop/ASS3/modle files/filees/Lab3-1/ex9/rtlMips/EXECUTE.VHD}
+vcom -93 -work work {C:/Users/avira/Desktop/ASS3/modle files/filees/Lab3-1/ex9/rtlMips/DMEMORY.VHD}
+vcom -93 -work work {C:/Users/avira/Desktop/ASS3/modle files/filees/Lab3-1/ex9/rtlMips/CONTROL.VHD}
 
-vcom -93 -work work {C:/Users/amitb/Desktop/ass3/ex9/quartus/../tb/mips_tester_struct.vhd}
-vcom -93 -work work {C:/Users/amitb/Desktop/ass3/ex9/quartus/../tb/mips_tb_struct.vhd}
+vcom -93 -work work {C:/Users/avira/Desktop/ASS3/modle files/filees/Lab3-1/ex9/quartus/../tb/mips_tester_struct.vhd}
+vcom -93 -work work {C:/Users/avira/Desktop/ASS3/modle files/filees/Lab3-1/ex9/quartus/../tb/mips_tb_struct.vhd}
 
 vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs="+acc"  MIPS_tb
 

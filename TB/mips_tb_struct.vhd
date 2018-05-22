@@ -53,36 +53,24 @@ ARCHITECTURE struct OF MIPS_tb IS
    SIGNAL Seven_Seg1 		: STD_LOGIC_VECTOR( 6 downto 0 ):=zero(6 downto 0);
    SIGNAL Seven_Seg2 		: STD_LOGIC_VECTOR( 6 downto 0 ):=zero(6 downto 0);
    SIGNAL    Seven_Seg3 		: STD_LOGIC_VECTOR( 6 downto 0 ):=zero(6 downto 0);
-   SIGNAL SW	 			: STD_LOGIC_VECTOR( 9 downto 0 ):=zero(9 downto 0);
+   SIGNAL SW	 			: STD_LOGIC_VECTOR( 8 downto 0 ):=zero(8 downto 0);
    SIGNAL KEY	 			: STD_LOGIC_VECTOR( 3 downto 0 ):=zero(3 downto 0);
 --$
    -- Component Declarations
    COMPONENT MIPS
    PORT (
-      clock           : IN     STD_LOGIC;
-      reset           : IN     STD_LOGIC;
-      
-      LEDR						: OUT 	STD_LOGIC_VECTOR( 9 downto 0 );
+			reset, clock				: IN 	STD_LOGIC; 
+			LEDR						: OUT 	STD_LOGIC_VECTOR( 9 downto 0 );
 			LEDG						: OUT 	STD_LOGIC_VECTOR( 7 downto 0 );
 			Seven_Seg0					: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
 			Seven_Seg1					: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
 			Seven_Seg2					: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
 			Seven_Seg3					: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
-			SW							: IN 	STD_LOGIC_VECTOR( 9 downto 0 );
-			KEY							: IN 	STD_LOGIC_VECTOR( 3 downto 0 );
+			SW							: IN 	STD_LOGIC_VECTOR( 8 downto 0 );
+			KEY							: IN 	STD_LOGIC_VECTOR( 3 downto 0 ) );
 			
-      ALU_result_out  : OUT    STD_LOGIC_VECTOR ( 31 DOWNTO 0 );
-      Branch_out      : OUT    STD_LOGIC;
-      Instruction_out : OUT    STD_LOGIC_VECTOR ( 31 DOWNTO 0 );
-      Memwrite_out    : OUT    STD_LOGIC;
-      PC              : OUT    STD_LOGIC_VECTOR ( 9 DOWNTO 0 );
-      Regwrite_out    : OUT    STD_LOGIC;
-      Zero_out        : OUT    STD_LOGIC;
-      read_data_1_out : OUT    STD_LOGIC_VECTOR ( 31 DOWNTO 0 );
-      read_data_2_out : OUT    STD_LOGIC_VECTOR ( 31 DOWNTO 0 );
-      write_data_out  : OUT    STD_LOGIC_VECTOR ( 31 DOWNTO 0 )
-   );
    END COMPONENT;
+   
    COMPONENT MIPS_tester
    PORT (
       ALU_result_out  : IN     STD_LOGIC_VECTOR ( 31 DOWNTO 0 );
@@ -121,18 +109,7 @@ BEGIN
           Seven_Seg2 => Seven_Seg2,
           Seven_Seg3 => Seven_Seg3,
           SW	 => SW,
-          KEY	 => KEY,
-         
-         PC              => PC,
-         ALU_result_out  => ALU_result_out,
-         read_data_1_out => read_data_1_out,
-         read_data_2_out => read_data_2_out,
-         write_data_out  => write_data_out,
-         Instruction_out => Instruction_out,
-         Branch_out      => Branch_out,
-         Zero_out        => Zero_out,
-         Memwrite_out    => Memwrite_out,
-         Regwrite_out    => Regwrite_out
+          KEY	 => KEY
       );
    U_1 : MIPS_tester
       PORT MAP (
@@ -149,5 +126,6 @@ BEGIN
          clock           => clock,
          reset           => reset
       );
+
 
 END struct;

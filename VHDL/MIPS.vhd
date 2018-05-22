@@ -24,14 +24,14 @@ ENTITY MIPS IS
 			Seven_Seg1					: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
 			Seven_Seg2					: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
 			Seven_Seg3					: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
-			SW							: IN 	STD_LOGIC_VECTOR( 9 downto 0 );
-			KEY							: IN 	STD_LOGIC_VECTOR( 3 downto 0 );
+			SW							: IN 	STD_LOGIC_VECTOR( 8 downto 0 );
+			KEY							: IN 	STD_LOGIC_VECTOR( 3 downto 0 ) );
 		-- Output important signals to pins for easy display in Simulator
-		PC								: OUT  STD_LOGIC_VECTOR( 9 DOWNTO 0 );
-		ALU_result_out, read_data_1_out, read_data_2_out, write_data_out,	
-     	Instruction_out					: OUT 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
-		Branch_out, Zero_out, Memwrite_out, 
-		Regwrite_out					: OUT 	STD_LOGIC );
+		--PC								: OUT  STD_LOGIC_VECTOR( 9 DOWNTO 0 );
+		--ALU_result_out, read_data_1_out, read_data_2_out, write_data_out,	
+     	--Instruction_out					: OUT 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+		--Branch_out, Zero_out, Memwrite_out, 
+		--Regwrite_out					: OUT 	STD_LOGIC );
 END 	MIPS;
 
 ARCHITECTURE structure OF MIPS IS
@@ -100,11 +100,8 @@ ARCHITECTURE structure OF MIPS IS
 				MemRead, Memwrite 	: IN 	STD_LOGIC;
 				LEDR				: OUT 	STD_LOGIC_VECTOR( 9 downto 0 );
 				LEDG				: OUT 	STD_LOGIC_VECTOR( 7 downto 0 );
-				Seven_Seg0			: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
-				Seven_Seg1  		: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
-				Seven_Seg2			: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
-				Seven_Seg3			: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
-				SW					: IN 	STD_LOGIC_VECTOR( 9 downto 0 );
+				Seven_Seg			: OUT 	STD_LOGIC_VECTOR( 15 downto 0 );
+				SW					: IN 	STD_LOGIC_VECTOR( 8 downto 0 );
 				KEY					: IN 	STD_LOGIC_VECTOR( 3 downto 0 );
 				clock,reset			: IN 	STD_LOGIC );
 	END COMPONENT;
@@ -132,10 +129,16 @@ ARCHITECTURE structure OF MIPS IS
 			data_out					: OUT 	STD_LOGIC_VECTOR( N-1 downto 0 ) );
 
 	END COMPONENT;
+	
+	COMPONENT BCD 
+	port ( 	Binary: 	in  std_logic_vector(3 downto 0);
+			En:			in  std_logic;
+			Hex_out:	out std_logic_vector(6 downto 0));
+	end COMPONENT;
 
 					-- declare signals used to connect VHDL components
 	SIGNAL PC_plus_4 			: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
-	SIGNAL PC_plus_4_2ID 			: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
+	SIGNAL PC_plus_4_2ID 			: STD_LOGIC_VECTOR( 31 DOWNTO 0 ) := X"00000000" ;
 	SIGNAL write_data 		: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 	
 	SIGNAL read_data_1 		: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
@@ -188,19 +191,33 @@ ARCHITECTURE structure OF MIPS IS
 	SIGNAL mem_write_data			: STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 	SIGNAL Branch_taken				: std_logic;
 	
+	SIGNAL KEY_in					: STD_LOGIC_VECTOR( 3 DOWNTO 0 );
+	SIGNAL SW_in					: STD_LOGIC_VECTOR( 8 DOWNTO 0 );
+	SIGNAL ssg0_out					: STD_LOGIC_VECTOR( 6 DOWNTO 0 );
+	SIGNAL ssg1_out					: STD_LOGIC_VECTOR( 6 DOWNTO 0 );
+	SIGNAL ssg2_out					: STD_LOGIC_VECTOR( 6 DOWNTO 0 );
+	SIGNAL ssg3_out					: STD_LOGIC_VECTOR( 6 DOWNTO 0 );
+	SIGNAL Seven_Seg					: STD_LOGIC_VECTOR( 15 DOWNTO 0 );
+	SIGNAL LEDG_out					: STD_LOGIC_VECTOR( 7 DOWNTO 0 );
+	SIGNAL LEDR_out					: STD_LOGIC_VECTOR( 9 DOWNTO 0 );
+	
+	signal the_one						: STD_LOGIC;
+	
+	--signals for compilation
+	SIGNAL PC			: STD_LOGIC_VECTOR( 9 DOWNTO 0 );
 
 BEGIN
 					-- copy important signals to output pins for easy 
 					-- display in Simulator
-   Instruction_out 	<= Instruction;
-   ALU_result_out 	<= ALU_result;
-   read_data_1_out 	<= read_data_1;
-   read_data_2_out 	<= read_data_2;
-   write_data_out  	<= read_data WHEN MemtoReg = '1' ELSE ALU_result;
-   Branch_out 		<= Branch;
-   Zero_out 		<= Zero;
-   RegWrite_out 	<= RegWrite;
-   MemWrite_out 	<= MemWrite;	
+--   Instruction_out 	<= Instruction;
+--   ALU_result_out 	<= ALU_result;
+--   read_data_1_out 	<= read_data_1;
+--   read_data_2_out 	<= read_data_2;
+--   write_data_out  	<= read_data WHEN MemtoReg = '1' ELSE ALU_result;
+--   Branch_out 		<= Branch;
+--   Zero_out 		<= Zero;
+--   RegWrite_out 	<= RegWrite;
+--   MemWrite_out 	<= MemWrite;	
 					-- connect the 5 MIPS components   
 					
 -- Conversions: STD_LOGIC_VECTOR( 0 downto 0 ) <===> STD_LOGIC		
@@ -216,6 +233,20 @@ BEGIN
    MemRead				 <= MemRead_delay2reg(0);
    MemWrite				 <= MemWrite_delay2reg(0);
    RegWrite				 <= RegWrite_delay2reg(0);--added by amit
+   
+	the_one <= '1';
+   
+   
+   Seven_Seg0 <= ssg0_out;
+   Seven_Seg1 <= ssg1_out;
+   Seven_Seg2 <= ssg2_out;
+   Seven_Seg3 <= ssg3_out;
+
+   LEDG		  <= LEDG_out;
+   LEDR		  <= LEDR_out;
+   KEY_in 	  <= KEY;
+   SW_in 	  <= SW;
+   
  
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-- 
 --~~~~~~~~~~~~~~~~~~~ MIPS Components ~~~~~~~~~~~~~~~~~~~--  
@@ -284,14 +315,11 @@ BEGIN
 				write_data 		=> mem_write_data,
 				MemRead 		=> MemRead, 
 				Memwrite 		=> MemWrite, 
-				LEDR			=> LEDR,
-				LEDG			=> LEDG,
-				Seven_Seg0		=> Seven_Seg0,
-				Seven_Seg1		=> Seven_Seg1,
-				Seven_Seg2		=> Seven_Seg2,
-				Seven_Seg3		=> Seven_Seg3,
-				SW				=> SW,
-				KEY 			=> KEY,
+				LEDR			=> LEDR_out,
+				LEDG			=> LEDG_out,
+				Seven_Seg		=> Seven_Seg,
+				SW				=> SW_in,
+				KEY 			=> KEY_in,
                 clock 			=> clock,  
 				reset 			=> reset );
 				
@@ -458,6 +486,29 @@ BEGIN
 --======================================================--
 --======================================================--
 --======================================================--
+
+	BCD0: BCD
+	PORT MAP (
+		Binary 	=> Seven_Seg( 3 downto 0 ),
+		En 		=> the_one,
+		Hex_out => ssg0_out );
+	BCD1: BCD
+	PORT MAP (
+		Binary 	=> Seven_Seg( 7 downto 4 ),
+		En 		=> the_one,
+		Hex_out => ssg1_out );
+	
+	BCD2: BCD
+	PORT MAP (
+		Binary 	=> Seven_Seg( 11 downto 8 ),
+		En 		=> the_one,
+		Hex_out => ssg2_out );		
+	
+	BCD3: BCD
+	PORT MAP (
+		Binary 	=> Seven_Seg( 15 downto 12 ),
+		En 		=> the_one,
+		Hex_out => ssg3_out );
 
 END structure;
 

@@ -24,13 +24,6 @@ port (
 		C:     out std_logic_vector(31 downto 0));
 end component;
 
-component Nbit_mux2 is 
-generic ( N: integer := 8);
-port (	i_0: in std_logic_vector(N-1 downto 0); 
-		i_1: in std_logic_vector(N-1 downto 0); 
-		s: in std_logic; 
-		o: out std_logic_vector(N-1 downto 0));
-end component;
 
 signal A_in: std_logic_vector(31 downto 0);
 signal B_in: std_logic_vector(31 downto 0);
@@ -40,13 +33,12 @@ signal C_mul: std_logic_vector(31 downto 0);
 begin
 A_in <= A;
 B_in <= B;
+
+C <= C_mul when sel = '1' else C_add;
 -- FP OPS: 	0 - ADD
 --			1 - MUL
 MULT: 	floating_point_mul port map (A_in, B_in, C_mul);
 ADDER: 	floating_point_adder port map (A_in, B_in, C_add);
 
-MUX_OUT: Nbit_mux2
-			generic map (32)
-			port map ( C_add, C_mul, sel, C);
 
 end FP_arch;

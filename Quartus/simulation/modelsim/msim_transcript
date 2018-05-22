@@ -10,7 +10,15 @@
 # ** Warning: Copied c:\altera\12.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/dff.vhd}
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/dff_en.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity dff_en
+# -- Compiling architecture dff_behavioral of dff_en
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/dff.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -18,21 +26,28 @@
 # -- Loading package std_logic_arith
 # -- Compiling entity dffi
 # -- Compiling architecture dff_behavioral of dffi
-# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/Ndff.vhd}
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Ndff_en.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Ndff_en
+# -- Compiling architecture Ndff_struct of Ndff_en
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Ndff.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Ndff
 # -- Compiling architecture Ndff_struct of Ndff
-# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/BCD.vhd}
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/BCD.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity BCD
 # -- Compiling architecture BCD_arch of BCD
-# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/DELAY_REG.vhd}
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/DELAY_REG.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -40,7 +55,15 @@
 # -- Loading package std_logic_arith
 # -- Compiling entity DELAY_REG
 # -- Compiling architecture behave of DELAY_REG
-# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/IFETCH.vhd}
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/WBACK.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity WBACK
+# -- Compiling architecture behavior of WBACK
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/IFETCH.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -50,7 +73,7 @@
 # -- Loading package altera_mf_components
 # -- Compiling entity Ifetch
 # -- Compiling architecture behavior of Ifetch
-# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/IDECODE.vhd}
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/IDECODE.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -59,7 +82,30 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity Idecode
 # -- Compiling architecture behavior of Idecode
-# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/EXECUTE.vhd}
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Floating_point_mul.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity floating_point_mul
+# -- Compiling architecture FP_mul of floating_point_mul
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/Floating_point_adder.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity floating_point_adder
+# -- Compiling architecture fp_arch of floating_point_adder
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/FP_top.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity floating_point_top
+# -- Compiling architecture FP_arch of floating_point_top
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/EXECUTE.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -68,15 +114,7 @@
 # -- Loading package STD_LOGIC_SIGNED
 # -- Compiling entity Execute
 # -- Compiling architecture behavior of Execute
-# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/WBACK.vhd}
-# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package std_logic_arith
-# -- Compiling entity WBACK
-# -- Compiling architecture behavior of WBACK
-# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/DMEMORY.vhd}
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/DMEMORY.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -86,7 +124,7 @@
 # -- Loading package altera_mf_components
 # -- Compiling entity dmemory
 # -- Compiling architecture behavior of dmemory
-# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/CONTROL.vhd}
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/CONTROL.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -95,7 +133,7 @@
 # -- Loading package STD_LOGIC_SIGNED
 # -- Compiling entity control
 # -- Compiling architecture behavior of control
-# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/VHDL/MIPS.vhd}
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/VHDL/MIPS.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -104,13 +142,111 @@
 # -- Compiling entity MIPS
 # -- Compiling architecture structure of MIPS
 # 
-# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/Quartus/../tb/mips_tester_struct.vhd}
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tester_struct.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
-# ** Error: (vcom-7) Failed to open design unit file "C:/Users/amitb/Desktop/ass3/project_main/Quartus/../tb/mips_tester_struct.vhd" in read mode.
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity MIPS_tester
+# -- Compiling architecture struct of MIPS_tester
+# vcom -93 -work work {C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tb_struct.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Compiling entity MIPS_tb
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling architecture struct of MIPS_tb
+# -- Loading entity MIPS
+# -- Loading entity MIPS_tester
+# ** Warning: [9] C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tb_struct.vhd(50): (vcom-1013) Initial value of "LEDR" depends on value of signal "zero".
+# 
+# ** Warning: [9] C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tb_struct.vhd(51): (vcom-1013) Initial value of "LEDG" depends on value of signal "zero".
+# 
+# ** Warning: [9] C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tb_struct.vhd(52): (vcom-1013) Initial value of "Seven_Seg0" depends on value of signal "zero".
+# 
+# ** Warning: [9] C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tb_struct.vhd(53): (vcom-1013) Initial value of "Seven_Seg1" depends on value of signal "zero".
+# 
+# ** Warning: [9] C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tb_struct.vhd(54): (vcom-1013) Initial value of "Seven_Seg2" depends on value of signal "zero".
+# 
+# ** Warning: [9] C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tb_struct.vhd(55): (vcom-1013) Initial value of "Seven_Seg3" depends on value of signal "zero".
+# 
+# ** Warning: [9] C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tb_struct.vhd(56): (vcom-1013) Initial value of "SW" depends on value of signal "zero".
+# 
+# ** Warning: [9] C:/Users/amitb/Desktop/ass3/CPU_arch-MIPS/Quartus/../tb/mips_tb_struct.vhd(57): (vcom-1013) Initial value of "KEY" depends on value of signal "zero".
+# 
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs="+acc"  MIPS_tb
+# vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps MIPS_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.mips_tb(struct)
+# Loading work.mips(structure)
+# Loading ieee.std_logic_unsigned(body)
+# Loading altera_mf.altera_mf_components
+# Loading work.ifetch(behavior)
+# Loading altera_mf.altera_common_conversion(body)
+# Loading altera_mf.altera_device_families(body)
+# Loading altera_mf.altsyncram(translated)
+# Loading work.idecode(behavior)
+# Loading work.delay_reg(behave)
+# Loading work.ndff(ndff_struct)
+# Loading work.dffi(dff_behavioral)
+# Loading ieee.std_logic_signed(body)
+# Loading work.control(behavior)
+# Loading work.execute(behavior)
+# Loading work.floating_point_top(fp_arch)
+# Loading work.floating_point_mul(fp_mul)
+# Loading work.floating_point_adder(fp_arch)
+# Loading work.dmemory(behavior)
+# Loading work.ndff_en(ndff_struct)
+# Loading work.dff_en(dff_behavioral)
+# Loading work.wback(behavior)
+# Loading work.bcd(bcd_arch)
+# Loading work.mips_tester(struct)
+# ** Warning: Design size of 547 instances exceeds ModelSim ALTERA recommended capacity.
+# This may because you are loading cell libraries which are not recommended with
+# the ModelSim Altera version. Expect performance to be adversely affected.
+# 
+# add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: avira  Hostname: DESKTOP-U84L200  ProcessID: 7392
+# 
+#           Attempting to use alternate WLF file "./wlfthaw296".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlfthaw296
+# 
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 20 us
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /mips_tb/U_0/MEM
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /mips_tb/U_0/MEM
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /mips_tb/U_0/MEM
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /mips_tb/U_0/MEM
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /mips_tb/U_0/MEM
+# ** Error: (vsim-7) Failed to open VHDL file "../CODE/dmemory.hex" in rb mode.
 # 
 # No such file or directory. (errno = ENOENT)
-# ** Error: c:/altera/12.1/modelsim_ase/win32aloem/vcom failed.
-# Error in macro ./MIPS_run_msim_rtl_vhdl.do line 20
-# c:/altera/12.1/modelsim_ase/win32aloem/vcom failed.
-#     while executing
-# "vcom -93 -work work {C:/Users/amitb/Desktop/ass3/project_main/Quartus/../tb/mips_tester_struct.vhd}"
+#    Time: 0 ps  Iteration: 0  Instance: /mips_tb/U_0/MEM/data_memory
+# ** Fatal: (vsim-7) Failed to open VHDL file "../CODE/dmemory.hex" in rb mode.
+# 
+# No such file or directory. (errno = ENOENT)
+#    Time: 0 ps  Iteration: 0  Process: /mips_tb/U_0/MEM/data_memory/MEMORY File: c:/altera/12.1/modelsim_ase/win32aloem/../altera/vhdl/src/altera_mf/altera_mf.vhd
+# Fatal error in Process MEMORY at c:/altera/12.1/modelsim_ase/win32aloem/../altera/vhdl/src/altera_mf/altera_mf.vhd line 39940
+# 
+# HDL call sequence:
+# Stopped at c:/altera/12.1/modelsim_ase/win32aloem/../altera/vhdl/src/altera_mf/altera_mf.vhd 39940 Subprogram read_my_memory
+# called from  c:/altera/12.1/modelsim_ase/win32aloem/../altera/vhdl/src/altera_mf/altera_mf.vhd 41784 Process MEMORY
+# 

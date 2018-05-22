@@ -18,10 +18,8 @@ begin
 		if rising_edge(clk) then
 			if rst = '1' then
 				q <= '0';
-			elsif d = '0' OR d = '1' then 
-				q <= d;
 			else 
-				q <= '0';
+				q <= d;
 			end if;
 		end if;
 	end process;	

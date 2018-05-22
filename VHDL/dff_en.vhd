@@ -20,10 +20,8 @@ begin
 			if en = '1' then
 				if rst = '1' then
 					q <= '0';
-				elsif d = '0' OR d = '1' then 
+				else
 					q <= d;
-				else 
-					q <= '0';
 				end if;
 			end if;
 		end if;

@@ -27,11 +27,8 @@ ENTITY dmemory IS
 	   		MemRead, Memwrite 	: IN 	STD_LOGIC;
 			LEDR				: OUT 	STD_LOGIC_VECTOR( 9 downto 0 );
 			LEDG				: OUT 	STD_LOGIC_VECTOR( 7 downto 0 );
-			Seven_Seg0			: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
-			Seven_Seg1  		: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
-			Seven_Seg2			: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
-			Seven_Seg3			: OUT 	STD_LOGIC_VECTOR( 6 downto 0 );
-			SW					: IN 	STD_LOGIC_VECTOR( 9 downto 0 );
+			Seven_Seg			: OUT 	STD_LOGIC_VECTOR( 15 downto 0 );
+			SW					: IN 	STD_LOGIC_VECTOR( 8 downto 0 );
 			KEY					: IN 	STD_LOGIC_VECTOR( 3 downto 0 );
             clock,reset			: IN 	STD_LOGIC );
 END dmemory;
@@ -48,21 +45,26 @@ port (
 		q: 			out std_logic_vector(N-1 downto 0));
 end COMPONENT;
 
-COMPONENT BCD 
-port ( 	Binary: 	in  std_logic_vector(3 downto 0);
-		En:			in  std_logic;
-		Hex_out:	out std_logic_vector(6 downto 0));
-end COMPONENT;
+
 
 SIGNAL write_clock : STD_LOGIC;
 
 SIGNAL the_one,ssg_en,led_en,memwrite_en : STD_LOGIC;
 
-SIGNAL buttons_switches : STD_LOGIC_VECTOR ( 17 downto 0 );
-SIGNAL buttons_data		: STD_LOGIC_VECTOR ( 17 downto 0 );
+SIGNAL buttons_switches : STD_LOGIC_VECTOR ( 16 downto 0 );
+SIGNAL buttons_data		: STD_LOGIC_VECTOR ( 16 downto 0 );
 signal LEDS_MAP 		: STD_LOGIC_VECTOR ( 17 downto 0 );
 SIGNAL SEVEN_SEG_MAP	: STD_LOGIC_VECTOR ( 15 downto 0 );
 SIGNAL mem_read_data	: STD_LOGIC_VECTOR ( 31 downto 0 );
+
+SIGNAL KEY_in					: STD_LOGIC_VECTOR( 3 DOWNTO 0 );
+SIGNAL SW_in					: STD_LOGIC_VECTOR( 8 DOWNTO 0 );
+SIGNAL ssg0_out					: STD_LOGIC_VECTOR( 6 DOWNTO 0 );
+SIGNAL ssg1_out					: STD_LOGIC_VECTOR( 6 DOWNTO 0 );
+SIGNAL ssg2_out					: STD_LOGIC_VECTOR( 6 DOWNTO 0 );
+SIGNAL ssg3_out					: STD_LOGIC_VECTOR( 6 DOWNTO 0 );
+SIGNAL LEDG_out					: STD_LOGIC_VECTOR( 7 DOWNTO 0 );
+SIGNAL LEDR_out					: STD_LOGIC_VECTOR( 9 DOWNTO 0 );
 
 
 BEGIN
@@ -70,7 +72,7 @@ BEGIN
 	GENERIC MAP  (
 		operation_mode => "SINGLE_PORT",
 		width_a => 32,
-		widthad_a => 9,
+		widthad_a => 8,
 		lpm_type => "altsyncram",
 		outdata_reg_a => "UNREGISTERED",
 		init_file => "../CODE/dmemory.hex",
@@ -79,25 +81,33 @@ BEGIN
 	PORT MAP (
 		wren_a => memwrite_en,
 		clock0 => write_clock,
-		address_a => address,
+		address_a => address(7 downto 0),
 		data_a => write_data,
 		q_a => mem_read_data	);
 		
 	
 	the_one  <= '1';
 	
+	Seven_Seg <= SEVEN_SEG_MAP;
+
+    LEDG	   <= LEDG_out;
+    LEDR	   <= LEDR_out;
+    KEY_in 	   <= KEY;
+    SW_in 	   <= SW;
 	
-	buttons_switches( 3  DOWNTO 0 ) <= KEY ;
+	buttons_switches( 3  DOWNTO 0 ) <= KEY_in ;
 	buttons_switches( 7  DOWNTO 4 ) <= (others => '0') ;
-	buttons_switches( 17 DOWNTO 8 ) <= SW ;
+	buttons_switches( 16 DOWNTO 8 ) <= SW_in ;
 	
-	LEDG <= LEDS_MAP(  7 DOWNTO 0 );
-	LEDR <= LEDS_MAP( 17 DOWNTO 8 );
+	LEDG_out <= LEDS_MAP(  7 DOWNTO 0 );
+	LEDR_out <= LEDS_MAP( 17 DOWNTO 8 );
+	
+	
 	
 	LEDREG: Ndff_en
 			generic map ( 18 )
 			port map(	d 	 => write_data( 17 downto 0 ),
-						clk	 => clock,
+						clk	 => write_clock,
 						en	 => led_en,
 						rst  => reset,
 						q 	 => LEDS_MAP );
@@ -105,16 +115,16 @@ BEGIN
 	SSG_REG: Ndff_en
 			generic map ( 16 )
 			port map(	d 	 => write_data( 15 downto 0 ),
-						clk	 => clock,
+						clk	 => write_clock,
 						en	 => ssg_en,
 						rst  => reset,
 						q 	 => SEVEN_SEG_MAP );
 	
 
 	BUTTONS_REG: Ndff_en
-			generic map ( 18 )
+			generic map ( 17 )
 			port map(	d 	 => buttons_switches,
-						clk	 => clock,
+						clk	 => write_clock,
 						en	 => the_one,
 						rst  => reset,
 						q 	 => buttons_data );
@@ -124,56 +134,20 @@ BEGIN
 		-- Load memory address register with write clock.
 		write_clock <= NOT clock;
 		
-	BCD0: BCD
-	PORT MAP (
-		Binary 	=> SEVEN_SEG_MAP( 3 downto 0 ),
-		En 		=> the_one,
-		Hex_out => Seven_Seg0 );
-	BCD1: BCD
-	PORT MAP (
-		Binary 	=> SEVEN_SEG_MAP( 7 downto 4 ),
-		En 		=> the_one,
-		Hex_out => Seven_Seg1 );
 	
-	BCD2: BCD
-	PORT MAP (
-		Binary 	=> SEVEN_SEG_MAP( 11 downto 8 ),
-		En 		=> the_one,
-		Hex_out => Seven_Seg2 );		
 	
-	BCD3: BCD
-	PORT MAP (
-		Binary 	=> SEVEN_SEG_MAP( 15 downto 12 ),
-		En 		=> the_one,
-		Hex_out => Seven_Seg3 );
-	
-		
-	PROCESS(address, SEVEN_SEG_MAP, LEDS_MAP, buttons_switches, buttons_data, mem_read_data, Memwrite)
-	BEGIN
-		if address(8) = '0' then
-			memwrite_en <= Memwrite;
-			ssg_en <= '0';
-			led_en <= '0';
-			read_data <= mem_read_data;
-		else
-			memwrite_en <= '0';
-			CASE address( 7 downto 0 ) IS
-				WHEN X"00" =>	ssg_en <= '1'; 
-								led_en <= '0';
-								read_data <= X"0000" & SEVEN_SEG_MAP;
-				WHEN X"01" =>	ssg_en <= '0';
-								led_en <= '1';
-								read_data <= X"000" & B"00" & LEDS_MAP;
-				WHEN X"02" =>	ssg_en <= '0';
-								led_en <= '0';
-								read_data <= X"000" & B"00" & buttons_data;
-				WHEN OTHERS =>  ssg_en <= '0';
-								led_en <= '0';
-								read_data <= (others => '0');
-			END CASE;
-		END if;
-	END PROCESS;
-	
+	memwrite_en <= Memwrite when address(8) = '0' else '0';
+	ssg_en <= Memwrite when address = B"1" & X"00" else '0';
+	led_en <= Memwrite when address = B"1" & X"01" else '0';
+	read_data <= mem_read_data when address(8) = '0' else
+				 X"0000" & SEVEN_SEG_MAP   		when address =  B"1" & X"00" else
+				 X"000" & B"00" & LEDS_MAP 		when address = B"1" & X"01"  else
+				 X"000" & B"000" & buttons_data when address = B"1" & X"02"  else
+				 X"00000000";
+				 
+				 
+
+
 	
 END behavior;
 
