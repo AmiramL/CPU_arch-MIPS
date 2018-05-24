@@ -36,6 +36,13 @@ END 	MIPS;
 
 ARCHITECTURE structure OF MIPS IS
 
+--	COMPONENT pll is
+--	port(
+--	inclk0:	IN STD_LOGIC :='0';
+--			c0 : OUT STD_LOGIC
+--	);
+--	end COMPONENT;
+
 	COMPONENT Ifetch
    	     PORT(	Instruction_out		: OUT 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
 				Pre_Instruction		: IN 	STD_LOGIC_VECTOR( 31 DOWNTO 0 );
@@ -197,14 +204,19 @@ ARCHITECTURE structure OF MIPS IS
 	SIGNAL ssg1_out					: STD_LOGIC_VECTOR( 6 DOWNTO 0 );
 	SIGNAL ssg2_out					: STD_LOGIC_VECTOR( 6 DOWNTO 0 );
 	SIGNAL ssg3_out					: STD_LOGIC_VECTOR( 6 DOWNTO 0 );
-	SIGNAL Seven_Seg					: STD_LOGIC_VECTOR( 15 DOWNTO 0 );
+	SIGNAL Seven_Seg				: STD_LOGIC_VECTOR( 15 DOWNTO 0 );
 	SIGNAL LEDG_out					: STD_LOGIC_VECTOR( 7 DOWNTO 0 );
 	SIGNAL LEDR_out					: STD_LOGIC_VECTOR( 9 DOWNTO 0 );
 	
 	signal the_one						: STD_LOGIC;
 	
+	signal the_zero						:STD_LOGIC;
 	--signals for compilation
 	SIGNAL PC			: STD_LOGIC_VECTOR( 9 DOWNTO 0 );
+	signal seg_signal_0 : STD_LOGIC_VECTOR( 6 DOWNTO 0 );
+	signal seg_signal_1 : STD_LOGIC_VECTOR( 6 DOWNTO 0 );
+	signal seg_signal_2 : STD_LOGIC_VECTOR( 6 DOWNTO 0 );
+	signal seg_signal_3 : STD_LOGIC_VECTOR( 6 DOWNTO 0 );
 
 BEGIN
 					-- copy important signals to output pins for easy 
@@ -235,12 +247,12 @@ BEGIN
    RegWrite				 <= RegWrite_delay2reg(0);--added by amit
    
 	the_one <= '1';
+    the_zero <= '0';
    
-   
-   Seven_Seg0 <= ssg0_out;
-   Seven_Seg1 <= ssg1_out;
-   Seven_Seg2 <= ssg2_out;
-   Seven_Seg3 <= ssg3_out;
+   Seven_Seg0 <= seg_signal_0;--ssg0_out;
+   Seven_Seg1 <= seg_signal_1;--ssg1_out;
+   Seven_Seg2 <= seg_signal_2;--ssg2_out;
+   Seven_Seg3 <= seg_signal_3;--ssg3_out;
 
    LEDG		  <= LEDG_out;
    LEDR		  <= LEDR_out;
@@ -250,8 +262,14 @@ BEGIN
  
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-- 
 --~~~~~~~~~~~~~~~~~~~ MIPS Components ~~~~~~~~~~~~~~~~~~~--  
---~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-- 
-  
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--
+
+	--pll1:pll
+	--port map(
+	--inclk0 => clock0,
+	--c0 =>clock
+	--);
+  ---------------------------------------------------------
    IFE : Ifetch
 	PORT MAP (	Instruction_out => Instruction_2ID,
 				Pre_Instruction => Instruction,
@@ -337,6 +355,37 @@ BEGIN
 	
 --~~~~~~~~~~~~~~~~~ Pipeline Registers ~~~~~~~~~~~~~~~~~--
 
+
+--========================seven_segement================================
+  seg_signal_reg0: Ndff
+    GENERIC MAP ( N => 7 )
+	PORT MAP (	d 			=> ssg0_out,
+				clk			=> clock,
+				rst			=> reset,
+				q			=> seg_signal_0 ); --goes to Idecode & control too
+				
+  seg_signal_reg1: Ndff
+    GENERIC MAP ( N => 7 )
+	PORT MAP (	d 			=> ssg1_out,
+				clk			=> clock,
+				rst			=> reset,
+				q			=> seg_signal_1 ); --goes to Idecode & control too
+				
+  seg_signal_reg2: Ndff
+    GENERIC MAP ( N => 7 )
+	PORT MAP (	d 			=> ssg2_out,
+				clk			=> clock,
+				rst			=> reset,
+				q			=> seg_signal_2 ); --goes to Idecode & control too
+
+  seg_signal_reg3: Ndff
+    GENERIC MAP ( N => 7 )
+	PORT MAP (	d 			=> ssg3_out,
+				clk			=> clock,
+				rst			=> reset,
+				q			=> seg_signal_3 ); --goes to Idecode & control too				
+--========================================================
+				
 --======================================================--
 --==================== IFetch Input ====================--
 --======================================================--

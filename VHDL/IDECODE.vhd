@@ -75,6 +75,9 @@ BEGIN
    	write_register_address_1	<= Instruction( 15 DOWNTO 11 );
    	write_register_address_0 	<= Instruction( 20 DOWNTO 16 );
    	Instruction_immediate_value <= Instruction( 15 DOWNTO 0 );
+	
+	
+	-----------------------======================================
 					-- Read Register 1 Operation
 	read_data_1 <= read_data_1_int;
 					-- Read Register 2 Operation		 
@@ -88,11 +91,13 @@ BEGIN
 	read_data_1_int <= 	bubble_data	WHEN bubble_out = '1' AND last_2_Rd_bubble = read_register_1_address
 							  ELSE ALU_result WHEN last_opcode = "000000" AND last_Rd = read_register_1_address
 							  ELSE last_ALU_result WHEN last_2_opcode = "000000" AND last_2_Rd = read_register_1_address
+							  ELSE write_data WHEN read_register_1_address = write_register_address
 							  ELSE register_array( CONV_INTEGER( read_register_1_address ) );
 					-- Read Register 2 Operation		 
 	read_data_2_int <= bubble_data	WHEN bubble_out = '1' AND last_2_Rd_bubble = read_register_2_address
 							  ELSE ALU_result WHEN last_opcode = "000000" AND last_Rd = read_register_2_address
 							  ELSE last_ALU_result WHEN last_2_opcode = "000000" AND last_2_Rd = read_register_2_address
+							  ELSE write_data WHEN read_register_2_address = write_register_address
 							  ELSE register_array( CONV_INTEGER( read_register_2_address ) );
 							  
 	
